@@ -1,5 +1,6 @@
 Design Document
 
+
 # Design
 MuSa is an "experience manager" that collects data and provides interactive-customized tours for museum visitors. A user can decide to use the app in two ways:<br/>
 - just collect data: the user isn't interested in personalized tours, but gives the consensus to data collection.<br/>
