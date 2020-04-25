@@ -12,7 +12,7 @@ Obviously, the user can refuse both alternatives, and just visit the museum with
 To understand which "type" of users will interact with our application, we started from the data provided by "Museo Sapieza dell'Arte Classica"
 in the PDF they provided to our IoT class. In this slide<br/>
 
-![image](src/images/Museum_users.png)
+![image](musa/docs/src/images/Museum_users.png)
 
 they summarize the profiles of their visitors. We decided to take them as a first model for our personas.<br/>
 To better tune this model, we broadcasted a questionnaire online to a large amount of people, through which we tried to understand
@@ -22,19 +22,19 @@ These three categories were given life in our personas:<br/>
 
 Hobbyst/Professional<br/>
 
-![image](src/personas/elena_rossi.png)
+![image](musa/docs/src/personas/elena_rossi.png)
 
 <br/>
 
 Recharger<br/>
 
-![image](src/personas/enea_bianchi.png)
+![image](musa/docs/src/personas/enea_bianchi.png)
 
 <br/>
 
 Fun Explorer<br/>
 
-![image](src/personas/ettore_verdi.png)
+![image](musa/docs/src/personas/ettore_verdi.png)
 
 ## User experience and storyboard
 
