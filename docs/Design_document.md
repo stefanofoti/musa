@@ -23,19 +23,19 @@ These three categories were given life in our personas:<br/>
 
 Hobbyst/Professional<br/>
 
-![image](musa/docs/src/personas/elena_rossi.PNG)
+![image](musa/docs/src/personas/elena_rossi.png)
 
 <br/>
 
 Recharger<br/>
 
-![image](musa/docs/src/personas/enea_bianchi.PNG)
+![image](musa/docs/src/personas/enea_bianchi.png)
 
 <br/>
 
 Fun Explorer<br/>
 
-![image](musa/docs/src/personas/ettore_verdi.PNG)
+![image](musa/docs/src/personas/ettore_verdi.png)
 
 ## User experience and storyboard
 
