@@ -5,7 +5,9 @@ MuSa is a project developed during the IoT course in Sapienza, Università di Ro
 We are three students currently enrolled in Master's Degree course "Engineering in Computer Science", 1st year.    
 ## Who we are
 [Gianmarco Zizzo](https://www.linkedin.com/in/gianmarco-zizzo-9741861a3/)
+
 [Silvia Del Piano](https://www.linkedin.com/in/silvia-del-piano-2482391a6)
+
 [Stefano Foti](https://www.linkedin.com/in/stefano-foti/)
 
 # The project
