@@ -43,7 +43,15 @@ the user will find himself in the Home page, where a brief explanation of MuSa's
 ### Collect data
 The protagonist of this storyboard is Elena, and we figured she'll just want to collect data:<br/>
 
-![image](src/images/Elena_storyboard.png)
+![image](src/design/story_elena.png)
+
+1. Elena has finally some free time, so she decided to visit a museum. She has been looking forward to studying some specific pieces, and has planned a tour accordingly. She arrives, and the receptionist asks her if she wants to try MuSa.
+2. Elena goes to the MuSa web app the receptionist pointed her out. She sees the home page. There she can find a brief introduction about MuSa and its services. She presses “Let’s start” to proceed to the next page.
+3. Elena finds a short survey she needs to complete. She is a little irked by this, but the questionnaire is short and easy to answer, so it’s not too much of a bother. It gathers basic data about her to understand to which persona she belongs and to, eventually, produce a customized tour for her. She presses “Continue”.
+4. A new page loads. Elena has to say how she would like to use MuSa. She has already a clear idea of what she wants to see, and she doesn’t want to be bothered. However, she likesthe idea of gathering useful data for her lovedmuseum, so she gives her consensus to collectinformation. 
+5. Elena sees MuSa’s gratitude and is glad she can help. She clicks “Start collect data” and proceeds to the visit.
+6. Elena visits the museum according to her schedule. The app collects data about her location and how much time she spends near every piece of art. This is done thanks to the communication between the boards and her smartphone. All the work is done in background, so Elena doesn’t even notice. She is able to enjoy her visit without being bothered. 
+7. Elena leaves, satisfied with her visit. The app has stopped collecting data. The museum curators are happy with the information they’ve gathered.
 
 The museum stuff and Elena will both be happy, since they will have data to better their services, and Elena has been able to do the tour she
 had planned without being disturbed.<br/>
@@ -52,4 +60,7 @@ had planned without being disturbed.<br/>
 
 Here we imagined what would be Enea's experience. He'd like to try MuSa, and he will exploit all the functionalities offered.<br/>
 
-![image](src/images/Enea_storyboard.png)
+![image](src/design/story_enea.png)
+
+##### --- IN PROGRESS
+
