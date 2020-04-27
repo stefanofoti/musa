@@ -17,7 +17,7 @@ provide interaction with the visitor.<br/>
 
 The architecture is the following:<br/>
 
-//IMMAGINE ARCHITETTURA
+![image](src/architecture/architecture.png)
 
 ### List
 #### Hardware
