@@ -1,5 +1,3 @@
-Evaluation Document
-
 # Evaluation
 
 In this document we will give a brief introduction on the evaluation methods we thought of using for our project.<br/>
@@ -58,7 +56,7 @@ Our backend code quality will be tested with [CodeCity](https://wettel.github.io
 ### Cloud System
 Most of this project lives in the Azure platform, including:  
 - backend + frontend ([Azure App Service Plan](https://azure.microsoft.com/it-it/pricing/details/app-service/plans/))
-- iot services ([Azure IoT Hub](https://azure.microsoft.com/it-it/services/iot-hub/))
+- IoT services ([Azure IoT Hub](https://azure.microsoft.com/it-it/services/iot-hub/))
 - machine learning algorithm ([Azure Machine Learning](https://azure.microsoft.com/it-it/services/machine-learning/))
 - database ([Azure Database](https://azure.microsoft.com/it-it/services/sql-database/))
 

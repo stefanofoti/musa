@@ -1,5 +1,3 @@
-Architecture Document
-
 # Architecture
 
 ### Introduction
