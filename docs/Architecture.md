@@ -7,7 +7,7 @@ This application needs a lot of components to work properly. The three main part
 - the interaction between the client on the smartphone and the backend on the cloud<br/>
 - cloud services, which comprehend also a machine learning algorithm<br/>
 <br/>
-Near every piece of art there is a board, which communicates with the user's phone to localize him and understand how much time he spends near it. The data are sent to the cloud platform to be stored and elaborated. A machine learning algorithm creates customized tours according to the
+Near every piece of art, there is a board, which communicates with the user's phone to localize him and understand how much time he spends near it. The data are sent to the cloud platform to be stored and elaborated. A machine learning algorithm creates customized tours according to the
 information collected and on the reports generated for each user at the end of the visit. The user's smartphone is connected with the backend to
 provide interaction with the visitor.<br/>
 
@@ -23,9 +23,9 @@ The architecture is the following:<br/>
 - user smartphone<br/>
 
 #### Software
-- Azure cloud platform:<br/>
+- Azure Cloud Platform:<br/>
   - Azure IoT Hub<br/>
-  - database<br/>
+  - Azure Database<br/>
   - Azure Machine Learning<br/>
   - Azure Web App Service Plan<br/>
 - Google Docs<br/>
@@ -39,13 +39,13 @@ The architecture is the following:<br/>
 ### Sensor network
 
 The boards we decided to use are STM-Nucleo, one for each piece of art, and the user's smartphone communicates with them via Bluetooth.
-Through beacons we are able to locate the visitor inside the museum and the data gathered is send to a main STM-Nucleo with MQTT-SN. This main board serves as a gateway: it makes some pre-processing and sends them to the cloud platform through MQTT protocol.<br/>  
+Through beacons, we are able to locate the visitor inside the museum and the data gathered is sent to a main STM-Nucleo with MQTT-SN. This main board serves as a gateway: it makes some pre-processing and sends them to the cloud platform through MQTT protocol.<br/>  
 
 ### Backend and smartphone front-end
 
 The backend of the application lives in the cloud and takes care of the interaction with the user's smartphone. MuSa accompanies the visitor,
 proposing him a personalized tour, providing information about the different artworks, and making sure he's enjoying the itinerary.<br/>
-When the user arrives to the museum connects to the webapp with his mobile and it runs until the end of the visit. At the end of the tour, it asks the user to fill in a survey to provide feedback about the quality of the service. This answers are stored in a Google Document, in a way that makes them easily accessible to the machine learning algorithm.<br/>
+When the user arrives at the museum connects to the web app with his mobile and it runs until the end of the visit. At the end of the tour, it asks the user to fill in a survey to provide feedback about the quality of the service. This answers are stored in a Google Document, in a way that makes them easily accessible to the machine learning algorithm.<br/>
 
 ### Cloud
 
