@@ -1,7 +1,7 @@
 # MuSa
 MuSa is a project developed during the IoT course in Sapienza, Università di Roma. It is currently on developing state, so stay tuned for updates.
 
-div style="text-align:center"><img src="docs/src/logo2.png" /></div>
+<div style="text-align:center"><img src="docs/src/logo2.png"/></div>
 
 ## About us
 We are three students currently enrolled in Master's Degree course "Engineering in Computer Science", 1st year.    
