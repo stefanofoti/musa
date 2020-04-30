@@ -27,5 +27,5 @@ If you want to discover more, give a look to the following documents:
 ##### [Design and evaluation video](https://youtu.be/7l4aW7eUjL8)
 ##### [Architecture video](https://youtu.be/ARw2u26Rarg)
 
-##### [Presentation (pptx)](docs/src/presentation/presentation.pdf)
-##### [Presentation (pdf)](docs/src/presentation/presentation.pptx)
+##### [Presentation (pptx)](docs/src/presentation/presentation.pptx)
+##### [Presentation (pdf)](docs/src/presentation/presentation.pdf)
