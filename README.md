@@ -23,3 +23,9 @@ If you want to discover more, give a look to the following documents:
 ##### [Design document](docs/Design.md)
 ##### [Architecture document](docs/Architecture.md)
 ##### [Evaluation document](docs/Evaluation.md)
+
+##### [Design and evaluation video](https://youtu.be/7l4aW7eUjL8)
+##### [Architecture video](https://youtu.be/ARw2u26Rarg)
+
+##### [Presentation (pptx)](docs/src/presentation/presentation.pdf)
+##### [Presentation (pdf)](docs/src/presentation/presentation.pptx)
