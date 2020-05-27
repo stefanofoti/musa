@@ -34,7 +34,7 @@ In the Evaluation document we added more information about:
 
 ## Functionality to implement
 Obviously, we miss several features to implement before the finaly delivery such as:
-- the real deployment (since part of the demo is simulated)
+- the deploy on Azure (since part of the demo is simulated or runs in local)
 - providing the personalized tour to the visitor through a profiling questionnaire
 - the data collection for both visitors tipologies types: the one who uses MuSa and the one that only wants to help the improving with the data collecting
 - the "interaction" with the artwork, understood as when a visitor is near an artwork, through his smartphone he can ask for some extra information or curiosities
