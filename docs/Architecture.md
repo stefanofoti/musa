@@ -150,6 +150,8 @@ We need to use BLE to understand the pieces of art the user is nearest to. So, w
 
 <br/>
 
+To see the table more clearly, consider also looking at the original ([Word file](src/architecture/BLE_vs_others.docx)). 
+
 Now let's consider briefly the technologies presented one by one:<br/>
 - GPS: it's widely used for localization, but it doesn't really serve our purposes. Moreover, its accuracy indoor is not very high and it consumes a lot of energy, and we don't want our user's smartphone to remain with low battery after or during the visit, this could bother him.<br/>
 - NFC: it would have been a good alternative, but the major issue is that it has a range too small (up to 10 cm), which would definitely be not enough to understand if a user is near a piece of art.
