@@ -28,6 +28,8 @@ To measure the users' appreciation we are going to use the following UXEMs (User
 
 - an _Episode_ method: at the end of the visit the user will be asked to fill a short survey about his experience. This questionnaire can be implemented using also the AttrakDiff tool (_Link_: http://www.attrakdiff.de/index-en.html).<br/>
 
+Through one of our questionnaires, we got the opinion of Giulia: *"I like the fact that I can obtain more information about an artwork, or the basic info, on my smartphone because often the labels of the operas are crowded or they are written in a too-small font"*
+
 ## Technology
 Under the technological stack, MuSa uses many different hardware and software solutions. We decided to evaluate each single part and the overall system. Further details are in the following paragraphs.<br/>
 
