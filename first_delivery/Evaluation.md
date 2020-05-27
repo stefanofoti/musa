@@ -34,7 +34,7 @@ Under the technological stack, MuSa uses many different hardware and software so
 ### Overall evaluation
 Software quality is defined by a set of regulations and guidelines by ISO/IEC 9126-1. We used a criteria-based evaluation which gives a measurement of quality in several areas, including understandability, documentation and portability (the original document that we used as a model is [this one](https://software.ac.uk/sites/default/files/SSI-SoftwareEvaluationCriteria.pdf?_ga=2.151004923.318823281.1587909367-13184924.1587909367)). Of course, we did not use the criteria we did not need for, so we produced this lighter customized version:
 
-[MuSa Criteria](src/evaluation/MuSa_criteria.pdf) 
+[MuSa Criteria](/docs/src/evaluation/MuSa_criteria.pdf) 
 
 Furthermore, we suggest one of [these](https://owasp.org/www-community/Vulnerability_Scanning_Tools) tools to run security tests. 
 

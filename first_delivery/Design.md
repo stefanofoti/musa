@@ -60,7 +60,7 @@ This is the what basically the MuSa project wants to do through beacons: give an
 To understand which "type" of users will interact with our application, we started from the data provided by "Museo Sapieza dell'Arte Classica"
 in the PDF they provided to our IoT class. In this slide<br/>
 
-![image](src/design/users.png)
+![image](/docs/src/design/users.png)
 
 they summarize the profiles of their visitors. We decided to take them as a first model for our personas.<br/>
 To better tune this model, we broadcasted a questionnaire online to a large number of people, through which we tried to understand
@@ -70,15 +70,15 @@ These three categories were given life in our personas:<br/>
 
 Hobbyst/Professional<br/>
 
-![image](src/design/elena_rossi.png)
+![image](/docs/src/design/elena_rossi.png)
 <br/>
 
 Fun Explorer<br/>
-![image](src/design/enea_bianchi.png)
+![image](/docs/src/design/enea_bianchi.png)
 <br/>
 
 Recharger<br/>
-![image](src/design/ettore_verdi.png)
+![image](/docs/src/design/ettore_verdi.png)
 
 ## User experience and storyboard
 
@@ -89,7 +89,7 @@ the user will find himself in the Home page, where a brief explanation of MuSa's
 ### Collect data
 The protagonist of this storyboard is Elena, and we figured she'll just want to collect data:<br/>
 
-![image](src/design/story_elena.png)
+![image](/docs/src/design/story_elena.png)
 
 1. Elena has finally some free time, so she decided to visit a museum. She has been looking forward to studying some specific pieces, and has planned a tour accordingly. She arrives, and the receptionist asks her if she wants to try MuSa.
 2. Elena goes to the MuSa web app the receptionist pointed her out. She sees the home page. There she can find a brief introduction about MuSa and its services. She presses “Let’s start” to proceed to the next page.
@@ -106,7 +106,7 @@ had planned without being disturbed.<br/>
 
 Here we imagined what would be Enea's experience. He'd like to try MuSa, and he will exploit all the functionalities offered.<br/>
 
-![image](src/design/story_enea.png)
+![image](/docs/src/design/story_enea.png)
 
 1. These days Enea wants to try something out of his comfort zone, so he decides to visit a museum of classical art. When he arrives, the receptionist asks him if he wants to try MuSa.
 2. Enea goes to the MuSa web app the receptionist pointed him out. He sees the home page There he can find a brief introduction about MuSa and its services. He presses “Let’s start” to proceed to the next page.
