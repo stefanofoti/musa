@@ -15,7 +15,7 @@ provide interaction with the visitor.<br/>
 
 The architecture is the following:<br/>
 
-![image](/musa/tree/master/docs/src/architecture/architecture.png)
+![image](/musa/docs/src/architecture/architecture.png)
 
 ### List
 #### Hardware
