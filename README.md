@@ -23,7 +23,9 @@ If you want to discover more, give a look to the following documents:
 - [Design document](docs/Design.md)
 - [Architecture document](docs/Architecture.md)
 - [Evaluation document](docs/Evaluation.md) <br>
+
 You can find the first version of these documents in the folder [first_delivery](/first_delivery)
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 Unchanged documentation since the first delivery:
 - [Design and Evaluation video](https://www.youtube.com/watch?v=7l4aW7eUjL8)
