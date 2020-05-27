@@ -33,6 +33,7 @@ Unchanged documentation since the first delivery:
 - [Presentation PDF](/docs/src/presentation/presentation.pdf)
 - [Presentation PPTX](/docs/src/presentation/presentation.pptx)
 ------------------------------------------------------------------------------------------------------------------------------------------------------
+- [2nd Delivery document](/2nd-Delivery.md)
 - [Technical demo video]() TO DO
 - [Evaluation done video]() TO DO
 - [Future plans video]() TO DO
