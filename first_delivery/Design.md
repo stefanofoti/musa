@@ -1,6 +1,6 @@
 # Design
 
-###Concept
+### Concept
 MuSa is an "experience manager" that collects data and provides interactive-customized tours for museum visitors. A user can decide to use the app in two ways:<br/>
 - just collect data: the user isn't interested in personalized tours, but gives the consensus to data collection.<br/>
   This will allow our application to identify which pieces of art are the most appreciated and how users move in the building.<br/>
