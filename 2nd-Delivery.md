@@ -25,8 +25,7 @@ In the Architecture document we added more information about:
 In the Evaluation document we added more information about:
 - the utility of having a master STM-Nucleo board for each room
 - a first use of the "Code City" tool for a first analysis of our backend code
-
-———> TO DO - qualcoa sul questionario?
+- giving an online [questionnaire](https://docs.google.com/forms/d/e/1FAIpQLScuXQogq65TNMCWS0vha5jCFXTIvuk0Vr5boziSh9H5GiGm-w/viewform?usp=sf_link) we collected some data for improving MuSa's features
 
 ## Techincal work done since the 1st delivery
 
