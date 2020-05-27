@@ -23,6 +23,8 @@ If you want to discover more, give a look to the following documents:
 - [Design document](docs/Design.md)
 - [Architecture document](docs/Architecture.md)
 - [Evaluation document](docs/Evaluation.md)
+
+You can find the first version of these documents in the folder [first_delivery](/first_delivery)
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 Unchanged documentation since the first delivery:
 - [Design and Evaluation video](https://www.youtube.com/watch?v=7l4aW7eUjL8)
@@ -35,7 +37,5 @@ Unchanged documentation since the first delivery:
 - [Future plans video]() TO DO
 - [Second delivery presentation PDF]() TO DO
 - [Second delivery presentation PDX]() TO DO
+- [Second questionnaire](https://docs.google.com/forms/d/e/1FAIpQLScuXQogq65TNMCWS0vha5jCFXTIvuk0Vr5boziSh9H5GiGm-w/viewform?usp=sf_link)
 
-##### [Second questionnaire](https://docs.google.com/forms/d/e/1FAIpQLScuXQogq65TNMCWS0vha5jCFXTIvuk0Vr5boziSh9H5GiGm-w/viewform?usp=sf_link)
-
-You can find the first version of these documents in the folder [first_delivery](/first_delivery)
