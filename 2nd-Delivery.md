@@ -8,7 +8,7 @@ When you think about indoor tracking one of the main problems is of course the p
 A very deep analysis of the indoor localization technologies is available in the Architecture document.
 
 ## Changes made to design, architecture and evaluation
-We didin't make techincal or conceptual changes since the first delivery, contrariwise we have done deeper researches about technologies and tools that we are going to use, making more consistent our idea.
+We didin't make a lot of techincal or conceptual changes since the first delivery, contrariwise we have done deeper researches about technologies and tools that we are going to use, making more consistent our idea.
 
 In the Desing document we added more information about: 
 - how our project takes life
@@ -20,7 +20,8 @@ In the Desing document we added more information about:
 In the Architecture document we added more information about:
 - the choice of BLE
 - a comparison on indoor localization technologies
-- the choice and the need of using a master STM-Nucleo board for each room
+- the choice and the need of using a master board for each room
+- master board switched in Raspberry Pi for having more computational power
 
 In the Evaluation document we added more information about:
 - the utility of having a master STM-Nucleo board for each room
