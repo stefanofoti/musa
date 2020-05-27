@@ -15,7 +15,7 @@ provide interaction with the visitor.<br/>
 
 The architecture is the following:<br/>
 
-![image](/src/architecture/architecture.png)
+![image](src/architecture/architecture.png)
 
 ### List
 #### Hardware
@@ -138,15 +138,15 @@ artwork, it will make a query to it.<br/>
 
 We need to use BLE to understand the pieces of art the user is nearest to. So, what we really need to implement is proximity identification more than a complete indoor localization. To achieve this goal we could also use other technologies, therefore we decided to compare the different solutions before making a definite choice. In particular, we considered the most used technologies for these types of problems, which are BLE (we found documentation about the particular iBeacon protocol, but the following considerations can be generalized), NFC, RFID, and GPS. Reading various articles, we made a summary with this table, where the cells which contain aspects that were a disadvantage with respect to our objectives are colored yellow, and we marked in red the cells which contain major drawbacks that made us decide to discard the corresponding technology.<br/>
 
-![image](/src/architecture/BLE_vs_altri_1.JPG)
+![image](src/architecture/BLE_vs_altri_1.JPG)
 
-![image](/src/architecture/BLE_vs_altri_2.JPG)
+![image](src/architecture/BLE_vs_altri_2.JPG)
 
-![image](/src/architecture/BLE_vs_altri_3.JPG)
+![image](src/architecture/BLE_vs_altri_3.JPG)
 
-![image](/src/architecture/BLE_vs_altri_4.JPG)
+![image](src/architecture/BLE_vs_altri_4.JPG)
 
-![image](/src/architecture/BLE_vs_altri_5.JPG)
+![image](src/architecture/BLE_vs_altri_5.JPG)
 
 <br/>
 
