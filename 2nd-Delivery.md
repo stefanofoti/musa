@@ -40,8 +40,7 @@ Obviously, we miss several features to implement before the finaly delivery such
 
 ## Evaluation conducted since the 1st delivery 
 - a first use of the "Code City" tool for a first analysis of our backend code
-
-———> TO DO - questionario?
+- through an online [questionnaire](https://docs.google.com/forms/d/e/1FAIpQLScuXQogq65TNMCWS0vha5jCFXTIvuk0Vr5boziSh9H5GiGm-w/viewform?usp=sf_link) we got some information about user's behavior and appreciation
 
 ## Evaluation to do
 We are going to evaluate these aspects, about which you can find more information in the Evaluation document:
