@@ -42,7 +42,7 @@ The architecture is the following:<br/>
 
 The boards we decided to use are STM-Nucleo, one near each piece of art or cluster of artworks, and the user's smartphone communicates with them via Bluetooth Low Energy (BLE). In the museum there is also a main board that serves as a gateway, to forward the data collected to the cloud structure.<br/>
 
-![image](/src/architecture/Sensor_network_architecture.png)
+![image](src/architecture/Sensor_network_architecture.png)
 
 The main idea is the following: the user's smartphone sends BLE beacons periodically, and the boards are able to detect them. A board sends every second a message to the gateway STM-Nucleo via MQTT-SN with the data contained in the beacons received. The main board does some pre-processing and then sends a message every 5 seconds to the cloud through an MQTT channel. This is a report about the pieces of art each user looked at for the past 5 seconds. Here there is an example:<br/>
 
