@@ -1,60 +1,12 @@
 # Design
 
-###Concept
+### Concept
 MuSa is an "experience manager" that collects data and provides interactive-customized tours for museum visitors. A user can decide to use the app in two ways:<br/>
 - just collect data: the user isn't interested in personalized tours, but gives the consensus to data collection.<br/>
   This will allow our application to identify which pieces of art are the most appreciated and how users move in the building.<br/>
 - do a personalized tour with MuSa: depending on the user's profile, MuSa will suggest him a tour, providing an interactive experience.<br/>
 <br/>
 Obviously, the user can refuse both alternatives, and just visit the museum without interacting at all with our application.<br/>
-
-## How MuSa comes to life
-We thought about many commons issues that a visitor have when he visits a museum such as:
-- limited time for take a full visit
-- meeting on his path of some pieces of arts that do not match with his interests
-- the desire of having more details about an opera, but at the same time he does not like to have a physical or audio guide for several reasons
-
-Since the basic concept of MuSa is to put the user at the center of the experience, we started from these points for building something that could satisfy the user needs.
-
-## About personalized tour topic
-The argument of personalized tour has been obviously explored before.
-First of all, we can report some examples of the most common ways to visit a museum, referring to some famous museums [1]:
-
-- *Rijksmuseum Amsterdam (Human-guided tour)*: the visitor follows a human guide, which selects artworks and gives corresponding information to visitors using speech, gestures or extra material
-- *Rijksmuseum Amsterdam (Audio tour)*: most artworks are labelled with a number, and are coupled to an audio track on the visitor’s audio deviceTate Britain (Online tour) The visitor sees a virtual museum representation on a museum map. Rooms can be selected and each room contains a set of artworks
-- *Metropolitan Museum of Art (Online tour)*: the visitor can select six different virtual reality rooms and then navigate the virtual rooms and the artworks inside the rooms
-- *Van Gogh Museum Amsterdam (Multimedia tour)*: the visitor walks through the museum following a timeline of Van Gogh’s life. Artwork information can be seen on a PDA from the artwork list
-- *Netherlands Architecture Institute Rotterdam (Multimedia tour)*: artworks have sensors that can be scanned using a PDA (Personal Digital Assistant). If a sensor is scanned, the corresponding information will be presented on the PDA.
-
-Most tours modalities contain a fixed list of artworks, which is the same for everyone or for visitors from the same predefined user groups (e.g. groups of tourists, students, experts). The second problem is lack of connection between online tours and on-site/multimedia tours, which are usually separated into two tours without any connections. These two problems became the main challenges in building the personalized tours [1].
-
-The ambition of MuSa is precisely to relate these two aspects, the technological and inteactive part with the on-site tour.
-
-The purpose of museums has shifted from merely providing static information of collections to providing personalized services to various visitors worldwide, in a way suiting visitors’ personal characteristics, goals, tasks and behaviours. Personalization enables changing “the museum monologue” into “a user-centred information dialog” between the museum and its visitors (Bowen and Filippini-Fantoni 2004). This interactive dialogue occurs not only in the real museum, but also in the “virtual museum” (Schweibenz 1998) on the museum Web site. Museums are increasingly experimenting with and implementing more personalized and interactive services on their own Web sites. Visitors spend time on the museum Web sites, e.g. to discover interesting artworks, prepare a museum tour, or learn related knowledge about artworks. This brings a challenge for museums to provide a personalized and extended museum experience for visitors in an immersive museum environment, which includes both the virtual museum (online) and the real museum (on-site). [1].
-
-## About interaction with artworks
-*Engaging visitors with the right information at the right time and with the most effective type of interaction during their museum experience is one of the crucial issues curators are keen to invest effort in to make visits enjoyable, memorable, and instructive for their varied audience* [2].
-
-In addition to the personalized tours, the interaction with the artworks in the museum makes the experience more immersive for sure. This is the other purpose of MuSa, to let the user to satisfy his curiosity about a piece of art, doing it in a enjoyable way, different from a common research on the web and without the need of guides or audio-guides.
-
-The interaction can also make the experiences different each other because the artworks' responses could be different, for example:
-- *Triennale Milano Permanente*: in the exposition about the Italian Design provides several "Grillo Phones" (an historical piece of Italian design) near some of the most important operas. The visitor can use these phones typing some provides numbers and the designer of that opera could (or not) answer to the call; he will tell a curiosity about the time he ideated  his work.
-- *Mexico stand - Expo 2015*: during the tour, some totems along the path allowed the visitor to choose different type of information, based on his interests. At the end of the tour, the last totem gabe the possibility to print a summary receipt that recapped all the choise the visitor made durin his tour
-
-## About beacons in museums
-The interaction with MuSa will be based beacons.
-Beacons are widely used in smart museum. We can report some famous museums that used them in their interactive expositions [3]:
-
-- *Sydney Art Project*: Kaldor Public Art Projects along with Australian artist Jonathan Jones created an exhibition entitled “Barrangal Dyara" [4], to share and educate about aboriginal culture. The mobile app delivered content at specific locations, with push notifications sent when visitors came within range of beacons positioned at various points on the site of the 1882 fire. Signs and reminders about the need to enable Bluetooth were placed throughout the area, along with information about the availability of the app for anyone who wasn’t already aware of it. The feedback from guests was positive and the use of beacons to power the app that supplemented the display has drawn praise.
-
-- *The Groninger Museum*: the Groninger Museum is the first museum in the Netherlands where beacons have been implemented. The technology is available in the exhibition “The Collection”, from March 29, 2014, onwards. It is used to send interactive content on artworks to visitors using the app. Visitors who do not have a compatible smartphone or tablet can rent these at the museum so that they have access to interactive media. Thanks to this application, the visitor has access to additional video and audio clips, background information and detailed photos of the artworks. A mix of interactive media excites, amazes and inspires a unique experience.
-
-- *New Museum in New York City*: for the UN’s International Day for Mine Awareness and Assistance in Mine Action on April 4th, New Museum in New York City hosted an exhibit that used iBeacons to simulate a virtual minefield and let anyone experience the danger of landmines. Visitors were required to download the Sweeper app. Using beacons, the Sweeper app detected transmitters hidden behind the exhibits. When a person came too close to a transmitter, it acted as a landmine and detonated, filling the user’s headphones with a jarring explosion followed by an audio testimony of someone’s actual experience. This was inarguably the most unique use of beacons one has seen so far.
-
-Making a more interactive experience, museums are changing the way they educate, guide and tell stories to visitors. Location-powered mobile apps provide visitors a personal tour guide, just in the palm of their hands.
-Contextual information can be triggered to show more details about an artwork a visitor is looking at, or to inform visitors about other facilities. Beacon can also be used to measure dwell times, measuring how much time visitors spend at different locations of the museum, or which exhibits are most popular. The museum can now understand if an exhibit is popular by itself or if it is because of its placement at a particular location.
-
-This is the what basically the MuSa project wants to do through beacons: give an enjoyable experience and improve the services.
 
 ## Profiling users and personas
 To understand which "type" of users will interact with our application, we started from the data provided by "Museo Sapieza dell'Arte Classica"
@@ -116,9 +68,3 @@ Here we imagined what would be Enea's experience. He'd like to try MuSa, and he 
 6. MuSa proposes a tour tailored to his personality. Enea could ask for a different itinerary by pressing “Give me another tour”, but he’s satisfied with the suggestion and presses “Start the journey”.
 7. Enea visits the museum following MuSa. The app collects data about his location and how much time she spends near every piece of art, while also accompanying him through the rooms and providing useful information about the artworks exposed. This is done thanks to the communication between his smartphone, the boards, and the backend of the application. Enea is glad he decided to use MuSa, he’s learning new things and he feels entertained.
 8. Enea leaves, satisfied with her visit. The app has stopped collecting data. The museum curators are happy with the information they’ve gathered, and with the fact that a new visitor had a  good time in their museum.
-
-#### References
-- [1] Cultivating Personalized Museum Tours Online and On-Site: https://www.researchgate.net/publication/233521881_Cultivating_Personalized_Museum_Tours_Online_and_On-Site
-- [2] https://www.mesch-project.eu/shaping-personalized-museum-experiences/
-- [3] https://www.mocaplatform.com/blog/how-location-based-marketing-is-transforming-the-museum-experience
-- [4] Kaldor Public Art Projects website: http://kaldorartprojects.org.au/project-32-jonathan-jones
