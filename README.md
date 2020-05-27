@@ -24,10 +24,10 @@ If you want to discover more, give a look to the following documents:
 ##### [Architecture document](docs/Architecture.md)
 ##### [Evaluation document](docs/Evaluation.md)
 
-##### [Design and evaluation video](https://youtu.be/7l4aW7eUjL8)
-##### [Architecture video](https://youtu.be/ARw2u26Rarg)
+##### [Design and evaluation video]() TO DO
+##### [Architecture video]() TO DO
 
-##### [Presentation (pptx)](docs/src/presentation/presentation.pptx)
-##### [Presentation (pdf)](docs/src/presentation/presentation.pdf)
+##### [Presentation (pptx)]() TO DO
+##### [Presentation (pdf)]() TO DO
 
 You can find the first version of these documents in the folder [first_delivery](/first_delivery)
