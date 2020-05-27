@@ -24,7 +24,7 @@ If you want to discover more, give a look to the following documents:
 - [Architecture document](docs/Architecture.md)
 - [Evaluation document](docs/Evaluation.md) <br>
 
-You can find the first version of these documents in the folder [first_delivery](/first-delivery)
+You can find the first version of these documents in the folder [first-delivery](/first-delivery)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 Unchanged documentation since the first delivery:
