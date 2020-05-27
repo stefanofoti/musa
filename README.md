@@ -29,3 +29,5 @@ If you want to discover more, give a look to the following documents:
 
 ##### [Presentation (pptx)](docs/src/presentation/presentation.pptx)
 ##### [Presentation (pdf)](docs/src/presentation/presentation.pdf)
+
+You can find the first version of these documents in the folder [first_delivery](/first_delivery)
