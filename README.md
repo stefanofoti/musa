@@ -22,7 +22,7 @@ MuSa collects and analyze information about visitors and their tours and propose
 If you want to discover more, give a look to the following documents:
 - [Design document](docs/Design.md)
 - [Architecture document](docs/Architecture.md)
-- [Evaluation document](docs/Evaluation.md)
+- [Evaluation document](docs/Evaluation.md) <br>
 You can find the first version of these documents in the folder [first_delivery](/first_delivery)
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 Unchanged documentation since the first delivery:
