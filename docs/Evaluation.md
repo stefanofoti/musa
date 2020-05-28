@@ -138,19 +138,20 @@ Our backend code quality will be tested with [CodeCity](https://wettel.github.io
 ##### First Results
 We are using Code City during development to understand immediately if some flaws were to appear. So far, the code for the backend looks good:<br/>
 
-![image](src/evaluation/code_city_musa.jpeg)
+![image](src/evaluation/code_city/code_city_musa.jpeg)
 
 <br/>
 As it's easy to see, there are no "pathological" patters: no building is too high, and they're quite well distributed among the landscape. The code is modular and "healthy".<br/>
 
 This is the key to read the map:<br/>
 
-![image](src/evaluation/code_city_doc.png)
+![image](src/evaluation/code_city/code_city_doc.png)
 
 Now let's have a look at how MuSa fares with respect to more specific metrics:<br/>
 
-SCREENSHOTS DELLE METRICHE RILEVATE DA CODECITY PER MUSA + few comments if possible
+![image](src/evaluation/code_city/code_city_musa_params.jpg)
 
+These are "unhealthy" classes ad functions, and since MuSa has none of them, we can deduce the code has low coupling and great cohesion.<br/>
 
 
 <br/>
