@@ -152,7 +152,7 @@ Now let's have a look at how MuSa fares with respect to more specific metrics:<b
 ![image](src/evaluation/code_city/code_city_musa_params.jpg)
 
 These are "unhealthy" classes ad functions, and since MuSa has none of them, we can deduce the code has low coupling and great cohesion.<br/>
-
+If you want to test our code with CodeCity by yourself, you can find the .mse file [here](/src/evaluation/MuSa.mse)
 
 <br/>
 
