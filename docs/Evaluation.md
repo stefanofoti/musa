@@ -31,28 +31,28 @@ To measure the users' appreciation we are going to use the following UXEMs (User
 
 During the developement process we're keeping track of the opinions of the users to understand if we're effectively building something of value. In particular, the following results of the surveys we made are quite encouraging.<br/>
 
-![image](src/evaluation/MuSa_interaction.png)
+![image](src/evaluation/survey_results/MuSa_interaction.png)
 
 <br/>
 From the above graph, we can see that the majority of the users would at least be curious to try MuSa.<br/>
 The results below instead testify that our application could be useful for the museum to attract more visitors, thanks to making their experiences there more enjoyable.<br/>
 
-![image](src/evaluation/Museum_visits.png)
+![image](src/evaluation/survey_results/Museum_visits.png)
 
 <br/>
 
 Looking at the next graph, we can be reassured on the fact that we're catching the main needs of the users, since, a part from some peculiar suggestions, the majority of them doesn't feel the need to point out more functionalities to add with respect to the ones already presented.<br/>
 
-![image](src/evaluation/Functionalities.png)
+![image](src/evaluation/survey_results/Functionalities.png)
 
 <br/>
 
 We're also taking into account our user's opinion to build an interface which can be to their liking:<br/>
 
-![image](src/evaluation/Colors.png)
-=======
+![image](src/evaluation/survey_results/Colors.png)
+
 Through one of our questionnaires, we got the opinion of Giulia: *"I like the fact that I can obtain more information about an artwork, or the basic info, on my smartphone because the labels of the operas are often crowded or written in a too-small font"*
->>>>>>> c2af541e6e4089f0e3d8a9328cfcb389b5457e95
+
 
 ## Technology
 Under the technological stack, MuSa uses many different hardware and software solutions. We decided to evaluate each single part and the overall system. Further details are in the following paragraphs.<br/>
