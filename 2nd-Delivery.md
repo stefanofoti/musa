@@ -37,7 +37,6 @@ Obviously, we miss several features to implement before the finaly delivery such
 - providing the personalized tour to the visitors through a profiling questionnaire
 - the data collection for both visitors types: the one who uses MuSa and the one that only wants to help the improving with the data collecting
 - the "interaction" with the artwork, understood as when a visitor is near an artwork, through his smartphone he can ask for some extra information or curiosities
-- (optional) the machine learning algorithm that analyzes the data collected to improve the service
 
 ## Evaluation conducted since the 1st delivery 
 - a first use of the "Code City" tool for a first analysis of our backend code
