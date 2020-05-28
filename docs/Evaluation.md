@@ -67,7 +67,7 @@ The sensor network evaluation has to consider aspects like:<br>
 - Communication complexity
 - Scalability
 <br>
-The suggested board for the project is STM Nucleo. We chose to keep it because of its low power consumption and low price; it is also widely used, rich of documentation and examples. The same can be said for the Raspberry Pi board, even if, beign more powerful, is a little bit more expensive.<br>
+The suggested board for the project is STM Nucleo. We chose to keep it because of its low power consumption and low price; it is also widely used, rich of documentation and examples. The same can be said for the Raspberry Pi board, even if, beign more powerful, is more expensive.<br>
 
 This is not the only possible solution. Among the others, a great idea may be to convert our [server based positioning to client-based positioning](https://developex.com/blog/indoor-navigation-with-ble/) and to use BLE (Bluetooth Low Energy) tags, like _NRF51822 ibeacon tag_. Their cost is very low, just 3-4 euro/pcs.<br>
 
