@@ -101,7 +101,7 @@ As described in ([this article](https://proximi.io/accurate-indoor-positioning-b
 - the boards should not be placed near metallic surfaces, they could worsen the interference. 
 <br/>
 
-Now, for a more sophisticated solution, an effective method could be the one described in this paper: ([BLE Beacons for Indoor Positioning at an Interactive IoT-Based Smart Museum](/src/evaluation/BLE_paper.pdf)), by _Petros Spachos, Senior Member, IEEE, and Konstantinos N. Plataniotis, Fellow, IEEE_ which came out on the 21st of January of 2020.<br/>
+Now, for a more sophisticated solution, an effective method could be the one described in this paper: [BLE Beacons for Indoor Positioning at an Interactive IoT-Based Smart Museum](/src/evaluation/BLE_paper.pdf), by _Petros Spachos, Senior Member, IEEE, and Konstantinos N. Plataniotis, Fellow, IEEE_ which came out on the 21st of January of 2020.<br/>
 They built a system similar to what we would like to create: they used beacon tags and an Android application to perform some activities, among which are included client-based positioning and proximity detection. The position of the user is determined using the RSSI (Received Signal Strenght Indicator) of the beacons. They conducted three main experiments to evaluate the beacons' accuracy and found some interesting results:<br/>
 -  beacons can be placed anywhere without interfering with any other wireless communications
 - the location accuracy of the beacons in a complex environment is sufficient for an application such as the smart museum when errors within a few meters might be acceptable
@@ -145,7 +145,7 @@ As it's easy to see, there are no "pathological" patters: no building is too hig
 
 This is the key to read the map:<br/>
 
-![image](src/evaluation/code_city_doc.jpeg)
+![image](src/evaluation/code_city_doc.png)
 
 Now let's have a look at how MuSa fares with respect to more specific metrics:<br/>
 
