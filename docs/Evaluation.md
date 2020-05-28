@@ -77,7 +77,18 @@ The cost of a Raspberry Pi board can range from about 20 € to much more, as fu
 
 A brief evaluation about the choice of using BLE has been done, but since it was a matter of deciding which technology to use to track the user inside the museum, we put the analysis in the [Architecture document](Architecture.md)<br/>
 
-#### Complexity and responsivness
+#### Complexity and responsiveness evaluation
+
+We need our system to be responsive to follow the user in real-time during his visit, but at the same time we also don't want to flood our network with messages, keeping the complexity low, also to save the board's power. We need to find a trade-off between these two needs. Therefore, we did a brief analysis of the system and decided to use a Raspberry Pi board as a gateway (more on this in the [Architecture document](Architecture.md)). This also affects the cost: we want to push the limits of our free plan to exploit it to the fullest (the limit of messages we can send to Azure is 8000 per day), so that we can pay as less as possible.<br/>
+This can be achieved by taking advantage of edge computing: we do data pre-processing in the gateway to aggregate messages of different boards and send to Azure a single report. The Raspberry also acts as a sort of bridge, taking MQTT-SN messages and transforming them into MQTT ones. Let's do a short evaluation in terms of complexity and responsiveness of this system, let's consider the following scenario:<br/>
+
+- we have 30 STM-Nucleo boards that send 1 message per second
+
+- raw data is sent to Azure: this means that there are around 30 messages * 60 s = 1800 messages each minute, which means that in 8000 / 1800 = 4,4 minutes the free plan would expire.
+
+- Edge computing: instead of sending the messages directly to Azure, they are collected by the gateway, which instead sends to the cloud a report every 5 seconds. So we have 60 / 5 = 12 messages per minute, which means that the free plan would last for 8000 / 12 = 666,66 minutes, which is 11,11 hours.
+
+So we have 5 minutes vs 11 hours a day, the advantages of the edge computing architecture are immense! We could have a museum with 30 boards use our system for free each day (unless it stays open for more than 11 hours).<br/>
 
 #### Evaluation and improvement of BLE accuracy
 
@@ -86,11 +97,11 @@ A brief evaluation about the choice of using BLE has been done, but since it was
 BLE accuracy is a major issue, and one of the principal weaknesses of this technology. To tackle this matter, the possible approaches are both at the physical level and the software level.<br/>
 As described in ([this article](https://proximi.io/accurate-indoor-positioning-bluetooth-beacons/)), adopting some precautions can help achieve better performances, in particular:<br/>
 - to have maximum efficiency for a deploy, it would be best to have a detailed map of the environment (with the scale), to better place the boards
-- the boards should be positioned on the walls, at a 2 m height more or less. It's better if there are no obstacles between them and the user so that he can see them.
-- the boards should not be placed near metallic surfaces, they could worsen the interference.
+- the boards should be positioned on the walls, at a 2 m height more or less. It's better if there are no obstacles between them and the user so that he can see them (there is "line-of-sight").
+- the boards should not be placed near metallic surfaces, they could worsen the interference. 
 <br/>
-Now, for a more sophisticated solution, an effective method could be the one described in this paper: ([BLE Beacons for Indoor Positioning at an
-Interactive IoT-Based Smart Museum](/src/evaluation/BLE_paper.pdf)), by _Petros Spachos, Senior Member, IEEE, and Konstantinos N. Plataniotis, Fellow, IEEE_ which came out on the 21st of January of 2020.<br/>
+
+Now, for a more sophisticated solution, an effective method could be the one described in this paper: ([BLE Beacons for Indoor Positioning at an Interactive IoT-Based Smart Museum](/src/evaluation/BLE_paper.pdf)), by _Petros Spachos, Senior Member, IEEE, and Konstantinos N. Plataniotis, Fellow, IEEE_ which came out on the 21st of January of 2020.<br/>
 They built a system similar to what we would like to create: they used beacon tags and an Android application to perform some activities, among which are included client-based positioning and proximity detection. The position of the user is determined using the RSSI (Received Signal Strenght Indicator) of the beacons. They conducted three main experiments to evaluate the beacons' accuracy and found some interesting results:<br/>
 -  beacons can be placed anywhere without interfering with any other wireless communications
 - the location accuracy of the beacons in a complex environment is sufficient for an application such as the smart museum when errors within a few meters might be acceptable
@@ -102,11 +113,24 @@ Unfortunately, the environment of a smart museum is prone to noise and interfere
 
 ##### Evaluate proximity detection performance
 
-Referring to the same paper, a similar approach could be useful. First evaluate the accuracy by selecting a given transmission interval (100 ms in the paper, in our case 1 s is sufficient), and start doing trials changing the distance between the sender (the user's smartphone in our case) and the receiver (the various boards), the value that needs to be monitored is the RSSI. A very effective way to improve performances is by using a Kalman filter. In the paper, experimental results showed that as the distance increases, the RSSI value decreases and has a greater variation from the mean value. This is due to the signal becoming weaker and being affected by other factors like objects in the environment and noise.<br/>
-The results showed that the estimation error is less than 3 - 3.5 m depending on the characteristics of the environment but using a Kalman filter the error is within 2 - 2.5 m. However, it's very interesting to note that when the error is within 3 m both raw data and Kalman filter have similar performance, therefor if users maintain a comparable distance from the piece of art they want to observe, the implementation of the filter is not needed.<br/>
+Referring to the same paper, a similar approach to the one that was used to evaluate proximity detection could be useful. First assess the accuracy of the beacon by selecting a given transmission interval (100 ms in the paper, in our case 1 s is sufficient), and start doing trials changing the distance between the sender (the user's smartphone in our case) and the receiver (the various boards). The value that needs to be monitored is the RSSI. A very effective way to improve performances is by using a Kalman filter. In the paper, experimental results in the paper showed that as the distance increases, the RSSI value decreases and has a greater variation from the mean value. This is due to the signal becoming weaker and being affected by other factors like objects in the environment and noise.<br/>
+
+The results obtained in the reserch showed that the estimation error is less than 3 - 3.5 m depending on the characteristics of the environment, but by using a Kalman filter the error can be reduced to be within 2 - 2.5 m. It's very interesting to note that when the error is within 3 m both raw data and Kalman filter have similar performance, therefor if users maintain a comparable distance from the piece of art they want to observe, the implementation of the filter is not needed.<br/>
 Similar tests can be conducted on our system, by placing the boards in a specific topology and see if the system can recognize which is the closest while the smartphone is moving.<br/>
 
-A quick note about the Kalman filter: if needed, a way to implement one in Python can be found in this paper: [Implementation of Kalman Filter with Python Language](/src/evaluation/Kalman_paper.pdf).
+A quick note about the Kalman filter: if needed, a way to implement one in Python can be found in this paper: [Implementation of Kalman Filter with Python Language](/src/evaluation/Kalman_paper.pdf). Note that having a Raspberry Pi board as the gateway would allow us to use the filter in the pre-processing computation.<br/>
+
+We asked specific questions to the users about the usual distance at which they admire art, and the results are the following:
+
+![image](src/evaluation/survey_results/Distance_1.png)
+
+<br/>
+
+![image](src/evaluation/survey_results/Distance_2.png)
+
+<br/>
+
+It's possible to see that it's difficult to estimate a precise value, a significant percentage of the visitors don't pay too much attention to this aspect. However, it's safe to assume that for the average case the Kalman filter is not needed, and a proper placing of the biggest pieces of art, like for example, trying to keep them from being to close to other artworks, could decrease interference among beacons enough to avoid using the filter even for distances longer than 3 m.<br/>
 
 ### Backend
 Our backend code quality will be tested with [CodeCity](https://wettel.github.io/codecity.html). It is a very simple tool that allows to check the most common software metrics in a new way in which software systems are visualized as interactive, navigable 3D cities. The classes are represented as buildings in the city, while the packages are depicted as the districts in which the buildings reside. The more the city is well structured, the higher the code quality is. Further evaluations will be provided [here](src/evaluation/MuSa_criteria.pdf).
@@ -114,10 +138,22 @@ Our backend code quality will be tested with [CodeCity](https://wettel.github.io
 ##### First Results
 We are using Code City during development to understand immediately if some flaws were to appear. So far, the code for the backend looks good:<br/>
 
-IMMAGINE MUSA CODE CITY
+![image](src/evaluation/code_city_musa.jpeg)
 
 <br/>
 As it's easy to see, there are no "pathological" patters: no building is too high, and they're quite well distributed among the landscape. The code is modular and "healthy".<br/>
+
+This is the key to read the map:<br/>
+
+![image](src/evaluation/code_city_doc.jpeg)
+
+Now let's have a look at how MuSa fares with respect to more specific metrics:<br/>
+
+SCREENSHOTS DELLE METRICHE RILEVATE DA CODECITY PER MUSA + few comments if possible
+
+
+
+<br/>
 
 ### Cloud System
 Most of this project lives in the Azure platform, including:  
@@ -133,6 +169,7 @@ Since this project is developed as part of our IoT course, the machine learning 
 
 #### Hardware
 We need as many boards as the number of cluster of artworks and single important pieces displayed in the museum plus one for the gateway; each one costs about 10-15 euro. The cost of the hardware to make the board be able to communicate using BLE (and Wi-Fi) should be considered, for a total of 30 - 40 more or less (considering also the cost of the board).<br/>
+The most expensive component would be the two Raspberry Pi boards, which can cost from around 20 € to much more.<br/>
 
 #### Cloud
 Azure is a commercial product offering a minority of free services for small projects. Using the [Microsoft Pricing Calculator](https://azure.microsoft.com/it-it/pricing/calculator/) we checked for the cheapest possible solution for study purposes.<br>
@@ -150,4 +187,5 @@ Since this is a project for the IoT course of our master degree, we won't do a d
 We suggest one of [these](https://owasp.org/www-community/Vulnerability_Scanning_Tools) tools to run security tests.
 
 #### Sensor network's reliability
-It's not difficult to see that having a board that acts as a gateway is a single point of failure: if that board stopped working for whatever reason, messages wouldn't be forwarded to the cloud anymore. To avoid a potential break of the system a solution could be to implement in the boards a distributed algorithm for leader election, to select a new board to act as gateway.<br/>
+It's not difficult to see that having a board that acts as a gateway is a single point of failure: if that board stopped working for whatever reason, messages wouldn't be forwarded to the cloud anymore. To avoid a potential break of the system, after a first analysis we thought that a good solution could be to implement in the boards a distributed algorithm for leader election, to select a new board to act as gateway.<br/>
+However, it's much better to adopt a redundancy approach: as explain in the [Architecture document](Architecture.md), we have a second Raspberry Pi in hot standby. Every time the gateway sends the report to Azure via MQTT, also the second Raspberry receives it. If the second board doesn't receive any message for a certain amount of time, it will assume that the main gateway has suffered a failure, and therefore replaces the faulty board taking its place as the gateway. This approach allows us to avoid the complexity that a distributed algorithm for leader election would have caused in terms of network traffic and computation (with an effect also on energy consumption).
