@@ -29,8 +29,7 @@ In the Evaluation document we added more information about:
 - giving an online [questionnaire](https://docs.google.com/forms/d/e/1FAIpQLScuXQogq65TNMCWS0vha5jCFXTIvuk0Vr5boziSh9H5GiGm-w/viewform?usp=sf_link) we collected some data for improving MuSa's features
 
 ## Techincal work done since the 1st delivery
-
-———> TO DO - credo sia necessario vedere cosa riusciamo a fare prima di completare questo punto
+We developed an ASP.NET backend, collecting data from Azure IoT Hub using the Event Hub. The class implementing Event Hub daemon for d2c messages runs as a native background service, so its lifecycle is fully managed by the Framework. Pre processed messages are restructured and saved into a main memory database into some DbSets inside a DbContext using Entity Framework. Data are now exposed with a rest interface to the frontend; we have a swagger with all the available interfaces. The frontend is an Angular 9 web application. Currently, it gets the closest artwork from backend, while all the other details about artworks and tours are mocked up. We also produced a script acting as the museum gateway board sending the preprocessed messages from the museum.
 
 ## Functionality to implement
 Obviously, we miss several features to implement before the finaly delivery such as:
