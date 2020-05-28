@@ -1,0 +1,24 @@
+<div *ngIf="lastArtwork !== undefined">
+
+    <div class="alert alert-primary mt-3" role="alert">
+        You're close to artwork {{lastArtwork.ArtworkId}}
+    </div>
+
+    <!-- details about artworks are mocked up and do not come from BE in this release -->
+    <div class="card text-center" >
+        <img [src]="artwork.imgPath" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{artwork.name}}, {{artwork.author}}</h5>
+            <p class="card-text">{{artwork.description}}</p>
+            <a href="#" class="btn btn-primary">Check out more</a>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-3">
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-secondary" routerLink="/tour" routerLinkActive="">Tour</button>
+        <button type="button" class="btn btn-secondary" routerLink="/position" routerLinkActive="active">Around me</button>
+    </div>    
+</div>    
+

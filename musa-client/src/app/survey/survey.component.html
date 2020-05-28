@@ -1,0 +1,104 @@
+<div class="text-center mt-3">
+    <h1>Welcome to MuSa</h1>
+</div>
+<p class="lead">Fill this short survey and get your custom tour.</p>
+
+<form [formGroup]="surveyForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-group" formGroupName="personalData" novalidate>
+        <label for="fl-gender">Gender</label>
+        <select class = "form-control" formControlName="sex">
+            <option *ngFor="let sex of genders" [value]="sex">{{sex}}</option>
+        </select>
+    </div>
+    <div class="form-group" formGroupName="personalData" novalidate>
+        <label for="fl-occupation">Occupation</label>
+        <select class = "form-control" formControlName="occupation">
+            <option *ngFor="let occupation of occupations" [value]="occupation">{{occupation}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="fl-range1">Question 1</label>
+        <input type="range" class="form-control-range" id="form-range1">
+    </div>
+
+    <div class="form-group">
+        <label for="fl-range2">Question 2</label>
+        <input type="range" class="form-control-range" id="form-range2">
+    </div>
+
+    <div class="custom-control custom-switch mt-3">
+        <input type="checkbox"  formControlName="tourChecked" (change)="onTourCheckboxChange()" class="custom-control-input" id="tour-check">
+        <label class="custom-control-label" for="tour-check">I want get a custom tour</label>
+    </div>
+     <div class="custom-control custom-switch mt-3">
+        <input type="checkbox" formControlName="trackingChecked" (change)="onTrackingCheckboxChange()" class="custom-control-input" id="tracking-checkbox">
+        <label class="custom-control-label" for="tracking-checkbox">I want help musa collecting informations</label>
+    </div>
+    <div class="custom-control custom-switch mt-3">
+        <input type="checkbox" class="custom-control-input" disabled id="customSwitch2">
+        <label class="custom-control-label" for="customSwitch2">Disabled switch element</label>
+    </div>
+
+    <!--<select formControlName="requestType">
+      <option *ngFor="let requestType of requestTypes" [value]="requestType">{{requestType}}</option>
+    </select>-->
+
+    <div class="row mx-md-n12 mt-3">
+        <div class="col px-md-6 text-center">
+            <button type="reset" class="btn btn-default" (click)="revert()" [disabled]="surveyForm.pristine">Reset</button>                
+        </div>
+        <div class="col px-md-6 text-center">
+            <button type="submit" class="btn btn-primary" [disabled]="surveyForm.pristine">Submit</button>
+        </div>
+      </div>
+  </form>
+
+
+<!--
+<form>
+    <div class="form-group">
+        <label for="fl-gender">Gender</label>
+        <select class="form-control" id="form-gender">
+            <option></option>
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="fl-work">Gender</label>
+        <select class="form-control" id="form-work">
+            <option></option>
+            <option>Student</option>
+            <option>Employee</option>
+            <option>Teacher</option>
+            <option>Other</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="fl-range1">Question 1</label>
+        <input type="range" class="form-control-range" id="form-range1">
+    </div>
+    <div class="form-group">
+        <label for="fl-range2">Question 2</label>
+        <input type="range" class="form-control-range" id="form-range2">
+    </div>
+    <div class="custom-control custom-switch mt-3">
+        <input type="checkbox" class="custom-control-input" id="tour-check">
+        <label class="custom-control-label" for="tour-check">I want get a custom tour</label>
+    </div>
+    <div class="custom-control custom-switch mt-3">
+        <input type="checkbox" class="custom-control-input" id="tracking-checkbox">
+        <label class="custom-control-label" for="tracking-checkbox">I want help musa collecting informations</label>
+    </div>
+    <div class="custom-control custom-switch mt-3">
+        <input type="checkbox" class="custom-control-input" disabled id="customSwitch2">
+        <label class="custom-control-label" for="customSwitch2">Disabled switch element</label>
+    </div>
+    <div class="form-group text-center">
+        <div class="row">
+            <button type="button" class="btn btn-default col-md-4 ml-5 mr-5 mt-3">Get a custom tour</button>
+        </div>
+    </div>
+</form>
+-->

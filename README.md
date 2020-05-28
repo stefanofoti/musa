@@ -20,12 +20,24 @@ MuSa collects and analyze information about visitors and their tours and propose
 
 ## Read more
 If you want to discover more, give a look to the following documents:
-##### [Design document](docs/Design.md)
-##### [Architecture document](docs/Architecture.md)
-##### [Evaluation document](docs/Evaluation.md)
+- [Design document](docs/Design.md)
+- [Architecture document](docs/Architecture.md)
+- [Evaluation document](docs/Evaluation.md) <br>
 
-##### [Design and evaluation video](https://youtu.be/7l4aW7eUjL8)
-##### [Architecture video](https://youtu.be/ARw2u26Rarg)
+You can find the first version of these documents in the folder [first-delivery](/first-delivery)
 
-##### [Presentation (pptx)](docs/src/presentation/presentation.pptx)
-##### [Presentation (pdf)](docs/src/presentation/presentation.pdf)
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Unchanged documentation since the first delivery:
+- [Design and Evaluation video](https://www.youtube.com/watch?v=7l4aW7eUjL8)
+- [Architecture video](https://youtu.be/ARw2u26Rarg)
+- [Presentation PDF](/docs/src/presentation/presentation.pdf)
+- [Presentation PPTX](/docs/src/presentation/presentation.pptx)
+------------------------------------------------------------------------------------------------------------------------------------------------------
+- [2nd Delivery document](/2nd-Delivery.md)
+- [Technical demo video]() TO DO
+- [Evaluation done video]() TO DO
+- [Future plans video]() TO DO
+- [Second delivery presentation PDF]() TO DO
+- [Second delivery presentation PDX]() TO DO
+- [Second questionnaire](https://docs.google.com/forms/d/e/1FAIpQLScuXQogq65TNMCWS0vha5jCFXTIvuk0Vr5boziSh9H5GiGm-w/viewform?usp=sf_link)
+
