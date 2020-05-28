@@ -35,7 +35,7 @@ Unchanged documentation since the first delivery:
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 - [2nd Delivery document](/2nd-Delivery.md)
 - [Technical demo video](https://youtu.be/QBQiZBxFIYg)
-- [Evaluation done video]() TO DO
+- [Evaluation done video](https://youtu.be/_k9-HsL0Ox8)
 - [Future plans video](https://www.youtube.com/watch?v=rPU-n5VDRK4&feature=youtu.be)
 - [Second delivery presentation PDF](/docs/src/presentation/2ndPresentation.pdf)
 - [Second delivery presentation PDX](/docs/src/presentation/2ndPresentation.pptx)
