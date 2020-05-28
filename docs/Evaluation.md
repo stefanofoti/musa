@@ -1,17 +1,15 @@
 # Evaluation
 
 In this document we will give a brief introduction on the evaluation methods we thought of using for our project.<br/>
-We will evaluate with different methods the user experience and the technologies used. In particular, the quality of the hardware and software
-components will be measured taking into account their peculiarities, but also the quality of the whole system.
-<br>
-However, keep in mind that this is a project developed for an IoT course, so we will cover this section to provide a comprehensive analysis, so it will not be at the enterprise level
+We will evaluate with different methods the user experience and the technologies used. In particular, the quality of the hardware and software components will be measured taking into account their peculiarities, but also the quality of the whole system.<br>
+However, keep in mind that this is a project developed for an IoT course, so we will cover this section to provide a comprehensive analysis, but it will not be at the enterprise level.<br/>
 
 ## Objectives
 
 With our application, we tried to realize something useful for both the museum and the users. In particular, we want to satisfy these demands:<br/>
 - make the museum more attractive and collect data useful for the curators<br/>
 - make sure people will enjoy their visits to the museum<br/>
-<br/>
+
 MuSa meets these requirements by collecting the users' movements in the museum, storing the data and then analyzing them to provide customized tours.<br/>
 
 ## User experience
@@ -28,6 +26,30 @@ To measure the users' appreciation we are going to use the following UXEMs (User
 
 - an _Episode_ method: at the end of the visit the user will be asked to fill a short survey about his experience. This questionnaire can be implemented using also the AttrakDiff tool (_Link_: http://www.attrakdiff.de/index-en.html).<br/>
 
+### Users' feedback
+
+During the developement process we're keeping track of the opinions of the users to understand if we're effectively building something of value. In particular, the following results of the surveys we made are quite encouraging.<br/>
+
+![image](src/evaluation/MuSa_interaction.png)
+
+<br/>
+From the above graph, we can see that the majority of the users would at least be curious to try MuSa.<br/>
+The results below instead testify that our application could be useful for the museum to attract more visitors, thanks to making their experiences there more enjoyable.<br/>
+
+![image](src/evaluation/Museum_visits.png)
+
+<br/>
+
+Looking at the next graph, we can be reassured on the fact that we're catching the main needs of the users, since, a part from some peculiar suggestions, the majority of them doesn't feel the need to point out more functionalities to add with respect to the ones already presented.<br/>
+
+![image](src/evaluation/Functionalities.png)
+
+<br/>
+
+We're also taking into account our user's opinion to build an interface which can be to their liking:<br/>
+
+![image](src/evaluation/Colors.png)
+
 ## Technology
 Under the technological stack, MuSa uses many different hardware and software solutions. We decided to evaluate each single part and the overall system. Further details are in the following paragraphs.<br/>
 
@@ -42,14 +64,17 @@ The sensor network evaluation has to consider aspects like:<br>
 - Communication complexity
 - Scalability
 <br>
-The suggested board for the project is STM Nucleo. We chose to keep it because of its low power consumption and low price; it is also widely used, rich of documentation and examples.<br>
+The suggested board for the project is STM Nucleo. We chose to keep it because of its low power consumption and low price; it is also widely used, rich of documentation and examples. The same can be said for the Raspberry Pi board, even if, beign more powerful, is a little bit more expensive.<br>
 
 This is not the only possible solution. Among the others, a great idea may be to convert our [server based positioning to client-based positioning](https://developex.com/blog/indoor-navigation-with-ble/) and to use BLE (Bluetooth Low Energy) tags, like _NRF51822 ibeacon tag_. Their cost is very low, just 3-4 euro/pcs.<br>
 
 Our STM-Nucleo costs about 10-15 euro, but it is much more flexible than a BLE tag and offers many possibilities for further development ideas.<br>
 The only drawback is that also the cost of the hardware to make enable the board to send BLE messages (BLE + Wi-Fi expansions required), which is around 20 euro.<br/> 
+The cost of a Raspberry Pi board can range from about 20 € to much more, as functionalities are added, so it's important to evaluate carefully each specific use case to select the cheapest possible option.<br/>
 
-A brief evaluation about the choice of using BLE has been done, but since it was a matter of deciding which technology to use to track the user inside the museum, we put the analysis in the ##### [Architecture document](Architecture.md)
+A brief evaluation about the choice of using BLE has been done, but since it was a matter of deciding which technology to use to track the user inside the museum, we put the analysis in the [Architecture document](Architecture.md)<br/>
+
+#### Complexity and responsivness
 
 #### Evaluation and improvement of BLE accuracy
 
@@ -61,7 +86,8 @@ As described in ([this article](https://proximi.io/accurate-indoor-positioning-b
 - the boards should be positioned on the walls, at a 2 m height more or less. It's better if there are no obstacles between them and the user so that he can see them.
 - the boards should not be placed near metallic surfaces, they could worsen the interference.
 <br/>
-Now, for a more sophisticated solution, an effective method could be the one described in this paper: ([BLE Beacons for Indoor Positioning at an Interactive IoT-Based Smart Museum](/src/evaluation/BLE_paper.pdf)), by _Petros Spachos, Senior Member, IEEE, and Konstantinos N. Plataniotis, Fellow, IEEE_ which came out on the 21st of January of 2020.<br/>
+Now, for a more sophisticated solution, an effective method could be the one described in this paper: ([BLE Beacons for Indoor Positioning at an
+Interactive IoT-Based Smart Museum](/src/evaluation/BLE_paper.pdf)), by _Petros Spachos, Senior Member, IEEE, and Konstantinos N. Plataniotis, Fellow, IEEE_ which came out on the 21st of January of 2020.<br/>
 They built a system similar to what we would like to create: they used beacon tags and an Android application to perform some activities, among which are included client-based positioning and proximity detection. The position of the user is determined using the RSSI (Received Signal Strenght Indicator) of the beacons. They conducted three main experiments to evaluate the beacons' accuracy and found some interesting results:<br/>
 -  beacons can be placed anywhere without interfering with any other wireless communications
 - the location accuracy of the beacons in a complex environment is sufficient for an application such as the smart museum when errors within a few meters might be acceptable
@@ -77,7 +103,7 @@ Referring to the same paper, a similar approach could be useful. First evaluate 
 The results showed that the estimation error is less than 3 - 3.5 m depending on the characteristics of the environment but using a Kalman filter the error is within 2 - 2.5 m. However, it's very interesting to note that when the error is within 3 m both raw data and Kalman filter have similar performance, therefor if users maintain a comparable distance from the piece of art they want to observe, the implementation of the filter is not needed.<br/>
 Similar tests can be conducted on our system, by placing the boards in a specific topology and see if the system can recognize which is the closest while the smartphone is moving.<br/>
 
-A quick note about the Kalman filter: if needed, a way to implement one in Python can be found in this paper: ([Implementation of Kalman Filter with Python Language](/src/evaluation/Kalman_paper.pdf)).
+A quick note about the Kalman filter: if needed, a way to implement one in Python can be found in this paper: [Implementation of Kalman Filter with Python Language](/src/evaluation/Kalman_paper.pdf).
 
 ### Backend
 Our backend code quality will be tested with [CodeCity](https://wettel.github.io/codecity.html). It is a very simple tool that allows to check the most common software metrics in a new way in which software systems are visualized as interactive, navigable 3D cities. The classes are represented as buildings in the city, while the packages are depicted as the districts in which the buildings reside. The more the city is well structured, the higher the code quality is. Further evaluations will be provided [here](src/evaluation/MuSa_criteria.pdf).

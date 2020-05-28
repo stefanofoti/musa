@@ -7,9 +7,8 @@ This application needs a lot of components to work properly. The three main part
 - the interaction between the client on the smartphone and the backend on the cloud<br/>
 - cloud services, which comprehend also a machine learning algorithm<br/>
 <br/>
-Near every piece of art, there is a board, which communicates with the user's phone to understand how much time he spends near it. The data are sent to the cloud platform to be stored and elaborated. A machine learning algorithm creates customized tours according to the
-information collected and on the reports generated for each user at the end of the visit. The user's smartphone is connected with the backend to
-provide interaction with the visitor.<br/>
+Near every piece of art or cluster of artworks, there is a board, which communicates with the user's phone to understand how much time he spends near it. The data are sent to the cloud platform to be stored and elaborated. A machine learning algorithm creates customized tours according to the
+information collected and on the reports generated for each user at the end of the visit. The user's smartphone is connected with the backend to provide interaction with the visitor.<br/>
 
 ## Architecture and components
 
@@ -19,19 +18,22 @@ The architecture is the following:<br/>
 
 ### List
 #### Hardware
-- STM-Nucleo boards (x pieces of art (or cluster of artworks) + 1)<br/>
+- STM-Nucleo boards (x pieces of art or cluster of artworks)<br/>
+- 2 Raspberry Pi boards (1 to be the gateway, the other for backup)<br/>
 - Wi-Fi and BLE hardware for STM-Nucleo<br/>
 - user smartphone<br/>
 
 #### Software
 - Azure Cloud Platform:<br/>
+  - Azure Event Hub<br/>
   - Azure IoT Hub<br/>
   - Azure Database<br/>
   - Azure Machine Learning<br/>
   - Azure Web App Service Plan<br/>
 - Google Docs<br/>
 - RIOT OS
-- Angular
+- Python
+- Angular and Bootstrap
 
 #### Technologies
 - Bluetooth Low Energy (BLE)<br/>
@@ -40,11 +42,15 @@ The architecture is the following:<br/>
 
 ### Sensor network
 
-The boards we decided to use are STM-Nucleo, one near each piece of art or cluster of artworks, and the user's smartphone communicates with them via Bluetooth Low Energy (BLE). In the museum there is also a main board that serves as a gateway, to forward the data collected to the cloud structure.<br/>
+The boards we decided to use are STM-Nucleo, one near each piece of art or cluster of artworks, and the user's smartphone communicates with them via Bluetooth Low Energy (BLE). In the museum there is also a Raspberry Pi board that serves as a gateway, to forward the data collected to the cloud structure.<br/>
+We decided to use a Raspberry Pi because we needed a little more power and memory to execute the following tasks: connect to Azure and forward data to it (quite complex for an STM-Nucleo due to keys you would need to store and manage for authentication) and do some pre-processing of raw messages.<br/>
+We noticed that we didn't need to have a single STM-Nucleo board near each piece of art: if there are some artworks that are very close to each other, we can treat them as a single artwork. In fact, what we really need to do is proximity detection, that is, understand the pieces of art which are nearest to the user in real time to provide him valuable and funny information about them, and to understand if he's following the tour proposed by MuSa.<br/>
 
 ![image](src/architecture/Sensor_network_architecture.png)
 
-The main idea is the following: the user's smartphone sends BLE beacons periodically, and the boards are able to detect them. A board sends every second a message to the gateway STM-Nucleo via MQTT-SN with the data contained in the beacons received. The main board does some pre-processing and then sends a message every 5 seconds to the cloud through an MQTT channel. This is a report about the pieces of art each user looked at for the past 5 seconds. Here there is an example:<br/>
+#### About the messages
+
+The main idea is the following: the user's smartphone sends BLE beacons periodically, and the boards are able to detect them. A board sends every second a message to the gateway Raspberry via MQTT-SN with the data contained in the beacons received. The main board does some pre-processing and then sends a message every 5 seconds to the cloud through an MQTT channel. This is a report about the pieces of art each user looked at for the past 5 seconds. Here there is an example:<br/>
 
 {<br/>
 &nbsp;"timestamp":"2020-2xxx",<br/>
@@ -58,32 +64,32 @@ The main idea is the following: the user's smartphone sends BLE beacons periodic
 &nbsp;&nbsp;}]<br/>
 }<br/>
 
-the format is similar to a JSON object. Each message has a timestamp and a list, which contains, for each element, the id of the user (his MAC address sent with the BLE beacon) and a tuple "artworks". In this tuple in every cell is stored the id of the piece of art the user was observing at that second. Note that it is made of 5 cells, because the gateway board collects the data about the beacons sent by the other boards, puts them together, and generates this report that contains what the users did in these 5 seconds.<br/>
+and it's a JSON object. Each message has a timestamp and a list, which contains, for each element, the id of the user (his MAC address sent with the BLE beacon) and a tuple "artworks". In this tuple in every cell is stored the id of the piece of art the user was observing at that second. Note that it is made of 5 cells, because the gateway board collects the data about the beacons sent by the other boards, puts them together, and generates this report that contains what the users did in these 5 seconds.<br/>
 
-##### About the main board
-Notice that we decided to use a main board as a gateway because, besides the fact that in this way we can send better pre-processed data, we can have a significant saving in terms of the number of messages sent. Think about the fact that the free plan of our cloud service, Microsoft Azure, provides 8000 messages-per-day; with a main board that sends a single message that groups all the messages received from every single board, considering 1 message every 5 seconds, MuSa can work about 11 hours. If every board sends each message by itself, the free plan will expire in a few minutes.
+##### About the main board's messages
+Notice that we decided to use a main board as a gateway because, besides the fact that in this way we can send better pre-processed data by doing some edge computing, we can have a significant saving in terms of the number of messages sent. Think about the fact that the free plan of our cloud service, Microsoft Azure, provides 8000 messages-per-day; with a main board that sends a single message that groups all the messages received from every single board, considering 1 message every 5 seconds, MuSa can work about 11 hours. If every board sends each message by itself, the free plan will expire in a few minutes.<br/>
+For reliability reasons (more details in the [Evaluation document](/Evaluation.md)), we decided to keep also another Raspberry board in hot standby: when the gateway forwards the report to the cloud, also this backup board receives it. If it doesn't receive any report for some time, it will assume that the main gateway has suffered a failure, and will take its place to avoid the stop of the service.<br/>
 
 ### Backend and smartphone front-end
 
-The backend of the application lives in the cloud and takes care of the interaction with the user's smartphone. MuSa accompanies the visitor,
-proposing him a personalized tour, providing information about the different artworks, and making sure he's enjoying the itinerary.<br/>
+The backend of the application lives in the cloud and takes care of the interaction with the user's smartphone. MuSa accompanies the visitor,proposing him a personalized tour, providing information about the different artworks, and making sure he's enjoying the itinerary.<br/>
 When the user arrives at the museum connects to the web app with his mobile and the application runs until the end of the visit. At the end of the tour, it asks the user to fill in a survey to provide feedback about the quality of the service. This answers are stored in a Google Document, in a way that makes them easily accessible to the machine learning algorithm.<br/>
 
 #### Keeping track of user's visit
 
-A message that arrives at the cloud from the gateway board is sent to the backend thanks to Azure's Event function. The application has for each user a Context, which is a database in the main memory, where the messages relative to that specific user are stored. Each time a new report arrives from the gateway board, for each user the application checks if there is a Context, if there isn't a new one is initialized. Corresponding to each user, there is a list of the pieces of art visited: for each piece of art there is also an integer that keeps track of the seconds a user has spent looking at that artwork.<br/>
+A message that arrives at the cloud from the gateway board is sent to the backend thanks to Azure's Event Hub. The application has for each user a record inside the DbContext, which is a database in the main memory, where the messages relative to that specific user are stored. Each time a new report arrives from the gateway board, for each user the application checks if there is a record, if there isn't a new one is initialized. Corresponding to each user, there is a list of the pieces of art visited: for each piece of art there is also an integer that keeps track of the seconds a user has spent looking at that artwork.<br/>
 The tuple corresponding to the user is inspected: if the last artwork visited according to the Context is the same as the one in the first cell of the tuple, the integer is increased by one, otherwise, a new element is appended to the list with the number 1 associated. Only the last element of the list can be updated.<br/>
 If the artwork in the second cell is the same as the one in the first cell, the integer of that specific piece of art is again increased by one, otherwise, a new element is initialized as before. There can be different elements of the list that have the same piece of art's id, but with a different integer value associated.<br/>
-For example, after receiving the message written above, two Contexts for the two users exist:<br/>
+For example, after receiving the message written above, two records for the two users exist:<br/>
 
-- Context 1:<br/>
+- Record 1:<br/>
   "id":"A1:B2:C3:D4:E5:F6",<br/>
   "list":[{<br/>
   &nbsp;"artwork_1":"3",<br/>
   &nbsp;"artwork_2":"2"<br/>
   &nbsp;}]<br/>
 
-- Context 2:<br/>
+- Record 2:<br/>
   "id":"A1:B2:C3:D4:E5:F7",<br/>
   "list":[{<br/>
   &nbsp;"artwork_2":"5"<br/>
@@ -103,9 +109,9 @@ If a new message like this arrives:<br/>
 &nbsp;&nbsp;}]<br/>
 }<br/>
 
-the Context would be updated in this way:<br/>
+the records would be updated in this way:<br/>
 
-- Context 1:<br/>
+- Record 1:<br/>
   "id":"A1:B2:C3:D4:E5:F6",<br/>
   "list":[{<br/>
   &nbsp;"artwork_1":"3",<br/>
@@ -113,14 +119,14 @@ the Context would be updated in this way:<br/>
   &nbsp;"artwork_1":"3"<br/>
   &nbsp;}]<br/>
 
-- Context 2:<br/>
+- Record 2:<br/>
   "id":"A1:B2:C3:D4:E5:F7",<br/>
   "list":[{<br/>
   &nbsp;"artwork_2":"10"<br/>
   &nbsp;}]<br/>
 
-Please notice that from Context 1 we can deduce that the user A1:B2:C3:D4:E5:F6 has returned near the artwork with id "1". Thanks to duplicates in the list we can have an understanding of the path the user is following while visiting the museum.<br/>
-When a user terminates its tour, the list corresponding to him is saved to the Google Doc that is the dataset for the machine learning algorithm, together with the profile of the user for further tuning of the tours (using this data we can understand which pieces of art were most liked by a specific type of user).<br/>
+Please notice that from Record 1 we can deduce that the user A1:B2:C3:D4:E5:F6 has returned near the artwork with id "1". Thanks to duplicates in the list we can have an understanding of the path the user is following while visiting the museum.<br/>
+When a user terminates his tour, the list corresponding to him is saved to the Google Doc that is the dataset for the machine learning algorithm, together with the profile of the user for further tuning of the tours (using this data we can understand which pieces of art were most liked by a specific type of user).<br/>
 
 #### Frontend
 
@@ -130,9 +136,8 @@ If a user wants to follow MuSa for a personalized tour, the application will pre
 ### Cloud
 
 It's a crowded place: here we can find the IoT Hub, our application code (backend and frontend) with its database and the machine learning algorithm.<br/>
-Azure Machine Learning takes as input the dataset saved on the Google Doc, elaborates them creating the tours for the different type of users (the personas we identified) and it pushes them into the database of the application. It runs as a batch.<br/>
-The database contains also information about the pieces of art and when the application needs to present the user a tour or details about an
-artwork, it will make a query to it.<br/>
+Azure Machine Learning takes as input the dataset saved on the Google Doc, elaborates it creating the tours for the different type of users (the personas we identified) and it pushes them into the database of the application. It runs as a batch.<br/>
+The database contains also information about the pieces of art and when the application needs to present the user a tour or details about an artwork, it will make a query to it.<br/>
 
 ### About the choice to use Bluetooth Low Energy
 

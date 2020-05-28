@@ -12,7 +12,7 @@ Obviously, the user can refuse both alternatives, and just visit the museum with
 
 ## How MuSa comes to life
 We thought about many commons issues that a visitor have when he visits a museum, such as:
-- limited time for take a full visit
+- limited time to take a full visit
 - meeting on his path of some pieces of arts that do not match with his interests
 - the desire of having more details about an opera, but at the same time he does not like to have a physical or audio guide for several reasons
 
@@ -33,7 +33,7 @@ Most tour modalities contain a fixed list of artworks, which is the same for eve
 
 The ambition of MuSa is precisely to relate these two aspects, the technological and interactive part with the on-site tour.
 
-The purpose of museums has shifted from merely providing static information of collections to providing personalized services to various visitors worldwide, in a way suiting visitors’ personal characteristics, goals, tasks and behaviours. Personalization enables changing “the museum monologue” into “a user-centered information dialog” between the museum and its visitors (Bowen and Filippini-Fantoni 2004). This interactive dialogue occurs not only in the real museum but also in the “virtual museum” (Schweibenz 1998) on the museum Web site. Museums are increasingly experimenting with and implementing more personalized and interactive services on their own Web sites. Visitors spend time on the museum Web sites, e.g. to discover interesting artworks, prepare a museum tour, or learn related knowledge about artworks. This brings a challenge for museums to provide a personalized and extended museum experience for visitors in an immersive museum environment, which includes both the virtual museum (online) and the real museum (on-site). [1].
+The purpose of museums has shifted from merely providing static information of collections to providing personalized services to various visitors worldwide, in a way suiting visitors’ personal characteristics, goals, tasks and behaviors. Personalization enables changing “the museum monologue” into “a user-centered information dialog” between the museum and its visitors (Bowen and Filippini-Fantoni 2004). This interactive dialogue occurs not only in the real museum but also in the “virtual museum” (Schweibenz 1998) on the museum Web site. Museums are increasingly experimenting with and implementing more personalized and interactive services on their own Web sites. Visitors spend time on the museum Web sites, e.g. to discover interesting artworks, prepare a museum tour, or learn related knowledge about artworks. This brings a challenge for museums to provide a personalized and extended museum experience for visitors in an immersive museum environment, which includes both the virtual museum (online) and the real museum (on-site). [1].
 
 ## About the interaction with artworks
 *Engaging visitors with the right information at the right time and with the most effective type of interaction during their museum experience is one of the crucial issues curators are keen to invest effort in to make visits enjoyable, memorable, and instructive for their varied audience* [2].
@@ -46,11 +46,11 @@ The interaction can also make the experiences different from each other because 
 
 ## About the beacons in museums
 The interaction with MuSa will be based on beacons.
-Beacons are widely used in smart museum. We can report some famous museums that used them in their interactive expositions [3]:
+Beacons are widely used in smart museums. We can report some famous museums that used them in their interactive expositions [3]:
 
 - *Sydney Art Project*: Kaldor Public Art Projects along with Australian artist Jonathan Jones created an exhibition entitled “Barrangal Dyara" [4], to share and educate about aboriginal culture. The mobile app delivered content at specific locations, with push notifications sent when visitors came within range of beacons positioned at various points on the site of the 1882 fire. Signs and reminders about the need to enable Bluetooth were placed throughout the area, along with information about the availability of the app for anyone who wasn’t already aware of it. The feedback from guests was positive and the use of beacons to power the app that supplemented the display has drawn praise.
 
-- *The Groninger Museum*: the Groninger Museum is the first museum in the Netherlands where beacons have been implemented. The technology is available in the exhibition “The Collection”, from March 29, 2014, onwards. It is used to send interactive content on artworks to visitors using the app. Visitors who do not have a compatible smartphone or tablet can rent these at the museum so that they have access to interactive media. Thanks to this application, the visitor has access to additional video and audio clips, background information and detailed photos of the artworks. A mix of interactive media excites, amazes and inspires a unique experience.
+- *The Groninger Museum*: the Groninger Museum is the first museum in the Netherlands where beacons have been implemented. The technology is available in the exhibition “The Collection”, from March 29, 2014, onwards. It is used to send interactive content on artworks to visitors using the app. Visitors who do not have a compatible smartphone or tablet can rent these at the museum so that they have access to interactive media. Thanks to this application, the visitor has access to additional video and audio clips, background information, and detailed photos of the artworks. A mix of interactive media excites, amazes, and inspires a unique experience.
 
 - *New Museum in New York City*: for the UN’s International Day for Mine Awareness and Assistance in Mine Action on April 4th, New Museum in New York City hosted an exhibit that used iBeacons to simulate a virtual minefield and let anyone experience the danger of landmines. Visitors were required to download the Sweeper app. Using beacons, the Sweeper app detected transmitters hidden behind the exhibits. When a person came too close to a transmitter, it acted as a landmine and detonated, filling the user’s headphones with a jarring explosion followed by an audio testimony of someone’s actual experience. This was inarguably the most unique use of beacons one has seen so far.
 
