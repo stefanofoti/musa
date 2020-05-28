@@ -26,7 +26,6 @@ To measure the users' appreciation we are going to use the following UXEMs (User
 
 - an _Episode_ method: at the end of the visit the user will be asked to fill a short survey about his experience. This questionnaire can be implemented using also the AttrakDiff tool (_Link_: http://www.attrakdiff.de/index-en.html).<br/>
 
-<<<<<<< HEAD
 ### Users' feedback
 
 During the developement process we're keeping track of the opinions of the users to understand if we're effectively building something of value. In particular, the following results of the surveys we made are quite encouraging.<br/>
@@ -49,7 +48,7 @@ Looking at the next graph, we can be reassured on the fact that we're catching t
 
 We're also taking into account our user's opinion to build an interface which can be to their liking:<br/>
 
-![image](src/evaluation/survey_results/Colors.png)
+![image](src/evaluation/survey_results/Color.png)
 
 Through one of our questionnaires, we got the opinion of Giulia: *"I like the fact that I can obtain more information about an artwork, or the basic info, on my smartphone because the labels of the operas are often crowded or written in a too-small font"*
 
