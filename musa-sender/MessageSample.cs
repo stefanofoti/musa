@@ -13,6 +13,11 @@ namespace sender_cs
     {
         private static Random s_randomGenerator;
         private DeviceClient _deviceClient;
+        private string _dataBuffer;
+
+        public void setText(string dataBuffer){
+            _dataBuffer = dataBuffer;
+        }
 
         public MessageSample(DeviceClient deviceClient)
         {
@@ -25,10 +30,8 @@ namespace sender_cs
         }
 
         private async Task SendEvent(){
-            string dataBuffer;
-            dataBuffer = "{\"timestamp\":\"2020-2xxx\",\"users\":[{\"mac\":\"A1:B2:C3:D4:E5:F6\",\"artworks\":[\"1\",\"1\",\"1\",\"2\",\"2\"]},{\"mac\":\"A1:B2:C3:D4:E5:F7\",\"artworks\":[\"2\",\"2\",\"2\",\"2\",\"2\"]}]}";
-            Message eventMessage = new Message(Encoding.UTF8.GetBytes(dataBuffer));
-            Console.WriteLine("Sending message " + dataBuffer);
+            Message eventMessage = new Message(Encoding.UTF8.GetBytes(_dataBuffer));
+            Console.WriteLine("Sending message " + _dataBuffer);
             await _deviceClient.SendEventAsync(eventMessage).ConfigureAwait(false);
         }
     }
