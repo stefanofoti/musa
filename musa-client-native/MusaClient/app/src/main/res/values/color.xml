@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--Mix-->
+    <color name="primary">#00BCD4</color>
+    <color name="primary_dark">#0097A7</color>
+    <color name="accent">#ffc107</color>
+    <color name="accent_dark">#FFC107</color>
+
+
+    <!-- *********************************************
+                STILE BOTTONI
+     ********************************************* -->
+    <color name="bottone_normale">@color/accent</color>
+    <color name="bottone_selezionato">@color/accent_dark</color>
+    <color name="bottone_disabilitato">#BDBDBD</color>
+
+</resources>

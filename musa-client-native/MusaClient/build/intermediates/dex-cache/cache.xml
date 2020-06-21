@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Stefano\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="C:\Users\Stefano\Desktop\musaclient\MusaClient\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1_1724aa1ce642fd75a9ae51f0a2cd6613ffb040fc.jar" />
+    </item>
+    <item
+        jar="C:\Users\Stefano\Desktop\musaclient\MusaClient\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="C:\Users\Stefano\Desktop\musaclient\MusaClient\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-22.2.1_55317e443c6c8edac586a20ef8843704ceeeb36c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Stefano\Desktop\musaclient\MusaClient\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="C:\Users\Stefano\Desktop\musaclient\MusaClient\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1_93ec27f9aec338d2b3ff2d48eb73d8cfb8876583.jar" />
+    </item>
+    <item
+        jar="C:\Users\Stefano\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.2.4\a60a5e993c98c864010053cb901b7eab25306568\gson-2.2.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="C:\Users\Stefano\Desktop\musaclient\MusaClient\app\build\intermediates\pre-dexed\debug\gson-2.2.4_a4d4b09fe3ad1104e5391734ffd77a78ed3889c6.jar" />
+    </item>
+    <item
+        jar="C:\Users\Stefano\Desktop\musaclient\MusaClient\app\build\intermediates\exploded-aar\com.android.support\design\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1821601ddbec5ff125653097812823388700af74">
+        <dex dex="C:\Users\Stefano\Desktop\musaclient\MusaClient\app\build\intermediates\pre-dexed\debug\com.android.support-design-22.2.1_a9fa161f55ab3b2485371cf6bbead9b947a97105.jar" />
+    </item>
+    <item
+        jar="C:\Users\Stefano\Desktop\musaclient\MusaClient\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="C:\Users\Stefano\Desktop\musaclient\MusaClient\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-22.2.1_74e0318130b32f2f7255694a7b213e3e82d4bfda.jar" />
+    </item>
+
+</items>
