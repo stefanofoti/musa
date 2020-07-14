@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MuSa</string>
+    <string name="welcome_muser">Hello Muser!</string>
+    <string name="welcome_button">MEET MUSA</string>
+    <string name="welcome_text">MuSa wants to take you on a journey across the museum!\nAre you ready for adventure?</string>
+    <string name="survey_start_text">Tell us something about you!</string>
+    <string name="survey_age">I am (x) years old</string>
+    <string name="survey_age_hint">x</string>
+    <string name="survey_gender">I am</string>
+    <string name="survey_gender_female_button">Female</string>
+    <string name="survey_gender_male_button">Male</string>
 </resources>

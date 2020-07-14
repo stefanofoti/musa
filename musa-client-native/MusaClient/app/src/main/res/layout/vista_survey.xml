@@ -10,51 +10,75 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/surveyStartText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:text="Question 1"/>
-
-        <EditText
-            android:id="@+id/campoPrimo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:ems="10"
-            android:hint="hint 1"
-            android:inputType="textPersonName"
-            android:text="asd" />
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginBottom="10sp"
+            android:text="@string/survey_start_text"
+            android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/surveyAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:text="Question 2"/>
+            android:layout_marginRight="10dp"
+            android:text="@string/survey_age" />
 
         <EditText
-            android:id="@+id/campoSecondo"
+            android:id="@+id/surveyAgeInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:ems="10"
-            android:hint="hint 2"
-            android:text="asdaasd"/>
+            android:hint="@string/survey_age_hint"
+            android:inputType="number"
+            android:maxLength="2" />
+
+        <TextView
+            android:id="@+id/survey_gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/survey_gender" />
+
+        <RadioGroup
+            android:id="@+id/selectGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="10sp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/femaleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/survey_gender_female_button" />
+
+            <RadioButton
+                android:id="@+id/maleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:text="@string/survey_gender_male_button" />
+        </RadioGroup>
 
         <Switch
             android:id="@+id/switchTour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
             android:ems="10"
             android:text="Use musa" />
 
@@ -63,10 +87,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
             android:ems="10"
             android:text="Collect tour data" />
+
         <Button
             android:id="@+id/bottoneSubmitSurvey"
             android:layout_width="match_parent"
