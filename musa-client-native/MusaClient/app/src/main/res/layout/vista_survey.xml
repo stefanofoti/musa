@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="10sp"
+    android:layout_marginStart="10sp"
     android:layout_marginTop="10sp"
     android:fillViewport="true">
 
@@ -54,7 +55,7 @@
             android:text="@string/survey_gender" />
 
         <RadioGroup
-            android:id="@+id/selectMovie"
+            android:id="@+id/selectGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10sp"
@@ -66,6 +67,7 @@
                 android:id="@+id/femaleButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onRadioButtonGenderClicked"
                 android:text="@string/survey_gender_female_button" />
 
             <RadioButton
@@ -73,6 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20sp"
+                android:layout_marginStart="20sp"
                 android:text="@string/survey_gender_male_button" />
         </RadioGroup>
 
@@ -86,7 +89,7 @@
             android:text="@string/survey_movie_choice" />
 
         <RadioGroup
-            android:id="@+id/selectGender"
+            android:id="@+id/selectMovie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10sp"
@@ -94,71 +97,78 @@
             android:layout_marginRight="10sp"
             android:orientation="vertical">
 
-            <ImageButton
+            <RadioButton
                 android:id="@+id/marieAntoinetteButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
-                android:backgroundTint="@color/material_blue_grey_800"
-                android:src="@drawable/marie_antoniette_movie_poster" />
+                android:layout_marginLeft="20sp"
+                android:layout_marginStart="20sp"
+                android:onClick="onRadioButtonMovieClicked"
+                android:background="@drawable/marie_antoniette_movie_poster" />
 
             <TextView
                 android:id="@+id/textMovieMarieantoinette"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
+                android:layout_marginStart="20sp"
                 android:layout_marginBottom="10sp"
                 android:layout_weight="1"
                 android:text="@string/text_movie_marie_antoniette" />
 
-            <ImageButton
+            <RadioButton
                 android:id="@+id/enemyAtTheGatesButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:backgroundTint="@color/material_blue_grey_800"
-                android:src="@drawable/enemy_at_the_gate_movie_poster" />
+                android:layout_marginLeft="20sp"
+                android:layout_marginStart="20sp"
+                android:onClick="onRadioButtonMovieClicked"
+                android:background="@drawable/enemy_at_the_gate_movie_poster" />
 
             <TextView
                 android:id="@+id/textMovieEnemyAtTheGates"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
+                android:layout_marginStart="20sp"
                 android:layout_marginBottom="10sp"
                 android:layout_weight="1"
                 android:text="@string/survey_text_movie_enemy_at_the_gates" />
 
-            <ImageButton
+            <RadioButton
                 android:id="@+id/captainAmericaButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:backgroundTint="@color/material_blue_grey_800"
-                android:src="@drawable/captain_america_movie_poster" />
+                android:layout_marginLeft="20sp"
+                android:layout_marginStart="20sp"
+                android:onClick="onRadioButtonMovieClicked"
+                android:background="@drawable/captain_america_movie_poster" />
 
             <TextView
                 android:id="@+id/textMovieCaptainAmerica"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
+                android:layout_marginStart="20sp"
                 android:layout_marginBottom="10sp"
                 android:layout_weight="1"
                 android:text="@string/survey_text_movie_captain_america" />
 
-            <ImageButton
+            <RadioButton
                 android:id="@+id/spiritedAwayButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:backgroundTint="@color/material_blue_grey_800"
-                android:src="@drawable/spirited_away_movie_poster" />
+                android:layout_marginLeft="20sp"
+                android:layout_marginStart="20sp"
+                android:onClick="onRadioButtonMovieClicked"
+                android:background="@drawable/spirited_away_movie_poster" />
 
             <TextView
                 android:id="@+id/texMovieSpiritedAway"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
+                android:layout_marginStart="20sp"
                 android:layout_marginBottom="10sp"
                 android:layout_weight="1"
                 android:text="@string/survey_text_movie_spirited_away" />
@@ -185,29 +195,32 @@
             android:layout_marginRight="10sp"
             android:orientation="vertical">
 
-            <ImageButton
+            <RadioButton
                 android:id="@+id/normalArtButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:backgroundTint="@color/material_blue_grey_800"
-                android:src="@drawable/mona_lisa_normal_art_style" />
+                android:layout_marginLeft="20sp"
+                android:layout_marginStart="20sp"
+                android:onClick="onRadioButtonArtStyleClicked"
+                android:background="@drawable/mona_lisa_normal_art_style" />
 
-            <ImageButton
+            <RadioButton
                 android:id="@+id/cubaLisaArtStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:backgroundTint="@color/material_blue_grey_800"
-                android:src="@drawable/cuba_lisa_art_style" />
+                android:layout_marginLeft="20sp"
+                android:layout_marginStart="20sp"
+                android:onClick="onRadioButtonArtStyleClicked"
+                android:background="@drawable/cuba_lisa_art_style" />
 
-            <ImageButton
+            <RadioButton
                 android:id="@+id/legoLisaArtStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:backgroundTint="@color/material_blue_grey_800"
-                android:src="@drawable/lego_lisa_art_style" />
+                android:layout_marginLeft="20sp"
+                android:layout_marginStart="20sp"
+                android:onClick="onRadioButtonArtStyleClicked"
+                android:background="@drawable/lego_lisa_art_style" />
 
         </RadioGroup>
 
@@ -234,18 +247,21 @@
                 android:id="@+id/halfHourButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onRadioButtonTimeClicked"
                 android:text="@string/survey_half_hour_time_button" />
 
             <RadioButton
-                android:id="@+id/HourButton"
+                android:id="@+id/hourButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onRadioButtonTimeClicked"
                 android:text="@string/survey_hour_button" />
 
             <RadioButton
                 android:id="@+id/moreHoursButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onRadioButtonTimeClicked"
                 android:text="@string/survey_hour_button" />
 
         </RadioGroup>
@@ -272,7 +288,7 @@
             android:text="@string/survey_data_collection_consent" />
 
         <Button
-            android:id="@+id/bottoneSubmitSurvey"
+            android:id="@+id/submitSurveyButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"

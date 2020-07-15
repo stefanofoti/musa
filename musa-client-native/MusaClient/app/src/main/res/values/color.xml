@@ -12,8 +12,8 @@
     <!-- *********************************************
                 STILE BOTTONI
      ********************************************* -->
-    <color name="bottone_normale">@color/accent</color>
-    <color name="bottone_selezionato">@color/accent_dark</color>
+    <color name="bottone_normale">@color/primary</color>
+    <color name="bottone_selezionato">@color/primary</color>
     <color name="bottone_disabilitato">#BDBDBD</color>
 
 </resources>

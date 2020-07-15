@@ -1,8 +1,23 @@
 package it.musa.client.controllo;
 
+import android.os.AsyncTask;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.RadioButton;
+
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONObject;
+
+import java.io.DataOutputStream;
+import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
 
 import it.musa.client.Applicazione;
+import it.musa.client.R;
 import it.musa.client.activity.ActivitySurvey;
 import it.musa.client.vista.VistaSurvey;
 
@@ -15,13 +30,101 @@ public class ControlloSurvey {
     }
 
     //////////////////////////////////////////
-    private class AzioneSubmit implements View.OnClickListener {
+    private static class AzioneSubmit implements View.OnClickListener {
 
         @Override
         public void onClick(View v) {
 
-
+            // When the user presses "LET'S GO" the app tries to send the data of the survey to the server
+            try {
+                sendFormData();
+            // Catch errors
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
 
+        // Function to store the data of the form and to send it to the server
+        public void sendFormData() {
+
+           // Get the current Activity with the view
+           ActivitySurvey activitySurvey = (ActivitySurvey) Applicazione.getInstance().getCurrentActivity();
+           VistaSurvey vistaSurvey = activitySurvey.getVistaLogin();
+
+           // Get data from the view
+           String ageValue = vistaSurvey.getAgeEditText().getText().toString();
+
+           String genderValue = activitySurvey.getGenderValue();
+           String movieValue = activitySurvey.getMovieValue();
+           String artStyleValue = activitySurvey.getArtStyleValue();
+           String timeValue = activitySurvey.getTimeValue();
+
+           String useMusa = (vistaSurvey.getSwitchTour().isChecked()) ? "Y" : "N";
+           String collectData = (vistaSurvey.getSwitchCollecting().isChecked()) ? "Y" : "N";
+
+           // POST data (first check if all the fields of the survey are filled)
+           if (ageValue != null && genderValue != null && movieValue != null && artStyleValue != null && timeValue != null && collectData.equals("Y")) {
+               new PostData().execute(ageValue, genderValue, movieValue, artStyleValue, timeValue, useMusa, collectData);
+           } else {
+               // Show a message to the user
+               activitySurvey.mostraMessaggioErrore("Please fill all the fields in the survey");
+
+               // Debug
+               Log.i("ageValue", ageValue);
+               Log.i("genderValue", genderValue);
+               Log.i("movieValue", movieValue);
+               Log.i("artStyleValue", artStyleValue);
+               Log.i("timeValue", timeValue);
+               Log.i("collectDataValue", collectData);
+           }
+
+        }
+    }
+
+    // Class that sends the POST request to the backend on Azure
+    private static class PostData extends AsyncTask < String, Void, Void > {
+        @Override
+        protected Void doInBackground(String... params) {
+            try {
+
+                // Set up the connection
+                URL url = new URL("www.google.it");
+                HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+                conn.setRequestMethod("POST");
+                conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+                conn.setRequestProperty("Accept","application/json");
+                conn.setDoOutput(true);
+                conn.setDoInput(true);
+
+                // Prepare JSON data to be sent
+                JSONObject jsonParam = new JSONObject();
+                jsonParam.put("ageValue", params[0]);
+                jsonParam.put("genderValue", params[1]);
+                jsonParam.put("movieValue", params[2]);
+                jsonParam.put("artStyleValue", params[3]);
+                jsonParam.put("timeValue", params[4]);
+                jsonParam.put("useMusa", params[5]);
+                jsonParam.put("collectData", params[6]);
+
+                // Log the JSON object to see if everything is fine
+                Log.i("JSON", jsonParam.toString());
+
+                // Send the data
+                DataOutputStream outputStream = new DataOutputStream(conn.getOutputStream());
+                outputStream.writeBytes(jsonParam.toString());
+                outputStream.flush();
+                outputStream.close();
+
+                // Other logs to see if everything went fine
+                Log.i("STATUS", String.valueOf(conn.getResponseCode()));
+                Log.i("MESSAGE", conn.getResponseMessage());
+
+                // Close connection
+                conn.disconnect();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
     }
 }
