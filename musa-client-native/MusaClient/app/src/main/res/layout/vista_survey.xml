@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="10sp"
+    android:layout_marginTop="10sp"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,7 +54,7 @@
             android:text="@string/survey_gender" />
 
         <RadioGroup
-            android:id="@+id/selectGender"
+            android:id="@+id/selectMovie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10sp"
@@ -72,6 +76,180 @@
                 android:text="@string/survey_gender_male_button" />
         </RadioGroup>
 
+        <TextView
+            android:id="@+id/surveyMovieChoice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="10sp"
+            android:text="@string/survey_movie_choice" />
+
+        <RadioGroup
+            android:id="@+id/selectGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="10sp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/marieAntoinetteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:backgroundTint="@color/material_blue_grey_800"
+                android:src="@drawable/marie_antoniette_movie_poster" />
+
+            <TextView
+                android:id="@+id/textMovieMarieantoinette"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginBottom="10sp"
+                android:layout_weight="1"
+                android:text="@string/text_movie_marie_antoniette" />
+
+            <ImageButton
+                android:id="@+id/enemyAtTheGatesButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:backgroundTint="@color/material_blue_grey_800"
+                android:src="@drawable/enemy_at_the_gate_movie_poster" />
+
+            <TextView
+                android:id="@+id/textMovieEnemyAtTheGates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginBottom="10sp"
+                android:layout_weight="1"
+                android:text="@string/survey_text_movie_enemy_at_the_gates" />
+
+            <ImageButton
+                android:id="@+id/captainAmericaButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:backgroundTint="@color/material_blue_grey_800"
+                android:src="@drawable/captain_america_movie_poster" />
+
+            <TextView
+                android:id="@+id/textMovieCaptainAmerica"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginBottom="10sp"
+                android:layout_weight="1"
+                android:text="@string/survey_text_movie_captain_america" />
+
+            <ImageButton
+                android:id="@+id/spiritedAwayButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:backgroundTint="@color/material_blue_grey_800"
+                android:src="@drawable/spirited_away_movie_poster" />
+
+            <TextView
+                android:id="@+id/texMovieSpiritedAway"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginBottom="10sp"
+                android:layout_weight="1"
+                android:text="@string/survey_text_movie_spirited_away" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/surveyArtStyleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginBottom="10sp"
+            android:layout_weight="1"
+            android:text="@string/survey_art_style_text" />
+
+        <RadioGroup
+            android:id="@+id/selectArtStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="10sp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/normalArtButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:backgroundTint="@color/material_blue_grey_800"
+                android:src="@drawable/mona_lisa_normal_art_style" />
+
+            <ImageButton
+                android:id="@+id/cubaLisaArtStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:backgroundTint="@color/material_blue_grey_800"
+                android:src="@drawable/cuba_lisa_art_style" />
+
+            <ImageButton
+                android:id="@+id/legoLisaArtStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:backgroundTint="@color/material_blue_grey_800"
+                android:src="@drawable/lego_lisa_art_style" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/surveyTimeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_weight="1"
+            android:text="@string/survey_time_text" />
+
+        <RadioGroup
+            android:id="@+id/selectTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="10sp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/halfHourButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/survey_half_hour_time_button" />
+
+            <RadioButton
+                android:id="@+id/HourButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/survey_hour_button" />
+
+            <RadioButton
+                android:id="@+id/moreHoursButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/survey_hour_button" />
+
+        </RadioGroup>
+
         <Switch
             android:id="@+id/switchTour"
             android:layout_width="match_parent"
@@ -80,7 +258,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:ems="10"
-            android:text="Use musa" />
+            android:text="@string/survey_use_musa_services"
+            tools:layout_marginRight="10sp" />
 
         <Switch
             android:id="@+id/switchCollecting"
@@ -90,7 +269,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:ems="10"
-            android:text="Collect tour data" />
+            android:text="@string/survey_data_collection_consent" />
 
         <Button
             android:id="@+id/bottoneSubmitSurvey"
@@ -99,6 +278,9 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
-            android:text="Submit" />
+            android:layout_marginBottom="20sp"
+            android:background="@color/primary"
+            android:text="@string/survey_submit_button_text" />
+
     </LinearLayout>
 </ScrollView>

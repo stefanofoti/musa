@@ -9,4 +9,17 @@
     <string name="survey_gender">I am</string>
     <string name="survey_gender_female_button">Female</string>
     <string name="survey_gender_male_button">Male</string>
+    <string name="survey_movie_choice">Which movie would you like to watch?</string>
+    <string name="text_movie_marie_antoniette">Marie Antoinette è un film del 2006 diretto da Sofia Coppola.  La pellicola rilegge in chiave pop la vita di corte di Maria Antonietta, sposa di Luigi XVI, re di Francia, dal suo difficile ingresso a Versailles nella primavera del 1770 sino allo scoppio della rivoluzione e al suo trasferimento al Palazzo delle Tuileries il 6 ottobre 1789.</string>
+    <string name="survey_text_movie_enemy_at_the_gates">Enemy at the Gates (French: L\'Ennemi aux portes) is a 2001 war film directed, co-written and produced by Jean-Jacques Annaud, based on William Craig\'s 1973 nonfiction book Enemy at the Gates: The Battle for Stalingrad, which describes the events surrounding the Battle of Stalingrad in the winter of 1942 and 1943. The screenplay was written by Annaud and Alain Godard. The film\'s main character is a fictionalized version of sniper Vasily Zaytsev, a Hero of the Soviet Union during World War II.</string>
+    <string name="survey_text_movie_captain_america">Captain America: The First Avenger is a 2011 American superhero film based on the Marvel Comics character Captain America. Produced by Marvel Studios and distributed by Paramount Pictures, it is the fifth film in the Marvel Cinematic Universe (MCU).  During World War II, Steve Rogers, a sickly man, is transformed into the super-soldier Captain America and must stop the Red Skull from using the Tesseract as an energy-source for world domination.</string>
+    <string name="survey_text_movie_spirited_away">Spirited Away is a 2001 Japanese animated fantasy film written and directed by Hayao Miyazaki, animated by Studio Ghibli for Tokuma Shoten, Nippon Television Network, Dentsu, Buena Vista Home Entertainment, Tohokushinsha Film and Mitsubishi, and distributed by Toho. It tells the story of Chihiro Ogino (Hiiragi), a 10-year-old girl who, while moving to a new neighbourhood, enters the world of Kami (spirits) of Japanese Shinto folklore. After her parents are turned into pigs by the witch Yubaba (Natsuki), Chihiro takes a job working in Yubaba\'s bathhouse to find a way to free herself and her parents and return to the human world.</string>
+    <string name="survey_art_style_text">Which style do you like the most?</string>
+    <string name="survey_half_hour_time_button">Around 30 minutes</string>
+    <string name="survey_hour_button">1 - 2 hours</string>
+    <string name="survey_more_hours_time_button">More than 2 hours</string>
+    <string name="survey_time_text">How much time do you have?</string>
+    <string name="survey_use_musa_services">I want to follow MuSa on a customized tour!</string>
+    <string name="survey_data_collection_consent">I give my consent to collect data</string>
+    <string name="survey_submit_button_text">LET\'S GO!</string>
 </resources>
