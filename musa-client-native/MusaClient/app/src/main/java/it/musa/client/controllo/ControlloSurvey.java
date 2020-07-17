@@ -58,7 +58,9 @@ public class ControlloSurvey {
                 if (sendFormData(activitySurvey, ageValue, genderValue, movieValue, artStyleValue, timeValue, useMusa, collectData) == 0) {
                     if (useMusa == "Y") {
 
-                        //Start tour activity TODO
+                        //Start tour activity
+                        activitySurvey.mostraActivityTour();
+
                     } else {
 
                         // Start collect data activity
