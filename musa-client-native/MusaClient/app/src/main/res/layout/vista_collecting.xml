@@ -16,9 +16,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:text="Collecting thank you"
-            android:textColor="@color/accent"
-            android:textSize="18sp"/>
+            android:text="@string/collecting_text"
+            android:textColor="@color/primary"
+            android:textSize="24sp" />
 
 
     </LinearLayout>

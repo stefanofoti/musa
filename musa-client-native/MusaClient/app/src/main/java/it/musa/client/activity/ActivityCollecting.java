@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import it.musa.client.R;
+import it.musa.client.vista.VistaCollecting;
 
 public class ActivityCollecting extends AppCompatActivity {
 
@@ -16,6 +17,10 @@ public class ActivityCollecting extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collecting);
+    }
+
+    public VistaCollecting getVistaCollecting() {
+        return (VistaCollecting) getSupportFragmentManager().findFragmentById(R.id.vistaCollecting);
     }
 
 }

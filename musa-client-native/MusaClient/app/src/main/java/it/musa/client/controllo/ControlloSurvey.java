@@ -35,54 +35,69 @@ public class ControlloSurvey {
         @Override
         public void onClick(View v) {
 
+            // Get the current Activity with the view
+            ActivitySurvey activitySurvey = (ActivitySurvey) Applicazione.getInstance().getCurrentActivity();
+            VistaSurvey vistaSurvey = activitySurvey.getVistaLogin();
+
+            // Get data from the view
+            String ageValue = vistaSurvey.getAgeEditText().getText().toString();
+
+            String genderValue = activitySurvey.getGenderValue();
+            String movieValue = activitySurvey.getMovieValue();
+            String artStyleValue = activitySurvey.getArtStyleValue();
+            String timeValue = activitySurvey.getTimeValue();
+
+            String useMusa = (vistaSurvey.getSwitchTour().isChecked()) ? "Y" : "N";
+            String collectData = (vistaSurvey.getSwitchCollecting().isChecked()) ? "Y" : "N";
+
+            // Variable where the ID of the tour corresponding to the user will be stored
+            String tourID = "";
+
             // When the user presses "LET'S GO" the app tries to send the data of the survey to the server
             try {
-                sendFormData();
-            // Catch errors
+                if (sendFormData(activitySurvey, ageValue, genderValue, movieValue, artStyleValue, timeValue, useMusa, collectData) == 0) {
+                    if (useMusa == "Y") {
+
+                        //Start tour activity TODO
+                    } else {
+
+                        // Start collect data activity
+                        activitySurvey.mostraActivityCollecting();
+                    }
+                }
+                // Catch errors
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
         }
 
         // Function to store the data of the form and to send it to the server
-        public void sendFormData() {
+        public int sendFormData(ActivitySurvey activitySurvey, String ageValue, String genderValue, String movieValue, String artStyleValue, String timeValue, String useMusa, String collectData) {
 
-           // Get the current Activity with the view
-           ActivitySurvey activitySurvey = (ActivitySurvey) Applicazione.getInstance().getCurrentActivity();
-           VistaSurvey vistaSurvey = activitySurvey.getVistaLogin();
+            // POST data (first check if all the fields of the survey are filled)
+            //if (ageValue != null && genderValue != null && movieValue != null && artStyleValue != null && timeValue != null && collectData.equals("Y")) {
+            //new PostData().execute(ageValue, genderValue, movieValue, artStyleValue, timeValue, useMusa, collectData);
+            return 0;
+            //} else {
+            // Show a message to the user
+            //activitySurvey.mostraMessaggioErrore("Please fill all the fields in the survey");
 
-           // Get data from the view
-           String ageValue = vistaSurvey.getAgeEditText().getText().toString();
-
-           String genderValue = activitySurvey.getGenderValue();
-           String movieValue = activitySurvey.getMovieValue();
-           String artStyleValue = activitySurvey.getArtStyleValue();
-           String timeValue = activitySurvey.getTimeValue();
-
-           String useMusa = (vistaSurvey.getSwitchTour().isChecked()) ? "Y" : "N";
-           String collectData = (vistaSurvey.getSwitchCollecting().isChecked()) ? "Y" : "N";
-
-           // POST data (first check if all the fields of the survey are filled)
-           if (ageValue != null && genderValue != null && movieValue != null && artStyleValue != null && timeValue != null && collectData.equals("Y")) {
-               new PostData().execute(ageValue, genderValue, movieValue, artStyleValue, timeValue, useMusa, collectData);
-           } else {
-               // Show a message to the user
-               activitySurvey.mostraMessaggioErrore("Please fill all the fields in the survey");
-
-               // Debug
+               /* Debug
                Log.i("ageValue", ageValue);
                Log.i("genderValue", genderValue);
                Log.i("movieValue", movieValue);
                Log.i("artStyleValue", artStyleValue);
                Log.i("timeValue", timeValue);
-               Log.i("collectDataValue", collectData);
-           }
+               Log.i("collectDataValue", collectData);*/
+
+            //return 1;
 
         }
     }
+}
 
     // Class that sends the POST request to the backend on Azure
-    private static class PostData extends AsyncTask < String, Void, Void > {
+    /*private static class PostData extends AsyncTask < String, Void, Void > {
         @Override
         protected Void doInBackground(String... params) {
             try {
@@ -119,6 +134,14 @@ public class ControlloSurvey {
                 Log.i("STATUS", String.valueOf(conn.getResponseCode()));
                 Log.i("MESSAGE", conn.getResponseMessage());
 
+                // TODO
+
+                // Parse POST response to get the tour ID and save it
+                String tourID = ""; // Parse POST
+
+                // Save tourId to later use it
+                Applicazione.getInstance().getModello().putBean("tourID", tourID);
+
                 // Close connection
                 conn.disconnect();
             } catch (Exception e) {
@@ -127,4 +150,4 @@ public class ControlloSurvey {
             return null;
         }
     }
-}
+*/

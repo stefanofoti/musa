@@ -35,6 +35,11 @@ public class ActivitySurvey extends AppCompatActivity {
         return (VistaSurvey) getSupportFragmentManager().findFragmentById(R.id.vistaSurvey);
     }
 
+    public void mostraActivityCollecting() {
+        Intent intent = new Intent(this, ActivityCollecting.class);
+        startActivity(intent);
+    }
+
     // Get methods to return the values of the RadioGroup fields
     public String getGenderValue() {
         return genderValue;

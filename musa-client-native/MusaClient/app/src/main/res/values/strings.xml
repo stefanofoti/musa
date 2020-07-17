@@ -22,4 +22,5 @@
     <string name="survey_use_musa_services">I want to follow MuSa on a customized tour!</string>
     <string name="survey_data_collection_consent">I give my consent to collect data</string>
     <string name="survey_submit_button_text">LET\'S GO!</string>
+    <string name="collecting_text">Thank you for your collaboration!\n\nData collection is very important to improve our services.\n\nEnjoy the visit at the museum!</string>
 </resources>
