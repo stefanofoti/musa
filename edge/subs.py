@@ -9,6 +9,8 @@ import time
 trackingData = {}
 ts = 0;
 artworksTimeStamps = {};
+farRSSI = -100;
+defaultVariance = 2;
 
 def on_message(mqttc, obj, msg):
 	print("ricevuto: ", msg.payload)
@@ -52,7 +54,7 @@ def applyKalman(dataMap, aw):
 		if "variance" in userAwData:
 			variance = userAwData["variance"];
 		else:
-			variance = 2;
+			variance = defaultVariance;
 		rssiValues = dataMap[k];
 		[val, newVar] = kalmanCalc(rssiValues, variance, 4);
 		userAwData["variance"] = newVar;
@@ -91,17 +93,18 @@ def getClosest():
 	output = {};
 	for k in trackingData.keys():
 		artworksForUser = trackingData[k];
-		closest["rssi"] = -100;
+		closest["rssi"] = farRSSI;
 		for aw in artworksForUser.keys():
 			current = artworksForUser[aw];
 			if current['ts'] < artworksTimeStamps[aw]:
-				del artworksForUser[aw];
+				current['rssi'] = farRSSI;
+				#del artworksForUser[aw];
 			if current["rssi"] > closest["rssi"]:
 				closest["rssi"] = current["rssi"];
 				output[k] = aw;
 	return output;
 
-
+lock=False;
 mqttc = mqtt.Client()
 mqttc.on_message = on_message
 mqttc.on_subscribe = on_subscribe
