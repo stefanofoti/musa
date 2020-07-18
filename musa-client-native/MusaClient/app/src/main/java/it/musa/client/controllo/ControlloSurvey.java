@@ -105,7 +105,7 @@ public class ControlloSurvey {
             try {
 
                 // Set up the connection
-                URL url = new URL("www.google.it");
+                URL url = new URL("azurePostSurveyURL");
                 HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
