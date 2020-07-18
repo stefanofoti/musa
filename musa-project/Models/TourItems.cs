@@ -9,6 +9,7 @@ namespace MuSa.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
+        public string BeaconID { get; set; }
         public string ArtworkId { get; set; }
         public double Time { get; set; }
         

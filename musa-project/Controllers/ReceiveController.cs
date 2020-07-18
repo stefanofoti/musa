@@ -1,9 +1,3 @@
-// Copyright (c) Microsoft. All rights reserved.
-// Licensed under the MIT license. See LICENSE file in the project root for full license information.
-
-// This application uses the Microsoft Azure Event Hubs Client for .NET
-// For samples see: https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet
-// For documenation see: https://docs.microsoft.com/azure/event-hubs/
 using System;
 using Microsoft.Azure.EventHubs;
 using System.Threading.Tasks;
@@ -44,7 +38,7 @@ namespace MuSa.Controllers
         
         // az iot hub policy show --name service --query primaryKey --hub-name {your IoT Hub name}
         private readonly static string s_iotHubSasKey = "";
-        private readonly static string s_iotHubSasKeyName = "service";
+        private readonly static string s_iotHubSasKeyName = "";
         private static EventHubClient s_eventHubClient;
 
         // Asynchronously create a PartitionReceiver for a partition and then start 
@@ -107,20 +101,25 @@ namespace MuSa.Controllers
 
                 //dynamic data = Json.Decode(message);
                 dynamic data = JObject.Parse(message);
-                Console.WriteLine("Message parsed with timestamp: " + data.timestamp);string timestamp = data.timestamp;
+                Console.WriteLine("Message parsed with timestamp: " + data.timestamp);
+                string timestamp = data.timestamp;
                 foreach (dynamic user in data.users)
                 {
                     Console.WriteLine("Adding message...");
-                    string mac = user.mac;
+                    string id = user.id;
+                    Console.WriteLine("Looking for visitor with id: " + id);
                     var visitor = context.Visitors.Include(visitor => visitor.Tours)
-                        .Where(v => v.Mac == mac)
+                        .Where(v => v.BeaconID == id)
                         .FirstOrDefault();
                     Console.WriteLine("Visitor found: " + visitor);
                     if(visitor == null)
                     {
                         Console.WriteLine("Creating new visitor...");
-                        visitor = new Visitor { Mac = mac };
+                        visitor = new Visitor { BeaconID = id };
                         context.Visitors.Add(visitor);
+                    }
+                    if(user.artworks==null){
+                        //return;
                     }
                     string[] artworks = user.artworks.ToObject<string[]>();                    
                     foreach(var artId in artworks)
@@ -140,27 +139,6 @@ namespace MuSa.Controllers
                 context.SaveChanges();
             }
 
-            //Console.WriteLine("+-- adding a visitor...");
-            //Console.WriteLine("+-- adding...");
-            //Visitor v1 = new Visitor { Mac = "A1:A1:A1:B2:B2:B2" };
-            //TourItem item1a = new TourItem{ArtworkId = "ID1", Time = 3};
-            //TourItem item2a = new TourItem{ArtworkId = "ID2", Time = 6};
-            //TourItem item3a = new TourItem{ArtworkId = "ID3", Time = 2};
-            //v1.Tours=new List<TourItem>();
-            //v2.Tours=new List<TourItem>();
-            //v1.Tours.Add(item1a);
-            //v1.Tours.Add(item2a);
-            //v1.Tours.Add(item3a);
-            /*using (var scope = _serviceScopeFactory.CreateScope())
-            {
-                MusaContext context = scope.ServiceProvider.GetService<MusaContext>();
-                //context.Visitors
-                context.Visitors.Add(v1);
-                context.TourItems.Add(item1a);
-                context.TourItems.Add(item2a);
-                context.TourItems.Add(item3a);
-                context.SaveChanges();
-            }*/
             Console.WriteLine("+-- Saved!");
         }
         public async Task<string> Init()
