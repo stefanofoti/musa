@@ -14,7 +14,7 @@ information collected and on the reports generated for each user at the end of t
 
 The architecture is the following:<br/>
 
-![image](src/architecture/architecture.png)
+![image](/docs/src/architecture/architecture.png)
 
 ### List
 #### Hardware
@@ -46,7 +46,7 @@ The boards we decided to use are STM-Nucleo, one near each piece of art or clust
 We decided to use a Raspberry Pi because we needed a little more power and memory to execute the following tasks: connect to Azure and forward data to it (quite complex for an STM-Nucleo due to keys you would need to store and manage for authentication) and do some pre-processing of raw messages.<br/>
 We noticed that we didn't need to have a single STM-Nucleo board near each piece of art: if there are some artworks that are very close to each other, we can treat them as a single artwork. In fact, what we really need to do is proximity detection, that is, understand the pieces of art which are nearest to the user in real time to provide him valuable and funny information about them, and to understand if he's following the tour proposed by MuSa.<br/>
 
-![image](src/architecture/Sensor_network_architecture.png)
+![image](/docs/src/architecture/Sensor_network_architecture.png)
 
 #### About the messages
 
