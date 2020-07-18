@@ -14,6 +14,8 @@ import android.widget.TextView;
 import org.altbeacon.beacon.Beacon;
 import org.altbeacon.beacon.BeaconParser;
 import org.altbeacon.beacon.BeaconTransmitter;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -54,7 +56,7 @@ public class ActivityTour extends AppCompatActivity {
 
         // Create an AltBeacon BLE beacon
         Beacon beacon = new Beacon.Builder()
-                .setId1("2f234454-cf6d-4a0f-adf2-f4911ba9ffa6")
+                .setId1("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
                 .setId2("1")
                 .setId3("2")
                 .setManufacturer(0x0118)    // Radius network
@@ -86,7 +88,7 @@ public class ActivityTour extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            pd = new ProgressDialog(ActivityTour.this);
+            pd = new ProgressDialog(Applicazione.getInstance().getCurrentActivity());
             pd.setMessage("Please wait");
             pd.setCancelable(false);
             pd.show();
@@ -99,7 +101,7 @@ public class ActivityTour extends AppCompatActivity {
             BufferedReader reader = null;
             HttpURLConnection conn = null;
 
-            try {
+            /*try {
 
                 //Retrieve tourID   azureGETTourURL/tourID
                 String tourID = (String) Applicazione.getInstance().getModello().getBean("tourID");
@@ -125,8 +127,9 @@ public class ActivityTour extends AppCompatActivity {
 
             } catch (Exception e) {
                 e.printStackTrace();
-            }
-            return null;
+            }*/
+            return "{\"ID\":\"IDa\",\"Name\":\"The Welcome Tour\",\"TourArtworks\":\"Discobolus$Venus de Milo$Laocoon Group$Artemision Bronze\"}";
+            //return result
         }
 
         @Override
@@ -135,7 +138,19 @@ public class ActivityTour extends AppCompatActivity {
             if (pd.isShowing()){
                 pd.dismiss();
             }
-            txtJson.setText(result);
+
+            try {
+
+                // Retrieve JSONObject from GET, extract artoworks and display them (result)
+                JSONObject jsonObject = new JSONObject("{\"ID\":\"IDa\",\"Name\":\"The Welcome Tour\",\"TourArtworks\":\"Discobolus$Venus de Milo$Laocoon Group$Artemision Bronze\"}");
+                String artworks = jsonObject.getString("TourArtworks");
+                String[] artworksArray = artworks.split("\\$");
+                for (int i = 0; i < artworksArray.length; i++) {
+                    txtJson.append("\n"+artworksArray[i] + "\n\n");
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
             // TODO: this needs to be done well -> parse JSON and for each artwork show basic info
         }
