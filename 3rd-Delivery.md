@@ -35,7 +35,7 @@ In the [Architecture plan](docs/Architecture.md):
 In the [Evaluation plan](docs/Evaluation.md):
 - TO DO
 
-**Please**, notice that in the documents linked above you can find dedicated paragraphs that explain the reasons and the details about our choises.
+**Please, notice that** in the documents linked above you can find dedicated paragraphs that explain the reasons and the details about our choises.
 
 ## Techincal work done since the 2nd delivery
 TO DO
