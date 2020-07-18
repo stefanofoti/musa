@@ -2,13 +2,13 @@
 
 *"The project makes sense [...] but in terms of IoT is basic, there is nothing more than the most fundamental idea of sending and recieving a beacon"* <br>
 We don't totally agree with the fact that our project is too basic in terms of IoT. We sustain to have a lot of IoT components and arguments in MuSa:
-- Data collection and Data analysis: we collect informations about visitors and users for several reasons like to provide personalized tours and improve those tour through visitor's behavior. TO DO: attuatore delle opere con piu visite
-- Edge computing: we pre-process the data collected to send them to the cloud in a better structured way and to save on the number of messages sent, for better exploit the Cloud's free-plan
-- Boards:
-- Cloud service:
-- Devices:
-- MQTT: a famous lightweight messaging protocol in IoT for small sensors and mobile devices
-- BLE
+- The *Data collection and Data analysis*: we collect informations about visitors and users for several reasons like to provide personalized tours and improve those tour through visitor's behavior. TO DO: attuatore delle opere con piu visite
+- The *Edge computing*: we pre-process the data collected to send them to the cloud in a better structured way and to save on the number of messages sent, for better exploit the Cloud's free-plan
+- The use of two different *Boards*
+- The use of a *Cloud service*: Microsoft Azure
+- The use of *MQTT*: a famous lightweight messaging protocol in IoT for small sensors and mobile devices
+- The use of *Bluetooth Low Energy (BLE)* technology
+- The use of *Devices* sending beacons, like smartphones
 
 We analyze even deeper the IoT part in our [Architecture document](docs/Architecture.md).
 
