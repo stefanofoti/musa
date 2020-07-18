@@ -5,12 +5,14 @@ import json
 import statistics #for Kalman
 import threading
 import time
+from azure.iot.device import IoTHubDeviceClient, Message
 
 trackingData = {}
-ts = 0;
 artworksTimeStamps = {};
 farRSSI = -100;
 defaultVariance = 2;
+
+azureConnectionString = "HostName=rg-newhub.azure-devices.net;DeviceId=musa-device;SharedAccessKey=hzgs10oJcjWY3vT1LkLvPhh3EHpYu/xPMv8oe47RhUQ=";
 
 def on_message(mqttc, obj, msg):
 	print("ricevuto: ", msg.payload)
@@ -23,7 +25,7 @@ def on_subscribe(mqttc, obj, mid, granted_qos):
 
 def parseMsg(msg):
 	aw = msg.topic;
-	updateTimeStamps(aw);
+	updateTimeStamps(artworksTimeStamps, aw);
 	data = json.loads(msg.payload);
 	dataMap = initRowDataMap(data);
 	applyKalman(dataMap, aw);
@@ -40,6 +42,7 @@ def initRowDataMap(data):
 				dataMap[k] = [];
 			l = dataMap[k];
 			l.append(itr[k]);
+	print("+-- dataMap: ", dataMap);
 	return dataMap;
 
 def applyKalman(dataMap, aw):
@@ -59,10 +62,13 @@ def applyKalman(dataMap, aw):
 		[val, newVar] = kalmanCalc(rssiValues, variance, 4);
 		userAwData["variance"] = newVar;
 		userAwData["rssi"] = val;
-		userAwData["ts"] = artworksTimeStamps[aw];
+		userAwData["timestamp"] = artworksTimeStamps[aw];
 
 
 def kalmanCalc(inputValues, initialVariance, noise):
+	print("computing kalman on: ", len(inputValues));
+	if len(inputValues)==1:
+		return [inputValues[0], 0];
 	variance = initialVariance;
 	processNoise = noise;
 	measurementNoise = statistics.variance(inputValues);
@@ -74,38 +80,63 @@ def kalmanCalc(inputValues, initialVariance, noise):
 		variance = variance - (kalmanGain * variance);
 	return [mean, variance];
 
-def updateTimeStamps(aw):
-	if aw not in artworksTimeStamps: 
-		artworksTimeStamps[aw]=0;
+def updateTimeStamps(dictionary, aw):
+	if aw not in dictionary: 
+		dictionary[aw]=0;
 	else:
-		artworksTimeStamps[aw]=artworksTimeStamps[aw]+1;
+		dictionary[aw]=dictionary[aw]+1;
 
 def startSending():
+	ts=0;
+	client = IoTHubDeviceClient.create_from_connection_string(azureConnectionString);
 	while True:
 		print('sending...');
-		output = getClosest();
+		output = getClosest(ts);
+		outputJson = json.dumps(output);
+		sendToAzure(client, outputJson)
 		print(output);
+		ts=ts+1;
 		#TO DO send to Azure
 		time.sleep(5);
 
-def getClosest():
+def getClosest(ts):
 	closest = {};
 	output = {};
+	output["timestamp"] = ts;
+	usersList = [];
 	for k in trackingData.keys():
 		artworksForUser = trackingData[k];
 		closest["rssi"] = farRSSI;
+		currnentUser = {};
 		for aw in artworksForUser.keys():
 			current = artworksForUser[aw];
-			if current['ts'] < artworksTimeStamps[aw]:
-				current['rssi'] = farRSSI;
+			if current["timestamp"] < artworksTimeStamps[aw]:
+				current["rssi"] = farRSSI;
 				#del artworksForUser[aw];
 			if current["rssi"] > closest["rssi"]:
 				closest["rssi"] = current["rssi"];
-				output[k] = aw;
+				currnentUser["id"] = k;
+				currnentUser["rssi"] = closest["rssi"];
+				currnentUser["artworks"] = [aw];
+				#output[k] = aw;
+		if currnentUser:
+			usersList.append(currnentUser);
+	output["users"] = usersList;
 	return output;
 
+
+def sendToAzure(client, message):
+    try:
+        print( "Sending message: {}".format(message))
+        message = message.encode('utf8')
+        client.send_message(message)        
+        print ( "Message successfully sent" )        
+    except Exception:
+        print ( "Error sending to azure" );
+
+
 lock=False;
-mqttc = mqtt.Client()
+mqttc = mqtt.Client();
 mqttc.on_message = on_message
 mqttc.on_subscribe = on_subscribe
 mqttc.connect("test.mosquitto.org", 1883, 60)
