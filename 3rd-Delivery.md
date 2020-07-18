@@ -17,9 +17,7 @@ We analyze even deeper the IoT part in our [Architecture document](docs/Architec
 We honestly thought that the motivation of having a second Raspberry Pi, which is to have a prepared solution to our single point of failure, was clear in our documentation, but we will make sure that in the final delivery it will be even clearer :-).
 <br>
 <br>
-*"The idea of carrying out locally is interesting [...] but is not described properly in the document"* <br>
-
-As before, we will make our ideas clearer in the final delivery. Very briefly, through Edge-computing, we carry out something locally because in this way we have data better structured and we economize on sending messages to Azure Cloud, so we can better exploit the free-plan. 
+*"The idea of carrying out locally is interesting [...] but is not described properly in the document"* <br>As before, we will make our ideas clearer in the final delivery. Very briefly, through Edge-computing, we carry out something locally because in this way we have data better structured and we economize on sending messages to Azure Cloud, so we can better exploit the free-plan. 
 <br>
 <br>
 *"Using RSSI is not difficult and it would be very nice"*<br>
