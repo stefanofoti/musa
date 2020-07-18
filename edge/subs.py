@@ -24,7 +24,7 @@ def on_subscribe(mqttc, obj, mid, granted_qos):
 
 
 def parseMsg(msg):
-	aw = msg.topic;
+	aw = getAw(msg.topic);
 	updateTimeStamps(artworksTimeStamps, aw);
 	data = json.loads(msg.payload);
 	dataMap = initRowDataMap(data);
@@ -33,17 +33,27 @@ def parseMsg(msg):
 	print('-------------------------\n',trJson);
 
 def initRowDataMap(data):
+	print("init row data");
 	dataMap = {};
 	for itr in data:
 		if 'iteration' in itr: 
 			del itr['iteration'];
 		for k in itr.keys():
-			if k not in dataMap: 
-				dataMap[k] = [];
-			l = dataMap[k];
+			beaconID = getId(k);
+			if beaconID not in dataMap: 
+				dataMap[beaconID] = [];
+			l = dataMap[beaconID];
 			l.append(itr[k]);
-	print("+-- dataMap: ", dataMap);
 	return dataMap;
+
+def getId(k):
+	if len(k)>36:
+		index = k.find("beac");
+		return k[index+4:index+35];
+	return k;
+
+def getAw(aw):
+	return aw[5:];
 
 def applyKalman(dataMap, aw):
 	print("applying kalman");
@@ -96,7 +106,6 @@ def startSending():
 		sendToAzure(client, outputJson)
 		print(output);
 		ts=ts+1;
-		#TO DO send to Azure
 		time.sleep(5);
 
 def getClosest(ts):
@@ -142,6 +151,14 @@ mqttc.on_subscribe = on_subscribe
 mqttc.connect("test.mosquitto.org", 1883, 60)
 mqttc.subscribe("musa/aw1", 0);
 mqttc.subscribe("musa/aw2", 0);
+mqttc.subscribe("musa/ID1", 0);
+mqttc.subscribe("musa/ID2", 0);
+mqttc.subscribe("musa/ID3", 0);
+mqttc.subscribe("musa/ID4", 0);
+mqttc.subscribe("musa/ID5", 0);
+mqttc.subscribe("musa/ID6", 0);
+mqttc.subscribe("musa/ID7", 0);
+mqttc.subscribe("musa/ID8", 0);
 threading.Timer(5.0, startSending).start()
 mqttc.loop_forever();
 print('-------------------------\n',trJson);
