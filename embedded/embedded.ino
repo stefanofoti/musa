@@ -95,7 +95,7 @@ void loop() {
   char output[MESSAGE_SIZE];
   size_t sz = serializeJson(doc, output);  
   Serial.println("Sending JSON"); 
-  client.publish("musa/aw1", output);
+  client.publish("musa/ID2", output);
   Serial.println(output);
   //digitalWrite(PIN, best > CUTOFF ? HIGH : LOW);
   //client.publish("mytopic/test", "This is a message");
