@@ -20,7 +20,7 @@ We honestly thought that the motivation of having a second Raspberry Pi, which i
 *- "The idea of carrying out locally is interesting [...] but is not described properly in the document"* <br>As before, we will make our ideas clearer in the final delivery. Very briefly, through Edge-computing, we carry out something locally because in this way we have data better structured and we economize on sending messages to Azure Cloud, so we can better exploit the free-plan. 
 <br>
 <br>
-*" - Using RSSI is not difficult and it would be very nice"*<br>
+*- "Using RSSI is not difficult and it would be very nice"*<br>
 One of the general comments about our project was that the BLE technology is not very exciting for indoor positioning, also because sometimes it is not very accurate. As suggested, we implemented the use of RSSI crossed to the inclusion of a Kalman Filter, that is an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more accurate than those based on a single measurement. We have dedicated paragraphs to RSSI and Kalman Filter in our [Architecture document](docs/Architecture.md).
 <br>
 <br>
