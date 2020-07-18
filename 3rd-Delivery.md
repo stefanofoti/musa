@@ -1,10 +1,10 @@
 ## Comments and our answers
 
-*"The project makes sense [...] but in terms of IoT is basic, there is nothing more than the most fundamental idea of sending and recieving a beacon"* <br>
+* 1 - "The project makes sense [...] but in terms of IoT is basic, there is nothing more than the most fundamental idea of sending and recieving a beacon"* <br>
 We don't totally agree with the fact that our project is too basic in terms of IoT. We sustain to have a lot of IoT components and arguments in MuSa:
 - The *Data collection and Data analysis*: we collect informations about visitors and users for several reasons like to provide personalized tours and improve those tour through visitor's behavior. TO DO: attuatore delle opere con piu visite
 - The *Edge computing*: we pre-process the data collected to send them to the cloud in a better structured way and to save on the number of messages sent, for better exploit the Cloud's free-plan
-- The use of two different *Boards*
+- The use of two different types of *Boards*
 - The use of a *Cloud service*: Microsoft Azure
 - The use of *MQTT*: a famous lightweight messaging protocol in IoT for small sensors and mobile devices
 - The use of *Bluetooth Low Energy (BLE)* technology
@@ -12,7 +12,7 @@ We don't totally agree with the fact that our project is too basic in terms of I
 
 We analyze even deeper the IoT part in our [Architecture document](docs/Architecture.md).
 
-*"I'm not sure about the redundancy [...] I think is too much"* <br>
+* 2 - "I'm not sure about the redundancy [...] I think is too much"* <br>
 We honestly thought that the motivation of having a second Raspberry Pi, which is to have a prepared solution to our single point of failure, was clear in our documentation, but we will make sure that in the final delivery it will be even clearer :-).
 
 *"The idea of carrying out locally is interesting [...] but is not described properly in the document"* <br>
