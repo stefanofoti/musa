@@ -30,25 +30,25 @@ To measure the users' appreciation we are going to use the following UXEMs (User
 
 During the developement process we're keeping track of the opinions of the users to understand if we're effectively building something of value. In particular, the following results of the surveys we made are quite encouraging.<br/>
 
-![image](src/evaluation/survey_results/MuSa_interaction.png)
+![image](/docs/src/evaluation/survey_results/MuSa_interaction.png)
 
 <br/>
 From the above graph, we can see that the majority of the users would at least be curious to try MuSa.<br/>
 The results below instead testify that our application could be useful for the museum to attract more visitors, thanks to making their experiences there more enjoyable.<br/>
 
-![image](src/evaluation/survey_results/Museum_visits.png)
+![image](/docs/src/evaluation/survey_results/Museum_visits.png)
 
 <br/>
 
 Looking at the next graph, we can be reassured on the fact that we're catching the main needs of the users, since, a part from some peculiar suggestions, the majority of them doesn't feel the need to point out more functionalities to add with respect to the ones already presented.<br/>
 
-![image](src/evaluation/survey_results/Functionalities.png)
+![image](/docs/src/evaluation/survey_results/Functionalities.png)
 
 <br/>
 
 We're also taking into account our user's opinion to build an interface which can be to their liking:<br/>
 
-![image](src/evaluation/survey_results/Color.png)
+![image](/docs/src/evaluation/survey_results/Color.png)
 
 Through one of our questionnaires, we got the opinion of Giulia: *"I like the fact that I can obtain more information about an artwork, or the basic info, on my smartphone because the labels of the operas are often crowded or written in a too-small font"*
 
@@ -59,7 +59,7 @@ Under the technological stack, MuSa uses many different hardware and software so
 ### Overall evaluation
 Software quality is defined by a set of regulations and guidelines by ISO/IEC 9126-1. We used a criteria-based evaluation which gives a measurement of quality in several areas, including understandability, documentation and portability (the original document that we used as a model is [this one](https://software.ac.uk/sites/default/files/SSI-SoftwareEvaluationCriteria.pdf?_ga=2.151004923.318823281.1587909367-13184924.1587909367)). Of course, we did not use the criteria we did not need for, so we produced this lighter customized version:
 
-[MuSa Criteria](/src/evaluation/MuSa_criteria.pdf)  
+[MuSa Criteria](/docs/src/evaluation/MuSa_criteria.pdf)  
 
 ### Sensor network
 The sensor network evaluation has to consider aspects like:<br>
@@ -122,11 +122,11 @@ A quick note about the Kalman filter: if needed, a way to implement one in Pytho
 
 We asked specific questions to the users about the usual distance at which they admire art, and the results are the following:
 
-![image](src/evaluation/survey_results/Distance_1.png)
+![image](/docs/src/evaluation/survey_results/Distance_1.png)
 
 <br/>
 
-![image](src/evaluation/survey_results/Distance_2.png)
+![image](/docs/src/evaluation/survey_results/Distance_2.png)
 
 <br/>
 
@@ -138,18 +138,18 @@ Our backend code quality will be tested with [CodeCity](https://wettel.github.io
 ##### First Results
 We are using Code City during development to understand immediately if some flaws were to appear. So far, the code for the backend looks good:<br/>
 
-![image](src/evaluation/code_city/code_city_musa.jpeg)
+![image](/docs/src/evaluation/code_city/code_city_musa.jpeg)
 
 <br/>
 As it's easy to see, there are no "pathological" patters: no building is too high, and they're quite well distributed among the landscape. The code is modular and "healthy".<br/>
 
 This is the key to read the map:<br/>
 
-![image](src/evaluation/code_city/code_city_doc.png)
+![image](/docs/src/evaluation/code_city/code_city_doc.png)
 
 Now let's have a look at how MuSa fares with respect to more specific metrics:<br/>
 
-![image](src/evaluation/code_city/code_city_musa_params.jpg)
+![image](/docs/src/evaluation/code_city/code_city_musa_params.jpg)
 
 These are "unhealthy" classes ad functions, and since MuSa has none of them, we can deduce the code has low coupling and great cohesion.<br/>
 If you want to test our code with CodeCity by yourself, you can find the .mse file [here](/docs/src/evaluation/MuSa.mse)
