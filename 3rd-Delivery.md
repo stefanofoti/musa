@@ -10,7 +10,7 @@ We don't totally agree with the fact that our project is too basic in terms of I
 - MQTT: a famous lightweight messaging protocol in IoT for small sensors and mobile devices
 - BLE
 
-We analyze even deeper the IoT part in our Architecture document.
+We analyze even deeper the IoT part in our [Architecture document](docs/Architecture.md).
 
 *"I'm not sure about the redundancy [...] I think is too much"* <br>
 We honestly thought that the motivation of having a second Raspberry Pi, which is to have a prepared solution to our single point of failure, was clear in our documentation, but we will make sure that in the final delivery it will be even clearer :-).
@@ -19,12 +19,12 @@ We honestly thought that the motivation of having a second Raspberry Pi, which i
 As before, we will make our ideas clearer in the final delivery. Very briefly, through Edge-computing, we carry out something locally because in this way we have data better structured and we economize on sending messages to Azure Cloud, so we can better exploit the free-plan. 
 
 *"Using RSSI is not difficult and it would be very nice"*<br>
-One of the general comments about our project was that the BLE technology is not very exciting for indoor positioning, also because sometimes it is not very accurate. As suggested, we implemented the use of RSSI crossed to the inclusion of a Kalman Filter, that is an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more accurate than those based on a single measurement. We have dedicated paragraphs to RSSI and Kalman Filter in our Architecture document.
+One of the general comments about our project was that the BLE technology is not very exciting for indoor positioning, also because sometimes it is not very accurate. As suggested, we implemented the use of RSSI crossed to the inclusion of a Kalman Filter, that is an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more accurate than those based on a single measurement. We have dedicated paragraphs to RSSI and Kalman Filter in our [Architecture document](docs/Architecture.md).
 
 ## Changes made to design, architecture and evaluation
-In the Desing document we added more information about:
-In the Architecture document we added more information about:
-In the Evaluation document we added more information about:
+In the [Design document](docs/Design.md) we added more information about:
+In the [Architecture document](docs/Architecture.md) we added more information about:
+In the [Evaluation document](docs/Evaluation.md) we added more information about:
 
 TO DO
 
