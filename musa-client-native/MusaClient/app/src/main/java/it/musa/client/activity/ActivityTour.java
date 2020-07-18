@@ -1,6 +1,7 @@
 package it.musa.client.activity;
 
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.bluetooth.le.AdvertiseCallback;
 import android.bluetooth.le.AdvertiseSettings;
 import android.os.AsyncTask;
@@ -8,14 +9,18 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import org.altbeacon.beacon.Beacon;
 import org.altbeacon.beacon.BeaconParser;
 import org.altbeacon.beacon.BeaconTransmitter;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Arrays;
 
@@ -23,8 +28,14 @@ import javax.net.ssl.HttpsURLConnection;
 
 import it.musa.client.Applicazione;
 import it.musa.client.R;
+import it.musa.client.vista.VistaSurvey;
+import it.musa.client.vista.VistaTour;
 
 public class ActivityTour extends AppCompatActivity {
+
+    // Variables needed to get the tour (JSON) and display it
+    private TextView txtJson;
+    private ProgressDialog pd;
 
     public static final String TAG = ActivityCollecting.class.getSimpleName();
 
@@ -34,8 +45,12 @@ public class ActivityTour extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tour);
 
+        // Initialize variable
+        VistaTour vistaTour = (VistaTour) getSupportFragmentManager().findFragmentById(R.id.vistaTour);
+        txtJson = vistaTour.getTxtJSON();
+
         // GET the tour from the server
-        String tourId = (String) Applicazione.getInstance().getModello().getBean("tourID");
+        new getTour().execute();
 
         // Create an AltBeacon BLE beacon
         Beacon beacon = new Beacon.Builder()
@@ -66,26 +81,63 @@ public class ActivityTour extends AppCompatActivity {
 
     }
 
-    private class getTour extends AsyncTask<String, Void, Void> {
+    private class getTour extends AsyncTask<String, String, String> {
+
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            pd = new ProgressDialog(ActivityTour.this);
+            pd.setMessage("Please wait");
+            pd.setCancelable(false);
+            pd.show();
+        }
 
         @Override
-        protected Void doInBackground(String... strings) {
+        protected String doInBackground(String... params) {
+
+            // Set up needed variables
+            BufferedReader reader = null;
+            HttpURLConnection conn = null;
+
             try {
 
+                //Retrieve tourID   azureGETTourURL/tourID
+                String tourID = (String) Applicazione.getInstance().getModello().getBean("tourID");
+
                 // Set up connection
-                URL url = new URL("azureGETTourURL");
-                HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+                URL url = new URL("http://ip.jsontest.com/");
+                conn = (HttpURLConnection) url.openConnection();
                 conn.connect();
 
-                InputStream inputStream = conn.getInputStream();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+                InputStream stream = conn.getInputStream();
+                reader = new BufferedReader(new InputStreamReader(stream));
+
+                // Read the data
+                StringBuilder buffer = new StringBuilder();
+                String line = "";
+                while((line = reader.readLine()) != null) {
+                    buffer.append(line).append("\n");
+                    // Debug
+                    Log.d("Response: ", "> " + buffer.toString());
+                }
+
+                return buffer.toString();
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-            // Shut up compiler
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            if (pd.isShowing()){
+                pd.dismiss();
+            }
+            txtJson.setText(result);
+
+            // TODO: this needs to be done well -> parse JSON and for each artwork show basic info
         }
     }
 }

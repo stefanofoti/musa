@@ -15,11 +15,6 @@ import it.musa.client.R;
 
 public class VistaSurvey extends Fragment {
 
-    // Esempio, da cancellare
-    //private EditText campoUsername;
-    //private EditText campoPassword;
-    //private Button bottoneSubmit;
-
     // Form fields in the view
     private EditText ageEditText;
 
@@ -50,8 +45,6 @@ public class VistaSurvey extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.vista_survey, container, false);
-
-        //this.bottoneSubmit = (Button) vista.findViewById(R.id.bottoneSubmitSurvey);
 
         this.ageEditText = (EditText) vista.findViewById(R.id.surveyAgeInput);
 
