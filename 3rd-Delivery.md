@@ -27,13 +27,15 @@ One of the general comments about our project was that the BLE technology is not
 ## Changes made to design, architecture and evaluation
 We did not change anything in the [Design plan](docs/Design.md) because we had no need to do that. Contrariwise, for what concerns the Architecture and the Evaluation plans, we made some improvements and some minor adjustements.
 
-[Architecture plan](docs/Architecture.md):
+In the [Architecture plan](docs/Architecture.md):
 - we decided to switch from a Web App to an Android App
 - we improved the positioning accuracy through the use of a Kalman Filter and RSSI
 - TO DO: ESP32 perchè Stefano aveva quelle????
 
-[Evaluation plan](docs/Evaluation.md) we added more information about:
+In the [Evaluation plan](docs/Evaluation.md):
 - TO DO
+
+Please, notice that in the documents linked above you can find dedicated paragraphs that explain the reasons and the details about our choises.
 
 ## Techincal work done since the 2nd delivery
 TO DO
