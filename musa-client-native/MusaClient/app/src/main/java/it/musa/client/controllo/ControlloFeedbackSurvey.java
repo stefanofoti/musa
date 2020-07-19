@@ -80,8 +80,8 @@ public class ControlloFeedbackSurvey {
         protected Void doInBackground(String... params) {
             try {
 
-                // Set up the connection
-                URL url = new URL("http://10.0.2.2:5002/api/Tour/EndTour");
+                // Set up the connection    http://10.0.2.2:5002
+                URL url = new URL("http://musa-be.azurewebsites.net/api/Tour/EndTour");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
