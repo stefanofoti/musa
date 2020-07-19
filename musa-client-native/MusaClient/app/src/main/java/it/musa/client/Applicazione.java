@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import it.musa.client.controllo.ControlloSurvey;
+import it.musa.client.controllo.ControlloTour;
 import it.musa.client.controllo.ControlloWelcome;
 import it.musa.client.modello.Modello;
 import it.musa.client.modello.ModelloPersistente;
@@ -36,6 +37,7 @@ public class Applicazione extends Application {
     private ModelloPersistente modelloPersistente = new ModelloPersistente();
     private ControlloWelcome controlloWelcome = new ControlloWelcome();
     private ControlloSurvey controlloLogin = new ControlloSurvey();
+    private ControlloTour controlloTour = new ControlloTour();
 
     private DAOGenericoJson daoGenericoJson = new DAOGenericoJson();
 
@@ -59,6 +61,8 @@ public class Applicazione extends Application {
     public ControlloWelcome getControlloWelcome() {
         return controlloWelcome;
     }
+
+    public ControlloTour getControlloTour() { return controlloTour; }
 
     public DAOGenericoJson getDaoGenericoJson() {
         return daoGenericoJson;
