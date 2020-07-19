@@ -60,7 +60,7 @@ namespace MuSa.Controllers
         public string GetArtworksList()
         {
             string jsonString;
-            jsonString = JsonSerializer.Serialize(_context.Artworks);
+            jsonString = JsonSerializer.Serialize(_context.Artworks.ToList());
             return jsonString;
         }   
 
@@ -68,8 +68,13 @@ namespace MuSa.Controllers
         public string GetInfo(string ID) // To get every info about an artwork through the ID
         {
             string jsonString;
-            int idn = ID[2] - 48 - 1;
-            jsonString = JsonSerializer.Serialize(_context.Artworks.ToList()[idn]);
+         
+            var artwork = _context.Artworks
+                .Where(aw => aw.ID == ID)
+                .FirstOrDefault<Artworks>();
+            jsonString = JsonSerializer.Serialize(artwork);
+            //int idn = ID[2] - 48 - 1;
+            //jsonString = JsonSerializer.Serialize(_context.Artworks.ToList()[idn]);
             return jsonString;
         }
 
@@ -77,8 +82,12 @@ namespace MuSa.Controllers
         public string GetName(string ID) // To get the artwork's Name through the ID
         {
             string jsonString;
-            int idn = ID[2] - 48 - 1;
-            jsonString = JsonSerializer.Serialize(_context.Artworks.ToList()[idn].Name);
+            var artwork = _context.Artworks
+                .Where(aw => aw.ID == ID)
+                .FirstOrDefault<Artworks>();
+            jsonString = JsonSerializer.Serialize(artwork.Name);
+            //int idn = ID[2] - 48 - 1;
+            //jsonString = JsonSerializer.Serialize(_context.Artworks.ToList()[idn].Name);
             return jsonString;
         }
 
@@ -86,8 +95,12 @@ namespace MuSa.Controllers
         public string GetAuthor(string ID) // To get the artwork's Author through the ID
         {
             string jsonString;
-            int idn = ID[2] - 48 - 1;
-            jsonString = JsonSerializer.Serialize(_context.Artworks.ToList()[idn].Author);
+            var artwork = _context.Artworks
+                .Where(aw => aw.ID == ID)
+                .FirstOrDefault<Artworks>();
+            jsonString = JsonSerializer.Serialize(artwork.Author);
+            //int idn = ID[2] - 48 - 1;
+            //jsonString = JsonSerializer.Serialize(_context.Artworks.ToList()[idn].Author);
             return jsonString;
         }
 
@@ -95,8 +108,12 @@ namespace MuSa.Controllers
         public string GetYear(string ID) // To get the artwork's Year through the ID
         {
             string jsonString;
-            int idn = ID[2] - 48 - 1;
-            jsonString = JsonSerializer.Serialize(_context.Artworks.ToList()[idn].Year);
+            var artwork = _context.Artworks
+                .Where(aw => aw.ID == ID)
+                .FirstOrDefault<Artworks>();
+            jsonString = JsonSerializer.Serialize(artwork.Year);
+            //int idn = ID[2] - 48 - 1;
+            //jsonString = JsonSerializer.Serialize(_context.Artworks.ToList()[idn].Year);
             return jsonString;
         }        
 
@@ -104,8 +121,12 @@ namespace MuSa.Controllers
         public string GetDescription(string ID) // To get the artwork's Description through the ID
         {
             string jsonString;
-            int idn = ID[2] - 48 - 1;
-            jsonString = JsonSerializer.Serialize(_context.Artworks.ToList()[idn].Description);
+            var artwork = _context.Artworks
+                .Where(aw => aw.ID == ID)
+                .FirstOrDefault<Artworks>();
+            jsonString = JsonSerializer.Serialize(artwork.Description);
+            //int idn = ID[2] - 48 - 1;
+            //jsonString = JsonSerializer.Serialize(_context.Artworks.ToList()[idn].Description);
             return jsonString;
         }
 
@@ -113,8 +134,12 @@ namespace MuSa.Controllers
         public string GetImage(string ID) // To get the artwork's Image's path through the ID
         {
             string jsonString;
-            int idn = ID[2] - 48 - 1;
-            jsonString = JsonSerializer.Serialize(_context.Artworks.ToList()[idn].Image);
+            var artwork = _context.Artworks
+                .Where(aw => aw.ID == ID)
+                .FirstOrDefault<Artworks>();
+            jsonString = JsonSerializer.Serialize(artwork.Image);
+            //int idn = ID[2] - 48 - 1;
+            //jsonString = JsonSerializer.Serialize(_context.Artworks.ToList()[idn].Image);
             return jsonString;
         }
 

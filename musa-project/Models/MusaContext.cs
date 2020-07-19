@@ -13,5 +13,6 @@ namespace MuSa.Models
         public DbSet<TourItem> TourItems { get; set; }
         public DbSet<Artworks> Artworks { get; set; }
         public DbSet<Tour> Tour { get; set; }
+        public DbSet<Survey> Surveys  { get; set; }
     }
 }
