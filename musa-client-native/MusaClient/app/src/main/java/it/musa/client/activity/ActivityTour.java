@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.bluetooth.le.AdvertiseCallback;
 import android.bluetooth.le.AdvertiseSettings;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -39,7 +40,10 @@ public class ActivityTour extends AppCompatActivity {
     private TextView txtJson;
     private ProgressDialog pd;
 
-    public static final String TAG = ActivityCollecting.class.getSimpleName();
+    // Beacons
+    BeaconTransmitter beaconTransmitter;
+
+    public static final String TAG = ActivityTour.class.getSimpleName();
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -68,7 +72,7 @@ public class ActivityTour extends AppCompatActivity {
                 .setBeaconLayout("m:2-3=beac,i:4-19,i:20-21,i:22-23,p:24-24,d:25-25");
 
         // Transmit beacons
-        BeaconTransmitter beaconTransmitter = new BeaconTransmitter(getApplicationContext(), beaconParser);
+        beaconTransmitter = new BeaconTransmitter(getApplicationContext(), beaconParser);
         beaconTransmitter.startAdvertising(beacon, new AdvertiseCallback() {
             @Override
             public void onStartSuccess(AdvertiseSettings settingsInEffect) {
@@ -81,6 +85,15 @@ public class ActivityTour extends AppCompatActivity {
             }
         });
 
+    }
+
+    public BeaconTransmitter getBeaconTransmitter() {
+        return beaconTransmitter;
+    }
+
+    public void mostraActivityFeedbackSurvey() {
+        Intent intent = new Intent(this, ActivityFeedbackSurvey.class);
+        startActivity(intent);
     }
 
     private class getTour extends AsyncTask<String, String, String> {
@@ -107,7 +120,7 @@ public class ActivityTour extends AppCompatActivity {
                 String tourID = (String) Applicazione.getInstance().getModello().getBean("tourID");
 
                 // Set up connection
-                URL url = new URL("http://ip.jsontest.com/");
+                URL url = new URL("http://ip.jsontest.com/"+tourID);
                 conn = (HttpURLConnection) url.openConnection();
                 conn.connect();
 
@@ -143,10 +156,14 @@ public class ActivityTour extends AppCompatActivity {
 
                 // Retrieve JSONObject from GET, extract artoworks and display them (result)
                 JSONObject jsonObject = new JSONObject("{\"ID\":\"IDa\",\"Name\":\"The Welcome Tour\",\"TourArtworks\":\"Discobolus$Venus de Milo$Laocoon Group$Artemision Bronze\"}");
+
+                String nameTour = jsonObject.getString("Name");
+                txtJson.append("\n" + nameTour + "\n\n")
+                ;
                 String artworks = jsonObject.getString("TourArtworks");
                 String[] artworksArray = artworks.split("\\$");
                 for (int i = 0; i < artworksArray.length; i++) {
-                    txtJson.append("\n"+artworksArray[i] + "\n\n");
+                    txtJson.append(artworksArray[i] + "\n");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

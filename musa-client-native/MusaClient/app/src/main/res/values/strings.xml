@@ -24,4 +24,6 @@
     <string name="survey_submit_button_text">LET\'S GO!</string>
     <string name="collecting_text">Thank you for your collaboration!\n\nData collection is very important to improve our services.\n\nEnjoy the visit at the museum!</string>
     <string name="tour_intro">This is your custom tour, enjoy the visit!</string>
+    <string name="closest_artwork_button">Information about the closest artwork</string>
+    <string name="tour_end_button">I finished the tour!</string>
 </resources>
