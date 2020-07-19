@@ -53,5 +53,6 @@ For the final delivery we brought our project to a production-ready state:
 - TO DO: valutazione con gli standars iso??
 
 ## Functionalities that are still missing and which we aspect we did not manage to evaluate
-As we declared from the start, we will not implement the Machine Learning aspect, which as the goal to improve the personalized tours through the user's experiences and through their feedback. We also will not implement the "Moment method" evaluation of the user experience that was supposed to be done through the [PrEmo Tool](https://www.premotool.com/), since it is a commercial tool.
+As we declared from the start, we will not implement the Machine Learning aspect, which as the goal to improve the personalized tours through the user's experiences and through their feedback. <br/> 
+We also will not implement the "Moment method" evaluation of the user experience that was supposed to be done through the [PrEmo Tool](https://www.premotool.com/), since it is a commercial tool.
 - TO DO: valutazione con gli standard ISO?
