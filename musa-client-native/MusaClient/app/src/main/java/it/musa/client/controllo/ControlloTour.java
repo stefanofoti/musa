@@ -48,6 +48,7 @@ public class ControlloTour {
         }
     }
 
+    //TODO
     private static class AzioneClosestArtwork implements View.OnClickListener {
 
         @Override

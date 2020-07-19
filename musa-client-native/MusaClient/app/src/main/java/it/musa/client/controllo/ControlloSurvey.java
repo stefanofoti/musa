@@ -85,7 +85,7 @@ public class ControlloSurvey {
 
             // POST data (first check if all the fields of the survey are filled)
             if (ageValue != null && genderValue != null && movieValue != null && artStyleValue != null && timeValue != null && collectData.equals("Y")) {
-                //new PostData().execute(ageValue, genderValue, movieValue, artStyleValue, timeValue, useMusa, collectData);
+                new PostData().execute(ageValue, genderValue, movieValue, artStyleValue, timeValue, useMusa, collectData);
                 return 0;
             } else {
                 // Show a message to the user
@@ -152,13 +152,16 @@ public class ControlloSurvey {
                 StringBuilder buffer = new StringBuilder();
                 String line = "";
                 while((line = reader.readLine()) != null) {
-                    buffer.append(line).append("\n");
+                    buffer.append(line);//.append("\n");
                     // Debug
                     Log.d("Response: ", "> " + buffer.toString());
                 }
 
                 // Parse JSON response
-                JSONObject jsonObject = new JSONObject(buffer.toString());
+                int bufferLenght = buffer.toString().length();
+                String json = buffer.toString().substring(1, bufferLenght-1).replace("\\", "");
+
+                JSONObject jsonObject = new JSONObject(json);
                 String tourID = jsonObject.getString("TourID");
 
                 // Save tourId to later use it
