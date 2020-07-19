@@ -6,6 +6,29 @@ However, keep in mind that this is a project developed for an IoT course, so we 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
+### Index
+- [Objectives](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Objectives)
+- [User experience](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#User-experience)
+	- [Users' feedback](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Users-feedback)
+- [Technology](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Technology)
+	- [Overall evaluation](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Overall-evaluation)
+- [Sensor network](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Sensor-network)
+- [Complexity and responsiveness evaluation](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Complexity-and-responsiveness-evaluation)
+- [Evaluation and improvement of BLE accuracy](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Evaluation-and-improvement-of-BLE-accuracy)
+	- [Techniques and considerations that may help to achieve better accuracy](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Techniques-and-considerations-that-may-help-to-achieve-better-accuracy)
+	- [Evaluate proximity detection performance
+](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Evaluate-proximity-detection-performance)
+- [Backend](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Backend)
+	- [First results](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#First-results)
+- [Cloud System](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Cloud-System)
+- [About the price](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#About-the-price)
+	- [Hardware](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#hardware)
+	- [Cloud](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Cloud)
+- [A word about security](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#A-word-about-security)
+- [Sensor network's reliability](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Sensor-networks-reliability)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ### Objectives
 
 With our application, we tried to realize something useful for both the museum and the users. In particular, we want to satisfy these demands:<br/>
@@ -63,9 +86,7 @@ Through one of our questionnaires, we got the opinion of Giulia: *"I like the fa
 Under the technological stack, MuSa uses many different hardware and software solutions. We decided to evaluate each single part and the overall system. Further details are in the following paragraphs.<br/>
 
 #### Overall evaluation
-Software quality is defined by a set of regulations and guidelines by ISO/IEC 9126-1. We used a criteria-based evaluation which gives a measurement of quality in several areas, including understandability, documentation and portability (the original document that we used as a model is [this one](https://software.ac.uk/sites/default/files/SSI-SoftwareEvaluationCriteria.pdf?_ga=2.151004923.318823281.1587909367-13184924.1587909367)). Of course, we did not use the criteria we did not need for, so we produced this lighter customized version:
-
-[MuSa Criteria](/src/evaluation/MuSa_criteria.pdf)  
+Software quality is defined by a set of regulations and guidelines by ISO/IEC 9126-1. We used a criteria-based evaluation which gives a measurement of quality in several areas, including understandability, documentation and portability (the original document that we used as a model is [this one](https://software.ac.uk/sites/default/files/SSI-SoftwareEvaluationCriteria.pdf?_ga=2.151004923.318823281.1587909367-13184924.1587909367)). Of course, we did not use the criteria we did not need for, so we produced this lighter customized version: [MuSa Criteria](/src/evaluation/MuSa_criteria.pdf)  
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -74,7 +95,7 @@ The sensor network evaluation has to consider aspects like:<br>
 - Power consumption
 - Communication complexity
 - Scalability
-<br>
+
 The suggested board for the project is STM Nucleo. We chose to keep it because of its low power consumption and low price; it is also widely used, rich of documentation and examples. The same can be said for the Raspberry Pi board, even if, being more powerful, is more expensive.<br>
 
 This is not the only possible solution. Among the others, a great idea may be to convert our [server based positioning to client-based positioning](https://developex.com/blog/indoor-navigation-with-ble/) and to use BLE (Bluetooth Low Energy) tags, like _NRF51822 ibeacon tag_. Their cost is very low, just 3-4 euro/pcs.<br>
