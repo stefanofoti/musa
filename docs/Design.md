@@ -98,15 +98,15 @@ general information about users, and how do they fit in the categories that we a
 We analyzed the data collected and found that the most frequent types of users where the Hobbyist/Professional, the Recharger, and something in between the Experience Seeker and the Explorer, which we fused into the Fun Explorer.<br/>
 These three categories were given life in our personas:<br/>
 
-#####Hobbyst/Professional<br/>
+##### Hobbyst/Professional<br/>
 ![image](src/design/elena_rossi.png)
 <br/>
 
-#####Fun Explorer<br/>
+##### Fun Explorer<br/>
 ![image](src/design/enea_bianchi.png)
 <br/>
 
-#####Recharger<br/>
+##### Recharger<br/>
 ![image](src/design/ettore_verdi.png)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
