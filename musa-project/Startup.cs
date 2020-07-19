@@ -35,6 +35,9 @@ namespace MuSa
                 {
                     builder.WithOrigins("http://*:4200",
                                         "https://*:4200",
+                                        "http://*:8080",
+                                        "https://*:8081",
+
                                         "https://localhost:4200",
                                         "http://localhost:4200");
                 });

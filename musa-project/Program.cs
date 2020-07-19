@@ -28,7 +28,7 @@ namespace MuSa
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseUrls("https://*:5000", "http://*:5002");
+                    webBuilder.UseUrls("https://*:8081", "http://*:8080");
                     webBuilder.UseStartup<Startup>();
                 });
     }

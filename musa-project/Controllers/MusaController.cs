@@ -107,8 +107,9 @@ namespace MuSa.Controllers
                 obj.code = 200;
                 string id = visitor.Tours.LastOrDefault().ArtworkId;
                 obj.ArtworkId = id;
-                int idn = id[2] - 48 - 1;
-                var artwork = (_context.Artworks.ToList()[idn]);
+                var artwork = _context.Artworks
+                    .Where(aw => aw.ID == id)
+                    .FirstOrDefault<Artworks>();
                 if(artwork!=null){
                     obj.Name=artwork.Name;
                     obj.Author=artwork.Author;

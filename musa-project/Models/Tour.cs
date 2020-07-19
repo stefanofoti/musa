@@ -15,8 +15,10 @@ namespace MuSa.Models
         public virtual ICollection<Artworks> ToursArtworksDetail { get; set; }
 
         public Tour()
-        {
-            ToursArtworksDetail = new List<Artworks>();
+        {   
+            if(ToursArtworksDetail==null){
+                ToursArtworksDetail = new List<Artworks>();
+            }
         }
     }
 }
