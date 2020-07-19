@@ -7,6 +7,7 @@
     - [Software](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#software)
     - [Hardware](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#hardware)
     - [Technologies](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#technologies)
+- [IoT aspects](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#iot-aspects)
 - [Sensor Network](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#sensor-network)
   - [About the messages sending](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-messages)
    - [About the main board's messages](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-main-boards-messages)
@@ -61,6 +62,16 @@ The architecture is the following:<br/>
 - Bluetooth Low Energy (BLE)<br/>
 - MQTT-SN<br/>
 - MQTT<br/>
+
+### IoT aspects
+We substain that MuSa project is filled of IoT components and arguments.
+- The *Data collection and Data analysis* are two of the main goals of the IoT. With MuSa, we collect informations about visitors and users for several reasons like to provide personalized tours and improve those tours through visitor's behavior. Even if it is not planned in our project, the curators may use the collected data also for several others aspects, like reorganize the museum's artworks positioning, simply analyzing those data. TO DO: attuatore delle opere con piu visite
+- The *Edge computing* is a widespread computing paradigm used in IoT; we pre-process the data collected to send them to the cloud in a better structured way and to save on the number of messages sent, for better exploit the Cloud's free-plan
+- We use two different types of *Boards*: a Raspberry Pi and a ESP32 (that is supposed to be an STM32 Nucleo)
+- The use of a *Cloud service*: Microsoft Azure
+- The use of *MQTT*: a famous lightweight messaging protocol in IoT for small sensors and mobile devices
+- The use of *Bluetooth Low Energy (BLE)* technology
+- The use of *Devices* sending beacons, that in our case are smartphones
 
 ### Sensor network
 
