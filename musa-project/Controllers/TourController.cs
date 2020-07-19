@@ -179,6 +179,25 @@ namespace MuSa.Controllers
             return jsonString;
 
         }
-    
+
+        [HttpPost("EndTour")]
+        public async Task<string> EndTour() // To get the Tour after the profiling survey
+        {
+            String jsonString;
+            dynamic response;
+            dynamic d;
+            using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
+            {   
+                var bodyText = await reader.ReadToEndAsync();
+                String bodyString = bodyText.ToString();
+                d = JObject.Parse(bodyString);
+                response = new ExpandoObject();
+                response.Code = 200;
+                jsonString = JsonSerializer.Serialize(response);
+            }
+            return jsonString;
+
+        }
+
     }
 }

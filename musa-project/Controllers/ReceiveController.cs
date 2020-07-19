@@ -30,15 +30,15 @@ namespace MuSa.Controllers
 
         // Event Hub-compatible endpoint
         // az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {your IoT Hub name}
-        private readonly static string s_eventHubsCompatibleEndpoint = "";
+        private readonly static string s_eventHubsCompatibleEndpoint = "sb://ihsuprodamres089dednamespace.servicebus.windows.net/";
 
         // Event Hub-compatible name
         // az iot hub show --query properties.eventHubEndpoints.events.path --name {your IoT Hub name}
-        private readonly static string s_eventHubsCompatiblePath = "";
+        private readonly static string s_eventHubsCompatiblePath = "iothub-ehub-rg-newhub-3130239-c9a97cad6f";
         
         // az iot hub policy show --name service --query primaryKey --hub-name {your IoT Hub name}
-        private readonly static string s_iotHubSasKey = "";
-        private readonly static string s_iotHubSasKeyName = "";
+        private readonly static string s_iotHubSasKey = "lVrPV7LeIaU3nvz14IS87jq4liZET/YapZeO/hFN1Ho=";
+        private readonly static string s_iotHubSasKeyName = "service";
         private static EventHubClient s_eventHubClient;
 
         // Asynchronously create a PartitionReceiver for a partition and then start 
