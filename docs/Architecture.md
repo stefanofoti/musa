@@ -236,8 +236,8 @@ There is also the problem that is technology is not natively supported by smartp
 
 #### RSSI and Kalman Filter
 Since one of the general comments about our project was that the BLE technology is not very exciting for indoor positioning, also because sometimes it is not very accurate, as suggested we implemented the use of RSSI crossed to the inclusion of a Kalman Filter for improving the precision of our system. <br>
-**Received signal strength indicator (RSSI)** is a measurement of the power present in a received signal: we get the RSSI from each beacon and we can estimate how much is close a user to an artwork and also which is the closest artwork. <br>
-The **Kalman Filter** is an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more accurate than those based on a single measurement alone. The Raspberry-Pi applies the Kalman Filter to a series of beacon's RSSI recieved, so in this way it can avoid abrupt variations or it can ignore strange values caused by wrong beacons measurements.
+*Received signal strength indicator (RSSI)* is a measurement of the power present in a received signal: we get the RSSI from each beacon and we can estimate how much is close a user to an artwork and also which is the closest artwork. <br>
+The *Kalman Filter* is an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more accurate than those based on a single measurement alone. The Raspberry-Pi applies the Kalman Filter to a series of beacon's RSSI recieved, so in this way it can avoid abrupt variations or it can ignore strange values caused by wrong beacons measurements.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
