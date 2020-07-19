@@ -30,7 +30,7 @@
 This application needs a lot of components to work properly. The three main parts are:<br/>
 - the sensor network<br/>
 - the interaction between the client on the smartphone and the backend on the cloud<br/>
-- cloud services, which comprehend also a machine learning algorithm<br/>
+- Cloud services<br/>
 <br/>
 Near every piece of art or cluster of artworks, there is a board, which communicates with the user's phone to understand how much time he spends near it. The data are sent to the cloud platform to be stored and elaborated. A machine learning algorithm creates customized tours according to the
 information collected and on the reports generated for each user at the end of the visit. The user's smartphone is connected with the backend to provide interaction with the visitor.<br/>
