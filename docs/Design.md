@@ -5,16 +5,16 @@
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Index
-- [Concept](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#concept)
-- [How MuSa comes to life](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#How-MuSa-comes-to-life)
-- [About the personalized tour topic](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#About-the-personalized-tour-topic)
-- [About the interaction with artworks](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#About-the-interaction-with-artworks)
-- [About the beacons in museums](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#About-the-beacons-in-museums)
-- [Profiling users and personas](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#Profiling-users-and-personas)
-- [User experience and storyboard](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#User-experience-and-storyboard)
-	- [Collect data](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#Collect-data)
-	- [Do a personalized tour](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#Do-a-personalized-tour)
-- [references](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#references)
+- [Concept](https://github.com/stefanofoti/musa/blob/master/docs/Design.md#concept)
+- [How MuSa comes to life](https://github.com/stefanofoti/musa/blob/master/docs/Design.md#How-MuSa-comes-to-life)
+- [About the personalized tour topic](https://github.com/stefanofoti/musa/blob/master/docs/Design.md#About-the-personalized-tour-topic)
+- [About the interaction with artworks](https://github.com/stefanofoti/musa/blob/master/docs/Design.md#About-the-interaction-with-artworks)
+- [About the beacons in museums](https://github.com/stefanofoti/musa/blob/master/docs/Design.md#About-the-beacons-in-museums)
+- [Profiling users and personas](https://github.com/stefanofoti/musa/blob/master/docs/Design.md#Profiling-users-and-personas)
+- [User experience and storyboard](https://github.com/stefanofoti/musa/blob/master/docs/Design.md#User-experience-and-storyboard)
+	- [Collect data](https://github.com/stefanofoti/musa/blob/master/docs/Design.md#Collect-data)
+	- [Do a personalized tour](https://github.com/stefanofoti/musa/blob/master/docs/Design.md#Do-a-personalized-tour)
+- [references](https://github.com/stefanofoti/musa/blob/master/docs/Design.md#references)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
