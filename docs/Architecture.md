@@ -1,5 +1,27 @@
 # Architecture
 
+### Index
+- [Introduction](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#introduction)
+- [Architecture and components](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#architecture-and-components) 
+  - [List of components](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#list-of-components)
+    - [Software](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#software)
+    - [Hardware](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#hardware)
+    - [Technologies](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#technologies)
+- [Sensor Network](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#sensor-network)
+  - [About the messages sending](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-messages)
+   - [About the main board's messages](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-main-boards-messages)
+    - [About the choice of having a second Raspberry Pi](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-choice-of-having-a-second-raspberry-pi)
+- [Backend and smartphone frontend](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#backend-and-smartphone-front-end)
+  - [Keeping track of user's visit](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#keeping-track-of-users-visit)
+  - [Frontend](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#frontend)
+- [Cloud](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#cloud)
+- [About the choice to use Bluetooth Low Energy](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-choice-to-use-bluetooth-low-energy)
+  - [RSSI and Kalman Filter](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#rssi-and-kalman-filter)
+- [References](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#some-references)
+
+TO DO: forse riordinare meglio ed aggiungere nuovi paragrafi
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
 ### Introduction
 
 This application needs a lot of components to work properly. The three main parts are:<br/>
@@ -68,7 +90,9 @@ and it's a JSON object. Each message has a timestamp and a list, which contains,
 
 ##### About the main board's messages
 Notice that we decided to use a main board as a gateway because, besides the fact that in this way we can send better pre-processed data by doing some edge computing, we can have a significant saving in terms of the number of messages sent. Think about the fact that the free plan of our cloud service, Microsoft Azure, provides 8000 messages-per-day; with a main board that sends a single message that groups all the messages received from every single board, considering 1 message every 5 seconds, MuSa can work about 11 hours. If every board sends each message by itself, the free plan will expire in a few minutes.<br/>
-For reliability reasons (more details in the [Evaluation document](/Evaluation.md)), we decided to keep also another Raspberry board in hot standby: when the gateway forwards the report to the cloud, also this backup board receives it. If it doesn't receive any report for some time, it will assume that the main gateway has suffered a failure, and will take its place to avoid the stop of the service.<br/>
+
+##### About the choice of having a second Raspberry Pi
+For reliability reasons (more details in the [Evaluation document](/Evaluation.md)), we decided to keep also another Raspberry board in hot standby, since having a main gateway board exposes us to the risk of having a single point of failure; when the main gateway forwards the report to the cloud, also the second "backup board" receives it. If it doesn't receive any report for some time, it will assume that the main gateway has suffered a failure, and it will take its place to avoid the stop of the service.<br/>
 
 ### Backend and smartphone front-end
 
@@ -164,7 +188,12 @@ Now let's consider briefly the technologies presented one by one:<br/>
 There is also the problem that is technology is not natively supported by smartphones, and we don't want to bother our users by asking them to install additional software or to carry around an RFID tag, we want the process to be as transparent as possible to the user, especially considering the ones that don't want to be disturbed during the visit but are still willing to participate in data collection.<br/>
 - BLE: this technology met all our requirements: it's not expensive, compatible with mobile phones, has a wide enough range, can be used to do proximity identification. The only issue is the accuracy, but as explained in the Evaluation document, there are techniques to mitigate this disadvantage.<br/>
 
-#### Some references
+#### RSSI and Kalman Filter
+Since one of the general comments about our project was that the BLE technology is not very exciting for indoor positioning, also because sometimes it is not very accurate, as suggested we implemented the use of RSSI crossed to the inclusion of a Kalman Filter for improving the precision of our system. <br>
+**Received signal strength indicator (RSSI)** is a measurement of the power present in a received signal: we get the RSSI from each beacon and we can estimate how much is close a user to an artwork and also which is the closest artwork. <br>
+The **Kalman Filter** is an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more accurate than those based on a single measurement alone. The Raspberry-Pi applies the Kalman Filter to a series of beacon's RSSI recieved, so in this way it can avoid abrupt variations or it can ignore strange values caused by wrong beacons measurements.
+
+### Some references
 These are the articles we mainly consulted:<br/>
 
 - RFID vs BLE: https://blog.beaconstac.com/2015/10/rfid-vs-ibeacon-ble-technology/
