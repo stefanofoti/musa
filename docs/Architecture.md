@@ -69,13 +69,13 @@ The architecture is the following:<br/>
 - MQTT<br/>
 
 ##### Clarification about the ESP32 board
-We are consciouns that in our architecture plan we mentioned the STM-Nucleo as chosen board. We are also conscious that the STM-Nucleo is mandatory for this project. Anyway, one of the team members had a personal ESP32 board already avaliable and due to the restriction of this particular period we decided to use it for the final delivery demo, also because it had similar charateristics to the STM-Nucleo boards.
+We are consciouns that in our architecture plan we mentioned the STM-Nucleo as chosen board. We are also conscious that the STM-Nucleo is mandatory for this project. Anyway, one of the team members had a personal ESP32 board already avaliable and due to the restrictions of this particular period (a global pandemic that made difficult to us to get a STM-Nucleo from our laboratory or anyway to find one in reasonable times), we decided to use his ESP32 for the final delivery demo, also because it had similar charateristics to the STM-Nucleo boards.
 
 ### IoT aspects
 We substain that MuSa project is filled of IoT components and arguments.
 - The *Data collection and Data analysis* are two of the main goals of the IoT. With MuSa, we collect informations about visitors and users for several reasons like to provide personalized tours and improve those tours through visitor's behavior. Even if it is not planned in our project, the curators may use the collected data also for several others aspects, like reorganize the museum's artworks positioning, simply analyzing those data. TO DO: attuatore delle opere con piu visite
 - The *Edge computing* is a widespread computing paradigm used in IoT; we pre-process the data collected to send them to the cloud in a better structured way and to save on the number of messages sent, for better exploit the Cloud's free-plan
-- We use two different types of *Boards*: a Raspberry Pi and a ESP32 (that is supposed to be an STM32 Nucleo)
+- We use two different types of *Boards*: a Raspberry Pi and a ESP32* (that is supposed to be an STM32 Nucleo)
 - The use of a *Cloud service*: Microsoft Azure
 - The use of *MQTT*: a famous lightweight messaging protocol in IoT for small sensors and mobile devices
 - The use of *Bluetooth Low Energy (BLE)* technology
