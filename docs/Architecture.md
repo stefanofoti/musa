@@ -181,7 +181,7 @@ the records would be updated in this way:<br/>
   &nbsp;}]<br/>
 
 Please notice that from Record 1 we can deduce that the user A1:B2:C3:D4:E5:F6 has returned near the artwork with id "1". Thanks to duplicates in the list we can have an understanding of the path the user is following while visiting the museum.<br/>
-When a user terminates his tour, the list corresponding to him is saved to the Google Doc that is the dataset for the machine learning algorithm, together with the profile of the user for further tuning of the tours (using this data we can understand which pieces of art were most liked by a specific type of user).<br/>
+**Not impletemented for the final delivery**: when a user terminates his tour, the list corresponding to him is saved to the Google Doc that is the dataset for the machine learning algorithm, together with the profile of the user for further tuning of the tours (using this data we can understand which pieces of art were most liked by a specific type of user).<br/>
 
 #### Frontend
 
