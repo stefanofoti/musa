@@ -17,8 +17,7 @@ public class VistaTour extends Fragment {
     private Button endTourButton;
     private Button closestArtworkInfoButton;
 
-    // TODO: add button to get info on nearest artowork and button to end tour
-
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.vista_tour, container, false);
 

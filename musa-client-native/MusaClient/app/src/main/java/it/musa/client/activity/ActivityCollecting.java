@@ -34,9 +34,12 @@ public class ActivityCollecting extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collecting);
 
+        // Get userID
+        String userID = (String) Applicazione.getInstance().getModello().getBean("userID");
+
         // Create an AltBeacon BLE beacon
         Beacon beacon = new Beacon.Builder()
-                .setId1("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
+                .setId1(userID)
                 .setId2("1")
                 .setId3("2")
                 .setManufacturer(0x0118)    // Radius network

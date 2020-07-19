@@ -111,6 +111,10 @@ public class ControlloSurvey {
         protected Void doInBackground(String... params) {
             try {
 
+                // Set user ID and save it
+                String userID = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb";
+                Applicazione.getInstance().getModello().putBean("userID", userID);
+
                 // Set up the connection
                 URL url = new URL("http://10.0.2.2:5002/api/Tour/GetTour");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -129,7 +133,7 @@ public class ControlloSurvey {
                 jsonParam.put("timeValue", params[4]);
                 jsonParam.put("useMusa", params[5]);
                 jsonParam.put("collectData", params[6]);
-                jsonParam.put("userID", "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+                jsonParam.put("userID", userID);
 
                 // Log the JSON object to see if everything is fine
                 Log.i("JSON", jsonParam.toString());

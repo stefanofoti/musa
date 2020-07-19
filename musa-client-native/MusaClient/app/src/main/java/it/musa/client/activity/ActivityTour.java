@@ -58,9 +58,12 @@ public class ActivityTour extends AppCompatActivity {
         // GET the tour from the server
         new getTour().execute();
 
+        // Get user ID
+        String userID = (String) Applicazione.getInstance().getModello().getBean("userID");
+
         // Create an AltBeacon BLE beacon
         Beacon beacon = new Beacon.Builder()
-                .setId1("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
+                .setId1(userID)
                 .setId2("1")
                 .setId3("2")
                 .setManufacturer(0x0118)    // Radius network
@@ -93,6 +96,11 @@ public class ActivityTour extends AppCompatActivity {
 
     public void mostraActivityFeedbackSurvey() {
         Intent intent = new Intent(this, ActivityFeedbackSurvey.class);
+        startActivity(intent);
+    }
+
+    public void mostraActivityClosestArtwork() {
+        Intent intent = new Intent(this, ActivityClosestArtwork.class);
         startActivity(intent);
     }
 
@@ -169,8 +177,6 @@ public class ActivityTour extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
-            // TODO: this needs to be done well -> parse JSON and for each artwork show basic info
         }
     }
 }

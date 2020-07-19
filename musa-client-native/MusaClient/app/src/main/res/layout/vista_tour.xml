@@ -36,7 +36,7 @@
             android:layout_marginLeft="20sp"
             android:layout_marginTop="10sp"
             android:text="@string/closest_artwork_button"
-            android:onClick="onclosestArtworkButtonClicked" />
+            android:layout_marginStart="20sp" />
 
         <Button
             android:id="@+id/tourEndButton"
@@ -45,7 +45,7 @@
             android:layout_marginLeft="20sp"
             android:layout_marginTop="10sp"
             android:text="@string/tour_end_button"
-            android:onClick="onTourEndClicked" />
+            android:layout_marginStart="20sp" />
 
     </LinearLayout>
 
