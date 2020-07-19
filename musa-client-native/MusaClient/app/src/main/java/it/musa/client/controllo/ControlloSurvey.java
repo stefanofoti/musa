@@ -115,8 +115,8 @@ public class ControlloSurvey {
                 String userID = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb";
                 Applicazione.getInstance().getModello().putBean("userID", userID);
 
-                // Set up the connection
-                URL url = new URL("http://10.0.2.2:5002/api/Tour/GetTour");
+                // Set up the connection    http://10.0.2.2:5002/api/Tour/GetTour
+                URL url = new URL("http://musa-be.azurewebsites.net/api/Tour/GetTour");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");

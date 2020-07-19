@@ -128,8 +128,8 @@ public class ActivityTour extends AppCompatActivity {
                 //Retrieve tourID   azureGETTourURL/tourID
                 String tourID = (String) Applicazione.getInstance().getModello().getBean("tourID");
 
-                // Set up connection
-                URL url = new URL("http://10.0.2.2:5002/api/Tour/"+tourID);
+                // Set up connection    http://10.0.2.2:5002
+                URL url = new URL("http://musa-be.azurewebsites.net/api/Tour/"+tourID);
                 conn = (HttpURLConnection) url.openConnection();
                 conn.connect();
 
