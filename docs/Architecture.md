@@ -12,8 +12,8 @@
 - [Sensor Network](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#sensor-network)
   - [About the messages sending](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-messages)
    - [About the main board's messages](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-main-boards-messages)
-    - [About the choice of having a second Raspberry Pi](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-choice-of-having-a-second-raspberry-pi)
-    - [The RGB Led actuator](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#the-rgb-led-actuator)
+   - [About the choice of having a second Raspberry Pi](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-choice-of-having-a-second-raspberry-pi)
+  - [The RGB Led actuator](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#the-rgb-led-actuator)
 - [Backend and smartphone frontend](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#backend-and-smartphone-front-end)
   - [Keeping track of user's visit](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#keeping-track-of-users-visit)
   - [Frontend](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#frontend)
@@ -113,7 +113,7 @@ Notice that we decided to use a main board as a gateway because, besides the fac
 ##### About the choice of having a second Raspberry Pi
 For reliability reasons (more details in the [Evaluation document](/Evaluation.md)), we decided to keep also another Raspberry board in hot standby, since having a main gateway board exposes us to the risk of having a single point of failure; when the main gateway forwards the report to the cloud, also the second "backup board" receives it. If it doesn't receive any report for some time, it will assume that the main gateway has suffered a failure, and it will take its place to avoid the stop of the service.<br/>
 
-##### The RGB Led actuator
+#### The RGB Led actuator
 We decided to implement an RGB Led actuator, positioned on each board, to show the most appreciated artworks in the current day (easily switchable to a weekly or monthly period). The Led is lighted up with a green light if an artwork is in the top ten of the most liked operas, based on how much time each visitor spends in front of it. It also lights up or blinks with a red light if there are connection problems.
 
 ### Backend and smartphone front-end
