@@ -60,10 +60,9 @@ The architecture is the following:<br/>
   - Azure Database (*not implemented*) ([clarification about the Database](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#Clarification-about-Azure-Database))<br/>
   - Azure Machine Learning (*not implemented*)<br/>
   - Azure Web App Service Plan<br/>
-- Google Docs<br/>
-- RIOT OS
-- Python
-- Angular and Bootstrap
+- Google Docs (*not implemented*)<br/>
+- Python, C#, Java, Android Studio
+
 
 #### Technologies
 - Bluetooth Low Energy (BLE)<br/>
