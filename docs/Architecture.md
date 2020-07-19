@@ -1,8 +1,8 @@
 # Architecture
 
 ### Index
-- Introduction
-- Architecture and components 
+- [Introduction](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#introduction)
+- [Architecture and components](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#architecture-and-components) 
   - List of components
     - Software
     - Hardware
@@ -16,7 +16,7 @@
 - Cloud
 - About the choice to use Bluetooth Low Energy
   - [RSSI and Kalman Filter](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#rssi-and-kalman-filter)
-- References
+- [References](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#some-references)
 
 TO DO: forse riordinare meglio ed aggiungere nuovi paragrafi
 
