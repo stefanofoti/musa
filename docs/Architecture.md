@@ -60,10 +60,9 @@ The architecture is the following:<br/>
   - Azure Database (*not implemented*) ([clarification about the Database](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#Clarification-about-Azure-Database))<br/>
   - Azure Machine Learning (*not implemented*)<br/>
   - Azure Web App Service Plan<br/>
-- Google Docs<br/>
-- RIOT OS
-- Python
-- Angular and Bootstrap
+- Google Docs (*not implemented*)<br/>
+- Python, C#, Java, Android Studio
+
 
 #### Technologies
 - Bluetooth Low Energy (BLE)<br/>
@@ -197,7 +196,7 @@ If a user wants to follow MuSa for a personalized tour, the application firstly 
 Even if at the beginning we expected to expose the frontend through an Angular web-app, it has been necessary to move towards an Android application, due to some problems. 
 The main problem has been that using beacons was not easy at all through a web app, beacause for example every time that a user proceeded to a new artwork, he was asked to authorize the board to receive beacons, making the use of the user's device too intense and annoying.
 Fortunately, in one of our questionnaires we asked to people if they have been disposed to download an app at their arrive to the museum for having better perfomances, and they answered in an enough positive way. <br/>
-![image](src/architecture/app_question.png)
+<div align="center"><img src="src/architecture/app_question.png"/></div>
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
