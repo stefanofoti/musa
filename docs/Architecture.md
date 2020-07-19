@@ -70,6 +70,8 @@ The architecture is the following:<br/>
 ##### Clarification about the ESP32 board
 We are consciouns that in our architecture plan we mentioned the STM-Nucleo as chosen board. We are also conscious that the STM-Nucleo is mandatory for this project. Anyway, one of the team members had a personal ESP32 board already avaliable and due to the restrictions of this particular period (a global pandemic that made difficult to us to get a STM-Nucleo from our laboratory or anyway to find one in reasonable times), we decided to use his ESP32 for the final delivery demo, also because it had similar charateristics to the STM-Nucleo boards.
 
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ### IoT aspects
 We substain that MuSa project is filled of IoT components and arguments.
 - The *Data collection and Data analysis* are two of the main goals of the IoT. With MuSa, we collect informations about visitors and users for several reasons like to provide personalized tours and improve those tours through visitor's behavior. Even if it is not planned in our project, the curators may use the collected data also for several others aspects, like reorganize the museum's artworks positioning, simply analyzing those data. TO DO: attuatore delle opere con piu visite
@@ -80,6 +82,8 @@ We substain that MuSa project is filled of IoT components and arguments.
 - The use of *Bluetooth Low Energy (BLE)* technology
 - The use of *Devices* sending beacons, that in our case are smartphones
 - A led Actuator, that shows through a green light the ten artworks most appreciated in the current day
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Sensor network
 
@@ -115,6 +119,8 @@ For reliability reasons (more details in the [Evaluation document](/Evaluation.m
 
 #### The RGB Led actuator
 We decided to implement an RGB Led actuator, positioned on each board, to show the most appreciated artworks in the current day (easily switchable to a weekly or monthly period). The Led is lighted up with a green light if an artwork is in the top ten of the most liked operas, based on how much time each visitor spends in front of it. It also lights up or blinks with a red light if there are connection problems.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Backend and smartphone front-end
 
@@ -186,11 +192,15 @@ The main problem has been that using beacons was not easy at all through a web a
 Fortunately, in one of our questionnaires we asked to people if they have been disposed to download an app at their arrive to the museum for having better perfomances, and they answered in an enough positive way. 
 - TO DO: foto sondaggio
 
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ### Cloud
 
 It's a crowded place: here we can find the IoT Hub, our application code (backend and frontend) with its database and the machine learning algorithm.<br/>
 Azure Machine Learning takes as input the dataset saved on the Google Doc, elaborates it creating the tours for the different type of users (the personas we identified) and it pushes them into the database of the application. It runs as a batch.<br/>
 The database contains also information about the pieces of art and when the application needs to present the user a tour or details about an artwork, it will make a query to it.<br/>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### About the choice to use Bluetooth Low Energy
 
@@ -221,6 +231,8 @@ There is also the problem that is technology is not natively supported by smartp
 Since one of the general comments about our project was that the BLE technology is not very exciting for indoor positioning, also because sometimes it is not very accurate, as suggested we implemented the use of RSSI crossed to the inclusion of a Kalman Filter for improving the precision of our system. <br>
 **Received signal strength indicator (RSSI)** is a measurement of the power present in a received signal: we get the RSSI from each beacon and we can estimate how much is close a user to an artwork and also which is the closest artwork. <br>
 The **Kalman Filter** is an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more accurate than those based on a single measurement alone. The Raspberry-Pi applies the Kalman Filter to a series of beacon's RSSI recieved, so in this way it can avoid abrupt variations or it can ignore strange values caused by wrong beacons measurements.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Some references
 These are the articles we mainly consulted:<br/>
