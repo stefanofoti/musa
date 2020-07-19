@@ -15,6 +15,7 @@
 - [Backend and smartphone frontend](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#backend-and-smartphone-front-end)
   - [Keeping track of user's visit](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#keeping-track-of-users-visit)
   - [Frontend](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#frontend)
+  - [From an Angular web-app to an Android application](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#from-an-angular-web-app-to-an-android-application)
 - [Cloud](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#cloud)
 - [About the choice to use Bluetooth Low Energy](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-choice-to-use-bluetooth-low-energy)
   - [RSSI and Kalman Filter](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#rssi-and-kalman-filter)
@@ -169,6 +170,11 @@ If a user decides he only wants to help collect data, the only thing MuSa will d
 If a user wants to follow MuSa for a personalized tour, the application will present the visitor with a survey to outline his profile. Once the type of user is identified, MuSa asks for the backend an appropriate tour, which will be fetched from Azure's database, where all the tours are stored, and will propose it to the user. During the itinerary the frontend, in addition to periodically send beacons, will periodically ask the backend for information about the user's current location (the last piece of art visited), and interaction will be dealt accordingly.<br/>
 
 #### From an Angular web-app to an Android application
+
+Even if at the beginning we expected to expose the frontend through an Angular web-app, it has been necessary to move towards an Android application, due to some problems. 
+The main problem has been that using beacons was not easy at all through a web app, beacause for example every time that a user proceeded to a new artwork, he was asked to authorize the board to recieve beacons, making the use of the user's device to intense and annoying.
+Fortunately, in one of our questionnaires we asked to people if they have been disposed to download an app at their arrive to the museum for having better perfomances, and they answered in an enough positive way. 
+- TO DO: foto sondaggio
 
 ### Cloud
 
