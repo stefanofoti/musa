@@ -2,7 +2,7 @@
 
 *- "The project makes sense [...] but in terms of IoT is basic, there is nothing more than the most fundamental idea of sending and recieving a beacon"* <br>
 We don't totally agree with the fact that our project is too basic in terms of IoT. We sustain to have a lot of IoT components and arguments in MuSa:
-- The *Data collection and Data analysis*: we collect informations about visitors and users for several reasons like to provide personalized tours and improve those tour through visitor's behavior. TO DO: attuatore delle opere con piu visite
+- The *Data collection and Data analysis*: we collect informations about visitors and users for several reasons like to provide personalized tours and improve those tour through visitor's behavior
 - The *Edge computing*: we pre-process the data collected to send them to the cloud in a better structured way and to save on the number of messages sent, for better exploit the Cloud's free-plan
 - The use of two different types of *Boards*
 - The use of a *Cloud service*: Microsoft Azure
