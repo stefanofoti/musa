@@ -168,6 +168,8 @@ When a user terminates his tour, the list corresponding to him is saved to the G
 If a user decides he only wants to help collect data, the only thing MuSa will do is send beacons, and all the work will be done by the rest of the architecture described in a completely transparent way for the user, who will not be disturbed in the slightest.<br/>
 If a user wants to follow MuSa for a personalized tour, the application will present the visitor with a survey to outline his profile. Once the type of user is identified, MuSa asks for the backend an appropriate tour, which will be fetched from Azure's database, where all the tours are stored, and will propose it to the user. During the itinerary the frontend, in addition to periodically send beacons, will periodically ask the backend for information about the user's current location (the last piece of art visited), and interaction will be dealt accordingly.<br/>
 
+#### From an Angular web-app to an Android application
+
 ### Cloud
 
 It's a crowded place: here we can find the IoT Hub, our application code (backend and frontend) with its database and the machine learning algorithm.<br/>
