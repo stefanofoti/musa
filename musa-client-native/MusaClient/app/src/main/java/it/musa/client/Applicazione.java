@@ -5,6 +5,9 @@ import android.app.Application;
 import android.os.Bundle;
 import android.util.Log;
 
+import it.musa.client.activity.ActivityTour;
+import it.musa.client.controllo.ControlloCollecting;
+import it.musa.client.controllo.ControlloFeedbackSurvey;
 import it.musa.client.controllo.ControlloSurvey;
 import it.musa.client.controllo.ControlloTour;
 import it.musa.client.controllo.ControlloWelcome;
@@ -38,6 +41,8 @@ public class Applicazione extends Application {
     private ControlloWelcome controlloWelcome = new ControlloWelcome();
     private ControlloSurvey controlloLogin = new ControlloSurvey();
     private ControlloTour controlloTour = new ControlloTour();
+    private ControlloCollecting controlloCollecting = new ControlloCollecting();
+    private ControlloFeedbackSurvey controlloFeedbackSurvey = new ControlloFeedbackSurvey();
 
     private DAOGenericoJson daoGenericoJson = new DAOGenericoJson();
 
@@ -63,6 +68,10 @@ public class Applicazione extends Application {
     }
 
     public ControlloTour getControlloTour() { return controlloTour; }
+
+    public ControlloCollecting getControlloCollecting() { return controlloCollecting; }
+
+    public ControlloFeedbackSurvey getControlloFeedbackSurvey() { return controlloFeedbackSurvey; }
 
     public DAOGenericoJson getDaoGenericoJson() {
         return daoGenericoJson;

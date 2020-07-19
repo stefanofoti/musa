@@ -45,4 +45,6 @@
     <string name="feedback_survey_friend_value_low">No</string>
     <string name="feedback_survey_friend_value_middle">Maybe</string>
     <string name="feedback_survey_submit_button">Submit</string>
+    <string name="final_thanks_text">Thank you for having used our services.\nHave a nice day, MuSa hopes to see you soon!</string>
+    <string name="collecting_end_button">I\'ve finished my visit!</string>
 </resources>

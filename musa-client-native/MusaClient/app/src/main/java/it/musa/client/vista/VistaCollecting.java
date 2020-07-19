@@ -8,20 +8,26 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import it.musa.client.Applicazione;
 import it.musa.client.R;
 
 public class VistaCollecting extends Fragment {
 
+    // Submit button field
+    private Button endCollecting;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View vista = inflater.inflate(R.layout.vista_collecting, container, false);
+        View vista =  inflater.inflate(R.layout.vista_collecting, container, false);
+
+        this.endCollecting = (Button) vista.findViewById(R.id.endCollecting);
+
         inizializzaAzioni();
         return vista;
     }
 
     private void inizializzaAzioni(){
-        //this.bottoneSubmit.setOnClickListener(Applicazione.getInstance().getControlloSubmit().getAzioneXXX());
+        this.endCollecting.setOnClickListener(Applicazione.getInstance().getControlloCollecting().getAzioneSubmit());
     }
 
 }

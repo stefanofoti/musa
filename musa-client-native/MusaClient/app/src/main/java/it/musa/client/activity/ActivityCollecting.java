@@ -18,6 +18,7 @@ import org.altbeacon.beacon.BeaconTransmitter;
 
 import java.util.Arrays;
 
+import it.musa.client.Applicazione;
 import it.musa.client.R;
 import it.musa.client.vista.VistaCollecting;
 
@@ -59,6 +60,13 @@ public class ActivityCollecting extends AppCompatActivity {
                 Log.e(TAG, "Advertisement start failed with code: "+ errorCode);
             }
         });
+
+        Applicazione.getInstance().getModello().putBean("beaconTransmitter", beaconTransmitter);
+    }
+
+    public void mostraActivityFinalThanks() {
+        Intent intent = new Intent(this, ActivityFinalThanks.class);
+        startActivity(intent);
     }
 
     public VistaCollecting getVistaCollecting() {

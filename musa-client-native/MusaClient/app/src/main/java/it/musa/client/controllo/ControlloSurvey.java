@@ -59,14 +59,17 @@ public class ControlloSurvey {
 
             // When the user presses "LET'S GO" the app tries to send the data of the survey to the server
             try {
-                if (sendFormData(activitySurvey, ageValue, genderValue, movieValue, artStyleValue, timeValue, useMusa, collectData) == 0) {
+                if (collectData == "N") {
+
+                    activitySurvey.mostraActivityFinalThanks();
+
+                } else if (sendFormData(activitySurvey, ageValue, genderValue, movieValue, artStyleValue, timeValue, useMusa, collectData) == 0) {
                     if (useMusa == "Y") {
 
                         //Start tour activity
                         activitySurvey.mostraActivityTour();
 
                     } else {
-
                         // Start collect data activity
                         activitySurvey.mostraActivityCollecting();
                     }
@@ -109,8 +112,8 @@ public class ControlloSurvey {
             try {
 
                 // Set up the connection
-                URL url = new URL("https://10.0.2.2:5000/api/Tour/GetTour");
-                HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+                URL url = new URL("http://10.0.2.2:5002/api/Tour/GetTour");
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
                 conn.setRequestProperty("Accept", "application/json");
@@ -141,8 +144,6 @@ public class ControlloSurvey {
                 Log.i("STATUS", String.valueOf(conn.getResponseCode()));
                 Log.i("MESSAGE", conn.getResponseMessage());
 
-                // TODO
-
                 // Parse POST response to get the tour ID and save it
                 InputStream stream = conn.getInputStream();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
@@ -156,7 +157,9 @@ public class ControlloSurvey {
                     Log.d("Response: ", "> " + buffer.toString());
                 }
 
-                String tourID = buffer.toString();
+                // Parse JSON response
+                JSONObject jsonObject = new JSONObject(buffer.toString());
+                String tourID = jsonObject.getString("TourID");
 
                 // Save tourId to later use it
                 Applicazione.getInstance().getModello().putBean("tourID", tourID);

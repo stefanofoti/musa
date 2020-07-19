@@ -73,7 +73,7 @@ public class VistaFeedbackSurvey extends Fragment {
     }
 
     private void inizializzaAzioni(){
-        //TODO this.submit.setOnClickListener(Applicazione.getInstance().ge);
+        this.submit.setOnClickListener(Applicazione.getInstance().getControlloFeedbackSurvey().getAzioneSubmit());
     }
 
     // Get methods: they allow external classes to access the fields of this class

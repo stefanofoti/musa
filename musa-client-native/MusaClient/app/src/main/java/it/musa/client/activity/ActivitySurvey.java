@@ -45,6 +45,11 @@ public class ActivitySurvey extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void mostraActivityFinalThanks() {
+        Intent intent = new Intent(this, ActivityFinalThanks.class);
+        startActivity(intent);
+    }
+
     // Get methods to return the values of the RadioGroup fields
     public String getGenderValue() {
         return genderValue;
