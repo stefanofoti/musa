@@ -8,7 +8,7 @@
     - [Hardware](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#hardware)
     - [Technologies](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#technologies)
       - [Clarification about the ESP32 board](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#clarification-about-the-ESP32-board)
-      - [Clarification about the Azure Database](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#clarification-about-the-Azure-Database)
+      - [Clarification about the Azure Database](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#clarification-about-Azure-Database)
 - [IoT aspects](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#iot-aspects)
 - [Sensor Network](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#sensor-network)
   - [About the messages sending](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-messages)
