@@ -26,4 +26,23 @@
     <string name="tour_intro">This is your custom tour, enjoy the visit!</string>
     <string name="closest_artwork_button">Information about the closest artwork</string>
     <string name="tour_end_button">I finished the tour!</string>
+    <string name="feedback_survey_start">Thank you for having completed the tour, we hope it was fun!\nWe ask you just a moment of your time to fill this survey: our users\' opinion is very important!</string>
+    <string name="feedback_survey_fun">The visit was</string>
+    <string name="feedback_survey_boring_value">boring</string>
+    <string name="feedback_survey_fun_value">fun</string>
+    <string name="feedback_survey_experience">I think MuSa</string>
+    <string name="feedback_survey_experience_value_high_button">improved my experience</string>
+    <string name="feedback_survey_experience_value_middle">didn\'t have such a big impact on my visit</string>
+    <string name="feedback_survey_experience_low_value_button">was annoying sometimes</string>
+    <string name="feedback_survey_learning_value_high">helped me learn something new</string>
+    <string name="feedback_survey_learning_value_low">did not have ineresting information</string>
+    <string name="feedback_survey_museum">Knowing I can do another personalized tour</string>
+    <string name="feedback_survey_museum_value_high">I will return to the museum</string>
+    <string name="feedback_survey_museum_value_low">I still don\'t think I will return to the museum</string>
+    <string name="feedback_survey_museum_value_middle">I\'m still not sure I will return to the museum</string>
+    <string name="feedback_survey_friend">Would you recommend MuSa to a friend?</string>
+    <string name="feedback_survey_friend_value_high">Yes</string>
+    <string name="feedback_survey_friend_value_low">No</string>
+    <string name="feedback_survey_friend_value_middle">Maybe</string>
+    <string name="feedback_survey_submit_button">Submit</string>
 </resources>

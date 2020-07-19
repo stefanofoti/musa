@@ -109,7 +109,6 @@ namespace MuSa.Controllers
                 obj.ArtworkId = id;
                 int idn = id[2] - 48 - 1;
                 var artwork = (_context.Artworks.ToList()[idn]);
-                Console.WriteLine("+------------------------------------ artwork "+artwork);
                 if(artwork!=null){
                     obj.Name=artwork.Name;
                     obj.Author=artwork.Author;

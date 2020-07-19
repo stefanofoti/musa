@@ -15,9 +15,261 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/feedbackSurveyStartText"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ciao" />
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginBottom="10sp"
+            android:text="@string/feedback_survey_start"
+            android:textColor="@color/primary"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/feedbackSurveyFun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/feedback_survey_fun" />
+
+        <RadioGroup
+            android:id="@+id/feedbackSurveySelectFunValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="10sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/feedbackSurveyBoringValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10sp"
+                android:text="@string/feedback_survey_boring_value" />
+
+            <RadioButton
+                android:id="@+id/feedbackSurveyFunValue1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonFeedbackSurveyFunValueClicked" />
+
+            <RadioButton
+                android:id="@+id/feedbackSurveyFunValue2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonFeedbackSurveyFunValueClicked" />
+
+            <RadioButton
+                android:id="@+id/feedbackSurveyFunValue3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonFeedbackSurveyFunValueClicked" />
+
+            <RadioButton
+                android:id="@+id/feedbackSurveyFunValue4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonFeedbackSurveyFunValueClicked" />
+
+            <RadioButton
+                android:id="@+id/feedbackSurveyFunValue5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonFeedbackSurveyFunValueClicked" />
+
+            <TextView
+                android:id="@+id/feedbackSurveyFunValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/feedback_survey_fun_value" />
+
+
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/feedbackSurveyExperience"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/feedback_survey_experience" />
+
+        <RadioGroup
+            android:id="@+id/feedbackSurveySelectExperienceValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="10sp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/feedbackSurveyExperienceHighValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonFeedbackSurveyExperienceValueClicked"
+                android:text="@string/feedback_survey_experience_value_high_button" />
+
+            <RadioButton
+                android:id="@+id/feedbackSurveyExperienceMiddleValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonFeedbackSurveyExperienceValueClicked"
+                android:text="@string/feedback_survey_experience_value_middle" />
+
+            <RadioButton
+                android:id="@+id/feedbackSurveyExperienceLowValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonFeedbackSurveyExperienceValueClicked"
+                android:text="@string/feedback_survey_experience_low_value_button" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/feedbackSurveyLearning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/feedback_survey_experience" />
+
+        <RadioGroup
+            android:id="@+id/feedbackSurveySelectLearningValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="10sp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/feedbackSurveyLearningHighValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonFeedbackSurveyLearningValueClicked"
+                android:text="@string/feedback_survey_learning_value_high" />
+
+            <RadioButton
+                android:id="@+id/feedbackSurveyLearningMiddleValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonFeedbackSurveyLearningValueClicked"
+                android:text="@string/feedback_survey_experience_value_middle" />
+
+            <RadioButton
+                android:id="@+id/feedbackSurveyLearningLowValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonFeedbackSurveyLearningValueClicked"
+                android:text="@string/feedback_survey_learning_value_low" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/feedbackSurveyMuseum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/feedback_survey_museum" />
+
+        <RadioGroup
+            android:id="@+id/feedbackSurveySelectMuseumValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="10sp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/feedbackSurveyMuseumHighValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonFeedbackSurveyMuseumValueClicked"
+                android:text="@string/feedback_survey_museum_value_high" />
+
+            <RadioButton
+                android:id="@+id/feedbackSurveyMuseumLowValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonFeedbackSurveyMuseumValueClicked"
+                android:text="@string/feedback_survey_museum_value_low" />
+
+            <RadioButton
+                android:id="@+id/feedbackSurveyMuseumMiddleValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonFeedbackSurveyMuseumValueClicked"
+                android:text="@string/feedback_survey_museum_value_middle" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/feedbackSurveyFriend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/feedback_survey_friend" />
+
+        <RadioGroup
+            android:id="@+id/feedbackSurveySelectFriendValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="10sp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/feedbackSurveyFriendHighValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonFeedbackSurveyFriendValueClicked"
+                android:text="@string/feedback_survey_friend_value_high" />
+
+            <RadioButton
+                android:id="@+id/feedbackSurveyFriendLowValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonFeedbackSurveyFriendValueClicked"
+                android:text="@string/feedback_survey_friend_value_low" />
+
+            <RadioButton
+                android:id="@+id/feedbackSurveyFriendMiddleValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonFeedbackSurveyFriendValueClicked"
+                android:text="@string/feedback_survey_friend_value_middle" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/submitFeedbackSurveyButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="20sp"
+            android:background="@color/primary"
+            android:text="@string/feedback_survey_submit_button" />
+
 
     </LinearLayout>
 

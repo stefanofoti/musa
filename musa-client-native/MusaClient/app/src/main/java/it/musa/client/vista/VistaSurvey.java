@@ -41,7 +41,7 @@ public class VistaSurvey extends Fragment {
 
 
 
-    // Constructor: initialized all the fields for the View and creates it
+    // Constructor: initializes all the fields for the View and creates it
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.vista_survey, container, false);
