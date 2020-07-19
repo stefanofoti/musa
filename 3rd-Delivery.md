@@ -26,13 +26,16 @@ One of the general comments about our project was that the BLE technology is not
 <br>
 
 ## Changes made to design, architecture and evaluation
-We did not change anything in the [Design plan](docs/Design.md) because we had no need to do that. Contrariwise, for what concerns the Architecture and the Evaluation plans, we made some improvements and some minor adjustements.
+For what concerns the Design, the Architecture and the Evaluation plans, we made some improvements and some minor adjustements.
+
+In the [Design plan](docs/Design.md):
+- we implemented the functionality of a led actuator that highlights the most appreciated artworks in the current day
 
 In the [Architecture plan](docs/Architecture.md):
 - we decided to switch from a Web App to an Android App
 - we improved the positioning accuracy through the use of a Kalman Filter and RSSI
 - we clarified why we are using a ESP32 instead of an STM Nucleo
-- we implemented a led actuator that highlights the most appreciated artworks in the current day
+- we made a brief discussion about the led actuator
 
 In the [Evaluation plan](docs/Evaluation.md):
 - TO DO: valutazione con gli standars iso??
