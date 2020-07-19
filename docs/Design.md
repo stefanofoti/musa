@@ -14,6 +14,7 @@
 - [User experience and storyboard](https://github.com/stefanofoti/musa/blob/master/docs/Design.md#User-experience-and-storyboard)
 	- [Collect data](https://github.com/stefanofoti/musa/blob/master/docs/Design.md#Collect-data)
 	- [Do a personalized tour](https://github.com/stefanofoti/musa/blob/master/docs/Design.md#Do-a-personalized-tour)
+	- [The RGB led](https://github.com/stefanofoti/musa/blob/master/docs/Design.md#the-rgb-led)
 - [references](https://github.com/stefanofoti/musa/blob/master/docs/Design.md#references)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -148,6 +149,9 @@ Here we imagined what would be Enea's experience. He'd like to try MuSa, and he 
 6. MuSa proposes a tour tailored to his personality. Enea could ask for a different itinerary by pressing “Give me another tour”, but he’s satisfied with the suggestion and presses “Start the journey”.
 7. Enea visits the museum following MuSa. The app collects data about his location and how much time she spends near every piece of art, while also accompanying him through the rooms and providing useful information about the artworks exposed. This is done thanks to the communication between his smartphone, the boards, and the backend of the application. Enea is glad he decided to use MuSa, he’s learning new things and he feels entertained.
 8. Enea leaves, satisfied with her visit. The app has stopped collecting data. The museum curators are happy with the information they’ve gathered, and with the fact that a new visitor had a  good time in their museum.
+
+#### The RGB led
+We decided to implement a minor feature through an RGB Led actuator, positioned on each board, to show the most appreciated artworks in the current day (easily switchable to a weekly or monthly period). The Led is lighted up with a green light if an artwork is in the top ten of the most liked operas, based on how much time each visitor spends in front of it.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 

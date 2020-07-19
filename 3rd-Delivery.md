@@ -29,7 +29,7 @@ One of the general comments about our project was that the BLE technology is not
 For what concerns the Design, the Architecture and the Evaluation plans, we made some improvements and some minor adjustements.
 
 In the [Design plan](docs/Design.md):
-- we implemented the functionality of a led actuator that highlights the most appreciated artworks in the current day
+- we implemented the minor functionality of a led actuator that highlights the most appreciated artworks in the current day
 
 In the [Architecture plan](docs/Architecture.md):
 - we decided to switch from a Web App to an Android App

@@ -121,6 +121,7 @@ For reliability reasons (more details in the [Evaluation document](/Evaluation.m
 
 #### The RGB Led actuator
 We decided to implement an RGB Led actuator, positioned on each board, to show the most appreciated artworks in the current day (easily switchable to a weekly or monthly period). The Led is lighted up with a green light if an artwork is in the top ten of the most liked operas, based on how much time each visitor spends in front of it. It also lights up or blinks with a red light if there are connection problems.
+TO DO: aggiungere qualcosa di tecnico per differenziarlo dalla descrizione nel design document
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
