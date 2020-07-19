@@ -31,6 +31,7 @@ In the [Architecture plan](docs/Architecture.md):
 - we decided to switch from a Web App to an Android App
 - we improved the positioning accuracy through the use of a Kalman Filter and RSSI
 - TO DO: ESP32 perchè Stefano aveva quelle????
+- TO DO: Attuatore LED?
 
 In the [Evaluation plan](docs/Evaluation.md):
 - TO DO: valutazione con gli standars iso??

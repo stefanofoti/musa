@@ -7,6 +7,7 @@
     - [Software](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#software)
     - [Hardware](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#hardware)
     - [Technologies](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#technologies)
+- [IoT aspects](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#iot-aspects)
 - [Sensor Network](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#sensor-network)
   - [About the messages sending](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-messages)
    - [About the main board's messages](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-main-boards-messages)
@@ -14,6 +15,7 @@
 - [Backend and smartphone frontend](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#backend-and-smartphone-front-end)
   - [Keeping track of user's visit](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#keeping-track-of-users-visit)
   - [Frontend](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#frontend)
+  - [From an Angular web-app to an Android application](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#from-an-angular-web-app-to-an-android-application)
 - [Cloud](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#cloud)
 - [About the choice to use Bluetooth Low Energy](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-choice-to-use-bluetooth-low-energy)
   - [RSSI and Kalman Filter](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#rssi-and-kalman-filter)
@@ -61,6 +63,16 @@ The architecture is the following:<br/>
 - Bluetooth Low Energy (BLE)<br/>
 - MQTT-SN<br/>
 - MQTT<br/>
+
+### IoT aspects
+We substain that MuSa project is filled of IoT components and arguments.
+- The *Data collection and Data analysis* are two of the main goals of the IoT. With MuSa, we collect informations about visitors and users for several reasons like to provide personalized tours and improve those tours through visitor's behavior. Even if it is not planned in our project, the curators may use the collected data also for several others aspects, like reorganize the museum's artworks positioning, simply analyzing those data. TO DO: attuatore delle opere con piu visite
+- The *Edge computing* is a widespread computing paradigm used in IoT; we pre-process the data collected to send them to the cloud in a better structured way and to save on the number of messages sent, for better exploit the Cloud's free-plan
+- We use two different types of *Boards*: a Raspberry Pi and a ESP32 (that is supposed to be an STM32 Nucleo)
+- The use of a *Cloud service*: Microsoft Azure
+- The use of *MQTT*: a famous lightweight messaging protocol in IoT for small sensors and mobile devices
+- The use of *Bluetooth Low Energy (BLE)* technology
+- The use of *Devices* sending beacons, that in our case are smartphones
 
 ### Sensor network
 
@@ -156,6 +168,13 @@ When a user terminates his tour, the list corresponding to him is saved to the G
 
 If a user decides he only wants to help collect data, the only thing MuSa will do is send beacons, and all the work will be done by the rest of the architecture described in a completely transparent way for the user, who will not be disturbed in the slightest.<br/>
 If a user wants to follow MuSa for a personalized tour, the application will present the visitor with a survey to outline his profile. Once the type of user is identified, MuSa asks for the backend an appropriate tour, which will be fetched from Azure's database, where all the tours are stored, and will propose it to the user. During the itinerary the frontend, in addition to periodically send beacons, will periodically ask the backend for information about the user's current location (the last piece of art visited), and interaction will be dealt accordingly.<br/>
+
+#### From an Angular web-app to an Android application
+
+Even if at the beginning we expected to expose the frontend through an Angular web-app, it has been necessary to move towards an Android application, due to some problems. 
+The main problem has been that using beacons was not easy at all through a web app, beacause for example every time that a user proceeded to a new artwork, he was asked to authorize the board to receive beacons, making the use of the user's device too intense and annoying.
+Fortunately, in one of our questionnaires we asked to people if they have been disposed to download an app at their arrive to the museum for having better perfomances, and they answered in an enough positive way. 
+- TO DO: foto sondaggio
 
 ### Cloud
 
