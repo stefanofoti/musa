@@ -11,7 +11,11 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -77,12 +81,12 @@ public class ControlloSurvey {
         public int sendFormData(ActivitySurvey activitySurvey, String ageValue, String genderValue, String movieValue, String artStyleValue, String timeValue, String useMusa, String collectData) {
 
             // POST data (first check if all the fields of the survey are filled)
-            //if (ageValue != null && genderValue != null && movieValue != null && artStyleValue != null && timeValue != null && collectData.equals("Y")) {
-            //new PostData().execute(ageValue, genderValue, movieValue, artStyleValue, timeValue, useMusa, collectData);
-            return 0;
-            //} else {
-            // Show a message to the user
-            //activitySurvey.mostraMessaggioErrore("Please fill all the fields in the survey");
+            if (ageValue != null && genderValue != null && movieValue != null && artStyleValue != null && timeValue != null && collectData.equals("Y")) {
+                //new PostData().execute(ageValue, genderValue, movieValue, artStyleValue, timeValue, useMusa, collectData);
+                return 0;
+            } else {
+                // Show a message to the user
+                activitySurvey.mostraMessaggioErrore("Please fill all the fields in the survey");
 
                /* Debug
                Log.i("ageValue", ageValue);
@@ -92,24 +96,24 @@ public class ControlloSurvey {
                Log.i("timeValue", timeValue);
                Log.i("collectDataValue", collectData);*/
 
-            //return 1;
+                return 1;
 
+            }
         }
     }
-}
 
     // Class that sends the POST request to the backend on Azure
-    /*private static class PostData extends AsyncTask < String, Void, Void > {
+    private static class PostData extends AsyncTask<String, Void, Void> {
         @Override
         protected Void doInBackground(String... params) {
             try {
 
                 // Set up the connection
-                URL url = new URL("azurePostSurveyURL");
+                URL url = new URL("https://10.0.2.2:5000/api/Tour/GetTour");
                 HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
-                conn.setRequestProperty("Accept","application/json");
+                conn.setRequestProperty("Accept", "application/json");
                 conn.setDoOutput(true);
                 conn.setDoInput(true);
 
@@ -122,6 +126,7 @@ public class ControlloSurvey {
                 jsonParam.put("timeValue", params[4]);
                 jsonParam.put("useMusa", params[5]);
                 jsonParam.put("collectData", params[6]);
+                jsonParam.put("userID", "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
 
                 // Log the JSON object to see if everything is fine
                 Log.i("JSON", jsonParam.toString());
@@ -139,7 +144,19 @@ public class ControlloSurvey {
                 // TODO
 
                 // Parse POST response to get the tour ID and save it
-                String tourID = ""; // Parse POST
+                InputStream stream = conn.getInputStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
+
+                // Read the data
+                StringBuilder buffer = new StringBuilder();
+                String line = "";
+                while((line = reader.readLine()) != null) {
+                    buffer.append(line).append("\n");
+                    // Debug
+                    Log.d("Response: ", "> " + buffer.toString());
+                }
+
+                String tourID = buffer.toString();
 
                 // Save tourId to later use it
                 Applicazione.getInstance().getModello().putBean("tourID", tourID);
@@ -152,4 +169,5 @@ public class ControlloSurvey {
             return null;
         }
     }
-*/
+}
+

@@ -35,7 +35,7 @@ public class ActivityCollecting extends AppCompatActivity {
 
         // Create an AltBeacon BLE beacon
         Beacon beacon = new Beacon.Builder()
-                .setId1("2f234454-cf6d-4a0f-adf2-f4911ba9ffa6")
+                .setId1("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
                 .setId2("1")
                 .setId3("2")
                 .setManufacturer(0x0118)    // Radius network

@@ -76,6 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20sp"
                 android:layout_marginStart="20sp"
+                android:onClick="onRadioButtonGenderClicked"
                 android:text="@string/survey_gender_male_button" />
         </RadioGroup>
 
@@ -262,7 +263,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onRadioButtonTimeClicked"
-                android:text="@string/survey_hour_button" />
+                android:text="@string/survey_more_hours_time_button" />
 
         </RadioGroup>
 
