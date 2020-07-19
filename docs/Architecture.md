@@ -37,7 +37,7 @@ information collected and on the reports generated for each user at the end of t
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Architecture and components
+### Architecture and components
 
 The architecture is the following:<br/>
 
@@ -236,7 +236,7 @@ The **Kalman Filter** is an algorithm that uses a series of measurements observe
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Some references
+### References
 These are the articles we mainly consulted:<br/>
 
 - RFID vs BLE: https://blog.beaconstac.com/2015/10/rfid-vs-ibeacon-ble-technology/

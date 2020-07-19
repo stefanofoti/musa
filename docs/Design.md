@@ -2,6 +2,22 @@
 
 <div align="center"><img src="src/logo2.png"/></div>
 
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Index
+- [Concept](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#concept)
+- [How MuSa comes to life](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#How-MuSa-comes-to-life)
+- [About the personalized tour topic](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#About-the-personalized-tour-topic)
+- [About the interaction with artworks](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#About-the-interaction-with-artworks)
+- [About the beacons in museums](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#About-the-beacons-in-museums)
+- [Profiling users and personas](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#Profiling-users-and-personas)
+- [User experience and storyboard](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#User-experience-and-storyboard)
+	- [Collect data](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#Collect-data)
+	- [Do a personalized tour](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#Do-a-personalized-tour)
+- [references](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#references)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ### Concept
 MuSa is an "experience manager" that collects data and provides interactive-customized tours for museum visitors. A user can decide to use the app in two ways:<br/>
 - just collect data: the user isn't interested in personalized tours but gives the consensus to data collection.<br/>
@@ -10,7 +26,9 @@ MuSa is an "experience manager" that collects data and provides interactive-cust
 <br/>
 Obviously, the user can refuse both alternatives, and just visit the museum without interacting at all with our application.<br/>
 
-## How MuSa comes to life
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### How MuSa comes to life
 We thought about many commons issues that a visitor have when he visits a museum, such as:
 - limited time to take a full visit
 - meeting on his path of some pieces of arts that do not match with his interests
@@ -18,7 +36,9 @@ We thought about many commons issues that a visitor have when he visits a museum
 
 Since the basic concept of MuSa is to put the user at the center of the experience, we started from these points for building something that could satisfy the user needs.
 
-## About the personalized tour topic
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### About the personalized tour topic
 The argument of personalized tours has been obviously explored before.
 First of all, we can report some examples of the most common ways to visit a museum, referring to some famous museums [1]:
 
@@ -35,7 +55,9 @@ The ambition of MuSa is precisely to relate these two aspects, the technological
 
 The purpose of museums has shifted from merely providing static information of collections to providing personalized services to various visitors worldwide, in a way suiting visitors’ personal characteristics, goals, tasks and behaviors. Personalization enables changing “the museum monologue” into “a user-centered information dialog” between the museum and its visitors (Bowen and Filippini-Fantoni 2004). This interactive dialogue occurs not only in the real museum but also in the “virtual museum” (Schweibenz 1998) on the museum Web site. Museums are increasingly experimenting with and implementing more personalized and interactive services on their own Web sites. Visitors spend time on the museum Web sites, e.g. to discover interesting artworks, prepare a museum tour, or learn related knowledge about artworks. This brings a challenge for museums to provide a personalized and extended museum experience for visitors in an immersive museum environment, which includes both the virtual museum (online) and the real museum (on-site). [1].
 
-## About the interaction with artworks
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### About the interaction with artworks
 *Engaging visitors with the right information at the right time and with the most effective type of interaction during their museum experience is one of the crucial issues curators are keen to invest effort in to make visits enjoyable, memorable, and instructive for their varied audience* [2].
 
 In addition to the personalized tours, the interaction with the artworks in the museum makes the experience more immersive for sure. This is the other purpose of MuSa, to let the user satisfy his curiosity about a piece of art, doing it in an enjoyable way, different from common research on the web and without the need for guides or audio-guides.
@@ -44,7 +66,9 @@ The interaction can also make the experiences different from each other because 
 - *Triennale Milano Permanente*: the exposition about the Italian Design provides several "Grillo Phones" (a historical piece of Italian design) near some of the most important operas. The visitor can use these phones typing some provides numbers and the designer of that opera could (or not) answer to the call; he will tell a curiosity about the time he ideated his work.
 - *Mexico stand - Expo 2015*: during the tour, some totems along the path allowed the visitor to choose a different type of information, based on his interests. At the end of the tour, the last totem gave the possibility to print a summary receipt that recapped all the choices that the visitor made during his tour
 
-## About the beacons in museums
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### About the beacons in museums
 The interaction with MuSa will be based on beacons.
 Beacons are widely used in smart museums. We can report some famous museums that used them in their interactive expositions [3]:
 
@@ -59,7 +83,9 @@ Contextual information can be triggered to show more details about an artwork a 
 
 This is what basically the MuSa project wants to do through beacons: give an enjoyable experience and improve the services.
 
-## Profiling users and personas
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Profiling users and personas
 To understand which "type" of users will interact with our application, we started from the data provided by "Museo Sapieza dell'Arte Classica"
 in the PDF they provided to our IoT class. In this slide<br/>
 
@@ -81,6 +107,8 @@ Fun Explorer<br/>
 
 Recharger<br/>
 ![image](src/design/ettore_verdi.png)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## User experience and storyboard
 
@@ -104,6 +132,8 @@ The protagonist of this storyboard is Elena, and we figured she'll just want to 
 The museum staff and Elena will both be happy, since they will have data to better their services, and Elena has been able to do the tour she
 had planned without being disturbed.<br/>
 
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ### Do a personalized tour
 
 Here we imagined what would be Enea's experience. He'd like to try MuSa, and he will exploit all the functionalities offered.<br/>
@@ -119,7 +149,9 @@ Here we imagined what would be Enea's experience. He'd like to try MuSa, and he 
 7. Enea visits the museum following MuSa. The app collects data about his location and how much time she spends near every piece of art, while also accompanying him through the rooms and providing useful information about the artworks exposed. This is done thanks to the communication between his smartphone, the boards, and the backend of the application. Enea is glad he decided to use MuSa, he’s learning new things and he feels entertained.
 8. Enea leaves, satisfied with her visit. The app has stopped collecting data. The museum curators are happy with the information they’ve gathered, and with the fact that a new visitor had a  good time in their museum.
 
-#### References
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### References
 - [1] Cultivating Personalized Museum Tours Online and On-Site: https://www.researchgate.net/publication/233521881_Cultivating_Personalized_Museum_Tours_Online_and_On-Site
 - [2] https://www.mesch-project.eu/shaping-personalized-museum-experiences/
 - [3] https://www.mocaplatform.com/blog/how-location-based-marketing-is-transforming-the-museum-experience
