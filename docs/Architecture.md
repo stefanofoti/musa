@@ -8,6 +8,7 @@
     - [Hardware](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#hardware)
     - [Technologies](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#technologies)
       - [Clarification about the ESP32 board](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#clarification-about-the-ESP32-board)
+      - [Clarification about the Azure Database](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#clarification-about-Azure-Database)
 - [IoT aspects](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#iot-aspects)
 - [Sensor Network](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#sensor-network)
   - [About the messages sending](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-messages)
@@ -47,7 +48,7 @@ The architecture is the following:<br/>
 #### Hardware
 - STM-Nucleo boards (x pieces of art or cluster of artworks)<br/>
 - 2 Raspberry Pi boards (one to be the gateway, the other for backup)<br/>
-- Wi-Fi and BLE hardware for STM-Nucleo<br/>
+- Wi-Fi and BLE hardware for STM-Nucleo*<br/>
 - user's smartphone<br/>
 - ESP32 Board* ([clarification about the ESP32 board](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#clarification-about-the-ESP32-board))
 - Led RGB
@@ -56,8 +57,8 @@ The architecture is the following:<br/>
 - Azure Cloud Platform:<br/>
   - Azure Event Hub<br/>
   - Azure IoT Hub<br/>
-  - Azure Database<br/>
-  - Azure Machine Learning<br/>
+  - Azure Database (*not implemented*) ([clarification about the Database](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#Clarification-about-Azure-Database))<br/>
+  - Azure Machine Learning (*not implemented*)<br/>
   - Azure Web App Service Plan<br/>
 - Google Docs<br/>
 - RIOT OS
@@ -71,6 +72,9 @@ The architecture is the following:<br/>
 
 ##### Clarification about the ESP32 board
 We are consciouns that in our architecture plan we mentioned the STM-Nucleo as chosen board. We are also conscious that the STM-Nucleo is mandatory for this project. Anyway, one of the team members had a personal ESP32 board already avaliable and due to the restrictions of this particular period (a global pandemic that made difficult to us to get a STM-Nucleo from our laboratory or anyway to find one in reasonable times), we decided to use his ESP32 for the final delivery demo, also because it had similar charateristics to the STM-Nucleo boards.
+
+##### Clarification about Azure Database
+Even if we declared to use the Azure Database, for our demo we used a DbContext through the Entity Framework because for the purposes that we set for our delivery, it is good. In a real deployment it is quite easy to integrate the Azure Database.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -102,16 +106,16 @@ The main idea is the following: the user's smartphone sends BLE beacons periodic
 {<br/>
 &nbsp;"timestamp":"2020-2xxx",<br/>
 &nbsp;"users":[{<br/>
-&nbsp;&nbsp;"id":"A1:B2:C3:D4:E5:F6",<br/>
-&nbsp;&nbsp;"artworks":[1,1,1,2,2]<br/>
+&nbsp;&nbsp;"id":"beaconID1",<br/>
+&nbsp;&nbsp;"artworks":[ID1,ID1,ID1,ID2,ID2]<br/>
 &nbsp;&nbsp;},<br/>
 &nbsp;&nbsp;{<br/>
-&nbsp;&nbsp;"id":"A1:B2:C3:D4:E5:F7",<br/>
-&nbsp;&nbsp;"artworks":[2,2,2,2,2]<br/>
+&nbsp;&nbsp;"id":"beaconID2",<br/>
+&nbsp;&nbsp;"artworks":[ID2,ID2,ID2,ID2,ID2]<br/>
 &nbsp;&nbsp;}]<br/>
 }<br/>
 
-and it's a JSON object. Each message has a timestamp and a list, which contains, for each element, the id of the user (his MAC address sent with the BLE beacon) and a tuple "artworks". In this tuple in every cell is stored the id of the piece of art the user was observing at that second. Note that it is made of 5 cells, because the gateway board collects the data about the beacons sent by the other boards, puts them together, and generates this report that contains what the users did in these 5 seconds.<br/>
+and it's a JSON object. Each message has a timestamp and a list, which contains, for each element, the id of the user (the beaconID got trhough the BLE) and a tuple "artworks". In this tuple in every cell is stored the id of the piece of art the user was observing at that second. Note that it is made of 5 cells, because the gateway board collects the data about the beacons sent by the other boards, puts them together, and generates this report that contains what the users did in these 5 seconds.<br/>
 
 ##### About the main board's messages
 Notice that we decided to use a main board as a gateway because, besides the fact that in this way we can send better pre-processed data by doing some edge computing, we can have a significant saving in terms of the number of messages sent. Think about the fact that the free plan of our cloud service, Microsoft Azure, provides 8000 messages-per-day; with a main board that sends a single message that groups all the messages received from every single board, considering 1 message every 5 seconds, MuSa can work about 11 hours. If every board sends each message by itself, the free plan will expire in a few minutes.<br/>
@@ -128,7 +132,7 @@ TO DO: aggiungere qualcosa di tecnico per differenziarlo dalla descrizione nel d
 ### Backend and smartphone front-end
 
 The backend of the application lives in the cloud and takes care of the interaction with the user's smartphone. MuSa accompanies the visitor, proposing him a personalized tour, providing information about the different artworks, and making sure he's enjoying the itinerary.<br/>
-When the user arrives at the museum connects to the web app with his mobile and the application runs until the end of the visit. At the end of the tour, it asks the user to fill in a survey to provide feedback about the quality of the service. This answers are stored in a Google Document, in a way that makes them easily accessible to the machine learning algorithm.<br/>
+When the user arrives at the museum download the Android app and uses it until the end of the visit. At the end of the tour, the user is asked to fill in a survey to provide feedback about the quality of the service. This answers are stored in a Google Document, in a way that makes them easily accessible to the machine learning algorithm (*not implemented*).<br/>
 
 #### Keeping track of user's visit
 
@@ -138,14 +142,14 @@ If the artwork in the second cell is the same as the one in the first cell, the 
 For example, after receiving the message written above, two records for the two users exist:<br/>
 
 - Record 1:<br/>
-  "id":"A1:B2:C3:D4:E5:F6",<br/>
+  "id":"beaconID1",<br/>
   "list":[{<br/>
   &nbsp;"artwork_1":"3",<br/>
   &nbsp;"artwork_2":"2"<br/>
   &nbsp;}]<br/>
 
 - Record 2:<br/>
-  "id":"A1:B2:C3:D4:E5:F7",<br/>
+  "id":"beaconID2",<br/>
   "list":[{<br/>
   &nbsp;"artwork_2":"5"<br/>
   &nbsp;}]<br/>
@@ -155,19 +159,19 @@ If a new message like this arrives:<br/>
 {<br/>
 &nbsp;"timestamp":"2020-2xxx",<br/>
 &nbsp;"users":[{<br/>
-&nbsp;&nbsp;"id":"A1:B2:C3:D4:E5:F6",<br/>
-&nbsp;&nbsp;"artworks":[2,2,1,1,1]<br/>
+&nbsp;&nbsp;"id":"beaconID",<br/>
+&nbsp;&nbsp;"artworks":[ID2,ID2,ID1,ID1,ID1]<br/>
 &nbsp;&nbsp;},<br/>
 &nbsp;&nbsp;{<br/>
-&nbsp;&nbsp;"id":"A1:B2:C3:D4:E5:F7",<br/>
-&nbsp;&nbsp;"artworks":[2,2,2,2,2]<br/>
+&nbsp;&nbsp;"id":"beaconID",<br/>
+&nbsp;&nbsp;"artworks":[ID2,ID2,ID2,ID2,ID2]<br/>
 &nbsp;&nbsp;}]<br/>
 }<br/>
 
 the records would be updated in this way:<br/>
 
 - Record 1:<br/>
-  "id":"A1:B2:C3:D4:E5:F6",<br/>
+  "id":"beaconID1",<br/>
   "list":[{<br/>
   &nbsp;"artwork_1":"3",<br/>
   &nbsp;"artwork_2":"4"<br/>
@@ -175,33 +179,34 @@ the records would be updated in this way:<br/>
   &nbsp;}]<br/>
 
 - Record 2:<br/>
-  "id":"A1:B2:C3:D4:E5:F7",<br/>
+  "id":"beaconID2",<br/>
   "list":[{<br/>
   &nbsp;"artwork_2":"10"<br/>
   &nbsp;}]<br/>
 
-Please notice that from Record 1 we can deduce that the user A1:B2:C3:D4:E5:F6 has returned near the artwork with id "1". Thanks to duplicates in the list we can have an understanding of the path the user is following while visiting the museum.<br/>
+Please notice that from Record 1 we can deduce that the user beaconID1 has returned near the artwork with id "ID1". Thanks to duplicates in the list we can have an understanding of the path the user is following while visiting the museum.<br/>
 *Not impletemented for the final delivery*: when a user terminates his tour, the list corresponding to him is saved to the Google Doc that is the dataset for the machine learning algorithm, together with the profile of the user for further tuning of the tours (using this data we can understand which pieces of art were most liked by a specific type of user).<br/>
 
 #### Frontend
 
-If a user decides he only wants to help collect data, the only thing MuSa will do is send beacons, and all the work will be done by the rest of the architecture described in a completely transparent way for the user, who will not be disturbed in the slightest.<br/>
-If a user wants to follow MuSa for a personalized tour, the application will present the visitor with a survey to outline his profile. Once the type of user is identified, MuSa asks for the backend an appropriate tour, which will be fetched from Azure's database, where all the tours are stored, and will propose it to the user. During the itinerary the frontend, in addition to periodically send beacons, will periodically ask the backend for information about the user's current location (the last piece of art visited), and interaction will be dealt accordingly.<br/>
+If a user decides he only wants to help collect data, the only thing that MuSa will do is to send beacons, and all the work will be done by the rest of the architecture described in a completely transparent way for the user, who will not be disturbed in the slightest.<br/>
+If a user wants to follow MuSa for a personalized tour, the application firstly will present the visitor with a survey to outline his profile. Once the type of user is identified, MuSa asks for the backend an appropriate tour, which will be fetched from the backend, where all the tours are stored (at least, for our demo), and will propose it to the user. During the itinerary the frontend, in addition to periodically send beacons, will periodically ask the backend for information about the user's current location (the last piece of art visited), and interaction will be dealt accordingly.<br/>
 
 #### From an Angular web-app to an Android application
 
 Even if at the beginning we expected to expose the frontend through an Angular web-app, it has been necessary to move towards an Android application, due to some problems. 
 The main problem has been that using beacons was not easy at all through a web app, beacause for example every time that a user proceeded to a new artwork, he was asked to authorize the board to receive beacons, making the use of the user's device too intense and annoying.
-Fortunately, in one of our questionnaires we asked to people if they have been disposed to download an app at their arrive to the museum for having better perfomances, and they answered in an enough positive way. 
-- TO DO: foto sondaggio
+Fortunately, in one of our questionnaires we asked to people if they have been disposed to download an app at their arrive to the museum for having better perfomances, and they answered in an enough positive way. <br/>
+![image](src/architecture/app_question.png)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Cloud
 
-It's a crowded place: here we can find the IoT Hub, our application code, backend and frontend, with its database and the (*not implemented*) machine learning algorithm.<br/>
-(*Not implemented*) Azure Machine Learning takes as input the dataset saved on the Google Doc, elaborates it creating the tours for the different type of users (the personas we identified) and it pushes them into the database of the application. It runs as a batch.<br/>
-The database contains also information about the pieces of art and when the application needs to present the user a tour or details about an artwork, it will make a query to it.<br/>
+Microsoft Azure is a crowded place: here we can find the IoT Hub, the Event Hub, our application code, backend and frontend, with its database and the (*not implemented*) machine learning algorithm.<br/>
+In a real deployment, the database contains information about the pieces of art and when the application needs to present the user a tour or details about an artwork, it will make a query to it. In our demo, the informations are stored in the DbContext, that take cares also to provide them to the application.<br/>
+(*Not implemented*) Azure Machine Learning takes as input the dataset saved on the Google Doc, elaborates it creating the tours for the different type of users (the personas we identified) and pushes them into the database of the application. It runs as a batch.
+<br/>
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -232,8 +237,8 @@ There is also the problem that is technology is not natively supported by smartp
 
 #### RSSI and Kalman Filter
 Since one of the general comments about our project was that the BLE technology is not very exciting for indoor positioning, also because sometimes it is not very accurate, as suggested we implemented the use of RSSI crossed to the inclusion of a Kalman Filter for improving the precision of our system. <br>
-**Received signal strength indicator (RSSI)** is a measurement of the power present in a received signal: we get the RSSI from each beacon and we can estimate how much is close a user to an artwork and also which is the closest artwork. <br>
-The **Kalman Filter** is an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more accurate than those based on a single measurement alone. The Raspberry-Pi applies the Kalman Filter to a series of beacon's RSSI recieved, so in this way it can avoid abrupt variations or it can ignore strange values caused by wrong beacons measurements.
+*Received signal strength indicator (RSSI)* is a measurement of the power present in a received signal: we get the RSSI from each beacon and we can estimate how much is close a user to an artwork and also which is the closest artwork. <br>
+The *Kalman Filter* is an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more accurate than those based on a single measurement alone. The Raspberry-Pi applies the Kalman Filter to a series of beacon's RSSI recieved, so in this way it can avoid abrupt variations or it can ignore strange values caused by wrong beacons measurements.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
