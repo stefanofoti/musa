@@ -10,7 +10,8 @@
 - [Sensor Network](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#sensor-network)
   - [About the messages sending](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-messages)
    - [About the main board's messages](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-main-boards-messages)
-- [Backend and smartphone frontend](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#backend-and-smartphone-frontend)
+    - [About the choice of having a second Raspberry Pi](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-choice-of-having-a-second-raspberry-pi)
+- [Backend and smartphone frontend](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#backend-and-smartphone-front-end)
   - [Keeping track of user's visit](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#keeping-track-of-users-visit)
   - [Frontend](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#frontend)
 - [Cloud](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#cloud)
@@ -89,7 +90,9 @@ and it's a JSON object. Each message has a timestamp and a list, which contains,
 
 ##### About the main board's messages
 Notice that we decided to use a main board as a gateway because, besides the fact that in this way we can send better pre-processed data by doing some edge computing, we can have a significant saving in terms of the number of messages sent. Think about the fact that the free plan of our cloud service, Microsoft Azure, provides 8000 messages-per-day; with a main board that sends a single message that groups all the messages received from every single board, considering 1 message every 5 seconds, MuSa can work about 11 hours. If every board sends each message by itself, the free plan will expire in a few minutes.<br/>
-For reliability reasons (more details in the [Evaluation document](/Evaluation.md)), we decided to keep also another Raspberry board in hot standby: when the gateway forwards the report to the cloud, also this backup board receives it. If it doesn't receive any report for some time, it will assume that the main gateway has suffered a failure, and will take its place to avoid the stop of the service.<br/>
+
+##### About the choice of having a second Raspberry Pi
+For reliability reasons (more details in the [Evaluation document](/Evaluation.md)), we decided to keep also another Raspberry board in hot standby: when the gateway forwards the report to the cloud, also this backup board receives it. If it doesn't receive any report for some time, it will assume that the main gateway has suffered a failure, and it will take its place to avoid the stop of the service.<br/>
 
 ### Backend and smartphone front-end
 
