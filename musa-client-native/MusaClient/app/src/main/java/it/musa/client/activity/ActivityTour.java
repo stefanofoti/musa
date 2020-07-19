@@ -58,9 +58,12 @@ public class ActivityTour extends AppCompatActivity {
         // GET the tour from the server
         new getTour().execute();
 
+        // Get user ID
+        String userID = (String) Applicazione.getInstance().getModello().getBean("userID");
+
         // Create an AltBeacon BLE beacon
         Beacon beacon = new Beacon.Builder()
-                .setId1("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
+                .setId1(userID)
                 .setId2("1")
                 .setId3("2")
                 .setManufacturer(0x0118)    // Radius network
@@ -96,6 +99,11 @@ public class ActivityTour extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void mostraActivityClosestArtwork() {
+        Intent intent = new Intent(this, ActivityClosestArtwork.class);
+        startActivity(intent);
+    }
+
     private class getTour extends AsyncTask<String, String, String> {
 
         protected void onPreExecute() {
@@ -113,14 +121,15 @@ public class ActivityTour extends AppCompatActivity {
             // Set up needed variables
             BufferedReader reader = null;
             HttpURLConnection conn = null;
+            String json = null;
 
-            /*try {
+            try {
 
                 //Retrieve tourID   azureGETTourURL/tourID
                 String tourID = (String) Applicazione.getInstance().getModello().getBean("tourID");
 
                 // Set up connection
-                URL url = new URL("http://ip.jsontest.com/"+tourID);
+                URL url = new URL("http://10.0.2.2:5002/api/Tour/"+tourID);
                 conn = (HttpURLConnection) url.openConnection();
                 conn.connect();
 
@@ -136,13 +145,13 @@ public class ActivityTour extends AppCompatActivity {
                     Log.d("Response: ", "> " + buffer.toString());
                 }
 
-                return buffer.toString();
+                json = buffer.toString();
 
             } catch (Exception e) {
                 e.printStackTrace();
-            }*/
-            return "{\"ID\":\"IDa\",\"Name\":\"The Welcome Tour\",\"TourArtworks\":\"Discobolus$Venus de Milo$Laocoon Group$Artemision Bronze\"}";
-            //return result
+            }
+            //return "{\"ID\":\"IDa\",\"Name\":\"The Welcome Tour\",\"TourArtworks\":\"Discobolus$Venus de Milo$Laocoon Group$Artemision Bronze\"}";
+            return json;
         }
 
         @Override
@@ -155,7 +164,7 @@ public class ActivityTour extends AppCompatActivity {
             try {
 
                 // Retrieve JSONObject from GET, extract artoworks and display them (result)
-                JSONObject jsonObject = new JSONObject("{\"ID\":\"IDa\",\"Name\":\"The Welcome Tour\",\"TourArtworks\":\"Discobolus$Venus de Milo$Laocoon Group$Artemision Bronze\"}");
+                JSONObject jsonObject = new JSONObject(result);
 
                 String nameTour = jsonObject.getString("Name");
                 txtJson.append("\n" + nameTour + "\n\n")
@@ -168,8 +177,6 @@ public class ActivityTour extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
-            // TODO: this needs to be done well -> parse JSON and for each artwork show basic info
         }
     }
 }

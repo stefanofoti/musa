@@ -34,9 +34,8 @@ public class ControlloTour {
         @Override
         public void onClick(View v) {
 
-            // Get the current Activity with the view
+            // Get the current Activity
             ActivityTour activityTour = (ActivityTour) Applicazione.getInstance().getCurrentActivity();
-            //VistaSurvey vistaSurvey = activityTour.getVistaLogin();
 
             // Stop sending Beacons
             BeaconTransmitter beaconTransmitter = activityTour.getBeaconTransmitter();
@@ -48,10 +47,16 @@ public class ControlloTour {
         }
     }
 
+    //TODO
     private static class AzioneClosestArtwork implements View.OnClickListener {
 
         @Override
         public void onClick(View v) {
+
+            // Get the current Activity
+            ActivityTour activityTour = (ActivityTour) Applicazione.getInstance().getCurrentActivity();
+
+            activityTour.mostraActivityClosestArtwork();
 
         }
     }
