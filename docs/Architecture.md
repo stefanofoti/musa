@@ -15,6 +15,7 @@
   - Frontend
 - Cloud
 - About the choice to use Bluetooth Low Energy
+  - RSSI and Kalman Filter
 - References
 
 TO DO: forse riordinare meglio ed aggiungere nuovi paragrafi
@@ -184,7 +185,12 @@ Now let's consider briefly the technologies presented one by one:<br/>
 There is also the problem that is technology is not natively supported by smartphones, and we don't want to bother our users by asking them to install additional software or to carry around an RFID tag, we want the process to be as transparent as possible to the user, especially considering the ones that don't want to be disturbed during the visit but are still willing to participate in data collection.<br/>
 - BLE: this technology met all our requirements: it's not expensive, compatible with mobile phones, has a wide enough range, can be used to do proximity identification. The only issue is the accuracy, but as explained in the Evaluation document, there are techniques to mitigate this disadvantage.<br/>
 
-#### Some references
+#### RSSI and Kalman Filter
+Since one of the general comments about our project was that the BLE technology is not very exciting for indoor positioning, also because sometimes it is not very accurate, as suggested we implemented the use of RSSI crossed to the inclusion of a Kalman Filter for improving the precision of our system.
+**Received signal strength indicator (RSSI)** is a measurement of the power present in a received signal: we get the RSSI from each beacon and we can estimate how much is close a user to an artwork and also which is the closest artwork.
+The *Kalman Filter* is an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more accurate than those based on a single measurement alone. The Raspberry-Pi applies the Kalman Filter to a series of beacon's RSSI recieved, so in this way it can avoid abrupt variations or it can ignore strange values caused by wrong beacons measurements.
+
+### Some references
 These are the articles we mainly consulted:<br/>
 
 - RFID vs BLE: https://blog.beaconstac.com/2015/10/rfid-vs-ibeacon-ble-technology/
