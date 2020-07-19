@@ -9,6 +9,7 @@ We don't totally agree with the fact that our project is too basic in terms of I
 - The use of *MQTT*: a famous lightweight messaging protocol in IoT for small sensors and mobile devices
 - The use of *Bluetooth Low Energy (BLE)* technology
 - The use of *Devices* sending beacons, like smartphones
+- A led Actuator, that shows through a green light the ten artworks most appreciated in the current day
 
 We analyze even deeper the IoT part in our [Architecture document](docs/Architecture.md).
 <br>
@@ -30,8 +31,8 @@ We did not change anything in the [Design plan](docs/Design.md) because we had n
 In the [Architecture plan](docs/Architecture.md):
 - we decided to switch from a Web App to an Android App
 - we improved the positioning accuracy through the use of a Kalman Filter and RSSI
-- TO DO: ESP32 perchè Stefano aveva quelle????
-- TO DO: Attuatore LED?
+- we clarified why we are using a ESP32 instead of an STM Nucleo
+- we implemented a led actuator that highlights the most appreciated artworks in the current day
 
 In the [Evaluation plan](docs/Evaluation.md):
 - TO DO: valutazione con gli standars iso??
