@@ -3,18 +3,18 @@
 ### Index
 - [Introduction](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#introduction)
 - [Architecture and components](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#architecture-and-components) 
-  - List of components
-    - Software
-    - Hardware
-    - Technologies
-- Sensor Network
-  - About the messages sending
-   - About the main board's messages
-- Backend and smartphone's frontend
-  - Keeping track of user's visit
-  - Frontend
-- Cloud
-- About the choice to use Bluetooth Low Energy
+  - [List of components](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#list-of-components)
+    - [Software](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#software)
+    - [Hardware](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#hardware)
+    - [Technologies](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#technologies)
+- [Sensor Network](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#sensor-network)
+  - [About the messages sending](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-messages)
+   - [About the main board's messages](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-main-boards-messages)
+- [Backend and smartphone frontend](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#backend-and-smartphone-frontend)
+  - [Keeping track of user's visit](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#keeping-track-of-users-visit)
+  - [Frontend](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#frontend)
+- [Cloud](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#cloud)
+- [About the choice to use Bluetooth Low Energy](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-choice-to-use-bluetooth-low-energy)
   - [RSSI and Kalman Filter](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#rssi-and-kalman-filter)
 - [References](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#some-references)
 
