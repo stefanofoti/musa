@@ -127,7 +127,7 @@ TO DO: aggiungere qualcosa di tecnico per differenziarlo dalla descrizione nel d
 
 ### Backend and smartphone front-end
 
-The backend of the application lives in the cloud and takes care of the interaction with the user's smartphone. MuSa accompanies the visitor,proposing him a personalized tour, providing information about the different artworks, and making sure he's enjoying the itinerary.<br/>
+The backend of the application lives in the cloud and takes care of the interaction with the user's smartphone. MuSa accompanies the visitor, proposing him a personalized tour, providing information about the different artworks, and making sure he's enjoying the itinerary.<br/>
 When the user arrives at the museum connects to the web app with his mobile and the application runs until the end of the visit. At the end of the tour, it asks the user to fill in a survey to provide feedback about the quality of the service. This answers are stored in a Google Document, in a way that makes them easily accessible to the machine learning algorithm.<br/>
 
 #### Keeping track of user's visit
@@ -199,8 +199,8 @@ Fortunately, in one of our questionnaires we asked to people if they have been d
 
 ### Cloud
 
-It's a crowded place: here we can find the IoT Hub, our application code (backend and frontend) with its database and the machine learning algorithm.<br/>
-Azure Machine Learning takes as input the dataset saved on the Google Doc, elaborates it creating the tours for the different type of users (the personas we identified) and it pushes them into the database of the application. It runs as a batch.<br/>
+It's a crowded place: here we can find the IoT Hub, our application code, backend and frontend, with its database and the (*not implemented*) machine learning algorithm.<br/>
+(*Not implemented*) Azure Machine Learning takes as input the dataset saved on the Google Doc, elaborates it creating the tours for the different type of users (the personas we identified) and it pushes them into the database of the application. It runs as a batch.<br/>
 The database contains also information about the pieces of art and when the application needs to present the user a tour or details about an artwork, it will make a query to it.<br/>
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
