@@ -9,7 +9,7 @@ namespace MuSa.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
-        public string Mac { get; set; }
+        public string BeaconID { get; set; }
         public virtual ICollection<TourItem> Tours { get; set; }
 
         public Visitor()

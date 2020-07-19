@@ -25,12 +25,11 @@ namespace MuSa.Controllers
 
         public MusaController(MusaContext context)
         {
-            Console.WriteLine("Invoked MusaController constructor");
             _context = context;
             if(_context.Visitors.Count() == 0){
                 Console.WriteLine("+-- adding a visitor...");
                 Console.WriteLine("+-- adding...");
-                Visitor v1 = new Visitor { Mac = "A" };
+                Visitor v1 = new Visitor { BeaconID = "A" };
                 TourItem item1a = new TourItem{ArtworkId = "ID1", Time = 3};
                 TourItem item2a = new TourItem{ArtworkId = "ID2", Time = 6};
                 TourItem item3a = new TourItem{ArtworkId = "ID3", Time = 2};
@@ -79,11 +78,11 @@ namespace MuSa.Controllers
             return jsonString;
         }        
 
-        [HttpGet("{mac}")]
-        public string GetLastPosition(string mac)
+        [HttpGet("{beaconID}")]
+        public string GetLastPosition(string beaconID)
         {
             var visitor = _context.Visitors.Include(visitor => visitor.Tours)
-                        .Where(v => v.Mac == mac)
+                        .Where(v => v.BeaconID == beaconID)
                         .FirstOrDefault();
             dynamic obj = new ExpandoObject();
             if(visitor!=null){
@@ -95,7 +94,35 @@ namespace MuSa.Controllers
             }
             string jsonString = JsonSerializer.Serialize(obj);
             return jsonString;
-        }        
+        }     
+        
+        [HttpGet("{beaconID}/details")]
+        public string GetLastPositionDetailed(string beaconID)
+        {
+            var visitor = _context.Visitors.Include(visitor => visitor.Tours)
+                        .Where(v => v.BeaconID == beaconID)
+                        .FirstOrDefault();
+            dynamic obj = new ExpandoObject();
+            if(visitor!=null){
+                obj.code = 200;
+                string id = visitor.Tours.LastOrDefault().ArtworkId;
+                obj.ArtworkId = id;
+                int idn = id[2] - 48 - 1;
+                var artwork = (_context.Artworks.ToList()[idn]);
+                Console.WriteLine("+------------------------------------ artwork "+artwork);
+                if(artwork!=null){
+                    obj.Name=artwork.Name;
+                    obj.Author=artwork.Author;
+                    obj.Year=artwork.Year;
+                    obj.Description=artwork.Description;
+                    obj.Image=artwork.Image;
+                }
+            } else {
+                obj.code = 404;
+            }
+            string jsonString = JsonSerializer.Serialize(obj);
+            return jsonString;
+        }  
 
     }
 }
