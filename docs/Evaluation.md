@@ -4,7 +4,9 @@ In this document we will give a brief introduction on the evaluation methods we 
 We will evaluate with different methods the user experience and the technologies used. In particular, the quality of the hardware and software components will be measured taking into account their peculiarities, but also the quality of the whole system.<br>
 However, keep in mind that this is a project developed for an IoT course, so we will cover this section to provide a comprehensive analysis, but it will not be at the enterprise level.<br/>
 
-## Objectives
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Objectives
 
 With our application, we tried to realize something useful for both the museum and the users. In particular, we want to satisfy these demands:<br/>
 - make the museum more attractive and collect data useful for the curators<br/>
@@ -12,7 +14,9 @@ With our application, we tried to realize something useful for both the museum a
 
 MuSa meets these requirements by collecting the users' movements in the museum, storing the data and then analyzing them to provide customized tours.<br/>
 
-## User experience
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### User experience
 
 The happiness of users is important, and we want to make sure they enjoyed our services. MuSa is designed to understand the needs of the visitors:<br/>
 - the user has limited time, therefor MuSa will provide him a tour with only the most relevant pieces of art (based on the user's interests)<br/>
@@ -26,7 +30,7 @@ To measure the users' appreciation we are going to use the following UXEMs (User
 
 - an _Episode_ method: at the end of the visit the user will be asked to fill a short survey about his experience. This questionnaire can be implemented using also the AttrakDiff tool (_Link_: http://www.attrakdiff.de/index-en.html).<br/>
 
-### Users' feedback
+#### Users' feedback
 
 During the developement process we're keeping track of the opinions of the users to understand if we're effectively building something of value. In particular, the following results of the surveys we made are quite encouraging.<br/>
 
@@ -52,16 +56,20 @@ We're also taking into account our user's opinion to build an interface which ca
 
 Through one of our questionnaires, we got the opinion of Giulia: *"I like the fact that I can obtain more information about an artwork, or the basic info, on my smartphone because the labels of the operas are often crowded or written in a too-small font"*
 
+------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Technology
+
+### Technology
 Under the technological stack, MuSa uses many different hardware and software solutions. We decided to evaluate each single part and the overall system. Further details are in the following paragraphs.<br/>
 
-### Overall evaluation
+#### Overall evaluation
 Software quality is defined by a set of regulations and guidelines by ISO/IEC 9126-1. We used a criteria-based evaluation which gives a measurement of quality in several areas, including understandability, documentation and portability (the original document that we used as a model is [this one](https://software.ac.uk/sites/default/files/SSI-SoftwareEvaluationCriteria.pdf?_ga=2.151004923.318823281.1587909367-13184924.1587909367)). Of course, we did not use the criteria we did not need for, so we produced this lighter customized version:
 
 [MuSa Criteria](/src/evaluation/MuSa_criteria.pdf)  
 
-### Sensor network
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#### Sensor network
 The sensor network evaluation has to consider aspects like:<br>
 - Power consumption
 - Communication complexity
@@ -77,6 +85,8 @@ The cost of a Raspberry Pi board can range from about 20 € to much more, as fu
 
 A brief evaluation about the choice of using BLE has been done, but since it was a matter of deciding which technology to use to track the user inside the museum, we put the analysis in the [Architecture document](Architecture.md)<br/>
 
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
 #### Complexity and responsiveness evaluation
 
 We need our system to be responsive to follow the user in real-time during his visit, but at the same time we also don't want to flood our network with messages, keeping the complexity low, also to save the board's power. We need to find a trade-off between these two needs. Therefore, we did a brief analysis of the system and decided to use a Raspberry Pi board as a gateway (more on this in the [Architecture document](Architecture.md)). This also affects the cost: we want to push the limits of our free plan to exploit it to the fullest (the limit of messages we can send to Azure is 8000 per day), so that we can pay as less as possible.<br/>
@@ -89,6 +99,8 @@ This can be achieved by taking advantage of edge computing: we do data pre-proce
 - Edge computing: instead of sending the messages directly to Azure, they are collected by the gateway, which instead sends to the cloud a report every 5 seconds. So we have 60 / 5 = 12 messages per minute, which means that the free plan would last for 8000 / 12 = 666,66 minutes, which is 11,11 hours.
 
 So we have 5 minutes vs 11 hours a day, the advantages of the edge computing architecture are immense! We could have a museum with 30 boards use our system for free each day (unless it stays open for more than 11 hours).<br/>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #### Evaluation and improvement of BLE accuracy
 
@@ -132,7 +144,9 @@ We asked specific questions to the users about the usual distance at which they 
 
 It's possible to see that it's difficult to estimate a precise value, a significant percentage of the visitors don't pay too much attention to this aspect. However, it's safe to assume that for the average case the Kalman filter is not needed, and a proper placing of the biggest pieces of art, like for example, trying to keep them from being to close to other artworks, could decrease interference among beacons enough to avoid using the filter even for distances longer than 3 m.<br/>
 
-### Backend
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#### Backend
 Our backend code quality will be tested with [CodeCity](https://wettel.github.io/codecity.html). It is a very simple tool that allows to check the most common software metrics in a new way in which software systems are visualized as interactive, navigable 3D cities. The classes are represented as buildings in the city, while the packages are depicted as the districts in which the buildings reside. The more the city is well structured, the higher the code quality is. Further evaluations will be provided [here](src/evaluation/MuSa_criteria.pdf).
 
 ##### First Results
@@ -156,6 +170,8 @@ If you want to test our code with CodeCity by yourself, you can find the .mse fi
 
 <br/>
 
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ### Cloud System
 Most of this project lives in the Azure platform, including:  
 - backend + frontend ([Azure App Service Plan](https://azure.microsoft.com/it-it/pricing/details/app-service/plans/))
@@ -165,6 +181,8 @@ Most of this project lives in the Azure platform, including:
 
 We chose Azure among all the cloud services providers seen so far in our IoT course since it looks to be the most suitable for our purposes. Moreover, it has all the needed services out of the box in a single place.<br>
 Since this project is developed as part of our IoT course, the machine learning algorithm will not be evaluated. 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### About the price
 
@@ -181,12 +199,16 @@ Unfortunately the Azure Machine Learning does not offer any free plan, and it st
 We attach a short [excel report](src/evaluation/azure_plan.xlsx) to better visualize all the plans.<br>
 It is very easy to scale this plan and evaluate how this affects costs using the [Azure Pricing Calculator](https://azure.microsoft.com/it-it/pricing/calculator/).<br>
 
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ### A word about security
 
 Since this is a project for the IoT course of our master degree, we won't do a detailed security analysis. However, during the development process, we'll try to keep attention to this aspect and to comply with OWASP recommendations to avoid major threats: https://owasp.org/www-project-top-ten/.<br/>
 
 We suggest one of [these](https://owasp.org/www-community/Vulnerability_Scanning_Tools) tools to run security tests.
 
-#### Sensor network's reliability
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Sensor network's reliability
 It's not difficult to see that having a board that acts as a gateway is a single point of failure: if that board stopped working for whatever reason, messages wouldn't be forwarded to the cloud anymore. To avoid a potential break of the system, after a first analysis we thought that a good solution could be to implement in the boards a distributed algorithm for leader election, to select a new board to act as gateway.<br/>
 However, it's much better to adopt a redundancy approach: as explain in the [Architecture document](Architecture.md), we have a second Raspberry Pi in hot standby. Every time the gateway sends the report to Azure via MQTT, also the second Raspberry receives it. If the second board doesn't receive any message for a certain amount of time, it will assume that the main gateway has suffered a failure, and therefore replaces the faulty board taking its place as the gateway. This approach allows us to avoid the complexity that a distributed algorithm for leader election would have caused in terms of network traffic and computation (with an effect also on energy consumption).
