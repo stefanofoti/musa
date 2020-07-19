@@ -46,7 +46,7 @@ void setup() {
 
 void onConnectionEstablished() {
   Serial.println("Connection enstablished...");
-  client.subscribe("musa/aw1", [] (const String &payload)  {
+  client.subscribe("musa/ID2/led", [] (const String &payload)  {
     Serial.println("Got new message!");
     if(payload.equals("G_ON")){
       Serial.println("Turning on green led!");

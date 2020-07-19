@@ -68,7 +68,7 @@ namespace MuSa
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseDefaultFiles();
 

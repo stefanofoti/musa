@@ -1,18 +1,12 @@
 
 import context  # Ensures paho is in PYTHONPATH
 import paho.mqtt.client as mqtt
+import paho.mqtt.publish as publish
 import json
 import statistics #for Kalman
 import threading
 import time
 from azure.iot.device import IoTHubDeviceClient, Message
-
-trackingData = {}
-artworksTimeStamps = {};
-farRSSI = -100;
-defaultVariance = 2;
-
-azureConnectionString = "HostName=rg-newhub.azure-devices.net;DeviceId=musa-device;SharedAccessKey=hzgs10oJcjWY3vT1LkLvPhh3EHpYu/xPMv8oe47RhUQ=";
 
 def on_message(mqttc, obj, msg):
 	print("ricevuto: ", msg.payload)
@@ -97,6 +91,7 @@ def updateTimeStamps(dictionary, aw):
 		dictionary[aw]=dictionary[aw]+1;
 
 def startSending():
+	currentLedON="";
 	ts=0;
 	client = IoTHubDeviceClient.create_from_connection_string(azureConnectionString);
 	while True:
@@ -105,6 +100,7 @@ def startSending():
 		outputJson = json.dumps(output);
 		sendToAzure(client, outputJson)
 		print(output);
+		manageLeds(currentLedON);
 		ts=ts+1;
 		time.sleep(5);
 
@@ -130,9 +126,35 @@ def getClosest(ts):
 				#output[k] = aw;
 		if currnentUser:
 			usersList.append(currnentUser);
+	for k in usersList:
+		if "artworks" in k:
+			aws = k["artworks"]
+			if len(aws)>0:
+				print("k[artworks] ", k["artworks"]);
+				aw = aws[0];
+		if aw not in stats:
+			stats[aw] = 0;
+		stats[aw]=stats[aw]+1;
 	output["users"] = usersList;
+	print("STATS: ", stats);
 	return output;
 
+def	manageLeds(currentLedON):
+	max = 0;
+	aw = "";
+	for k in stats.keys():
+		if stats[k]>max:
+			max = stats[k];
+			aw = k;
+	if len(currentLedON)>0 and currentLedON!=aw:
+		#turn off the led to currentLedON;
+		print ( "Turning off led for", currentLedON);
+		publish.single("musa/"+currentLedON+"/led", 'G_OFF', hostname="test.mosquitto.org");
+	if len(aw)>0:
+		#turn on the led to to  
+		print ( "Turning on led for", aw);
+		publish.single("musa/"+aw+"/led", 'G_ON', hostname="test.mosquitto.org");
+		currentLedON = aw;
 
 def sendToAzure(client, message):
     try:
@@ -144,13 +166,18 @@ def sendToAzure(client, message):
         print ( "Error sending to azure" );
 
 
-lock=False;
+
+trackingData = {}
+artworksTimeStamps = {};
+farRSSI = -100;
+defaultVariance = 2;
+stats = {};
+azureConnectionString = "HostName=rg-newhub.azure-devices.net;DeviceId=musa-device;SharedAccessKey=hzgs10oJcjWY3vT1LkLvPhh3EHpYu/xPMv8oe47RhUQ=";
+
+
 mqttc = mqtt.Client();
-mqttc.on_message = on_message
 mqttc.on_subscribe = on_subscribe
 mqttc.connect("test.mosquitto.org", 1883, 60)
-mqttc.subscribe("musa/aw1", 0);
-mqttc.subscribe("musa/aw2", 0);
 mqttc.subscribe("musa/ID1", 0);
 mqttc.subscribe("musa/ID2", 0);
 mqttc.subscribe("musa/ID3", 0);
@@ -159,6 +186,6 @@ mqttc.subscribe("musa/ID5", 0);
 mqttc.subscribe("musa/ID6", 0);
 mqttc.subscribe("musa/ID7", 0);
 mqttc.subscribe("musa/ID8", 0);
-threading.Timer(5.0, startSending).start()
+mqttc.on_message = on_message;
+threading.Timer(10.0, startSending).start()
 mqttc.loop_forever();
-print('-------------------------\n',trJson);
