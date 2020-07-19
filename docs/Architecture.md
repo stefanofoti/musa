@@ -8,11 +8,11 @@
     - Hardware
     - Technologies
 - Sensor Network
-- About the messages sending
-  - About the main board's messages
+  - About the messages sending
+   - About the main board's messages
 - Backend and smartphone's frontend
-- Keeping track of user's visit
-- Frontend
+  - Keeping track of user's visit
+  - Frontend
 - Cloud
 - About the choice to use Bluetooth Low Energy
 - References
