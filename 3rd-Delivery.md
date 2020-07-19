@@ -33,15 +33,19 @@ In the [Architecture plan](docs/Architecture.md):
 - TO DO: ESP32 perchè Stefano aveva quelle????
 
 In the [Evaluation plan](docs/Evaluation.md):
-- TO DO
+- TO DO: valutazione con gli standars iso??
 
 **Please, notice that** in the documents linked above you can find dedicated paragraphs that explain the reasons and the details about our choises.
 
 ## Techincal work done since the 2nd delivery
-TO DO
+We brought our project to a Ready-to-MANCA state. 
+- we implemented all the needed functions in the back-end 
+- we completed the code that runs in the Raspberry-Pi and in the other boards that recieve the beacons
+- we developed a working Android app to let the users to use MuSa
 
 ## Evaluation conducted since the 2nd delivery 
-TO DO
+- TO DO: valutazione con gli standars iso??
 
 ## Functionalities that are still missing and which we aspect we did not manage to evaluate
-TO DO
+As we declared from the start, we will not implement the Machine Learning aspect, which as the goal to improve the personalized tours through the user's experiences and through their feedback. We also will not implement the "Moment method" evaluation of the user experience that was supposed to be done through the [PrEmo Tool](https://www.premotool.com/), since it is a commercial tool.
+- TO DO: valutazione con gli standard ISO?

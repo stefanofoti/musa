@@ -1,5 +1,25 @@
 # Architecture
+------------------------------------------------------------------------------------------------------------------------------------------------------
+### Index
+- Introduction
+- Architecture and components 
+  - List of components
+    - Software
+    - Hardware
+    - Technologies
+- Sensor Network
+- About the messages sending
+  - About the main board's messages
+- Backend and smartphone's frontend
+- Keeping track of user's visit
+- Frontend
+- Cloud
+- About the choice to use Bluetooth Low Energy
+- References
 
+TO DO: forse riordinare meglio ed aggiungere nuovi paragrafi
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
 ### Introduction
 
 This application needs a lot of components to work properly. The three main parts are:<br/>
