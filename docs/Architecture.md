@@ -23,7 +23,6 @@
   - [RSSI and Kalman Filter](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#rssi-and-kalman-filter)
 - [References](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#some-references)
 
-TO DO: forse riordinare meglio ed aggiungere nuovi paragrafi
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 ### Introduction
@@ -48,7 +47,7 @@ The architecture is the following:<br/>
 - 2 Raspberry Pi boards (one to be the gateway, the other for backup)<br/>
 - Wi-Fi and BLE hardware for STM-Nucleo<br/>
 - user's smartphone<br/>
-- ESP32 Board*
+- ESP32 Board* ([clarification about the ESP32 board](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#clarification-about-the-ESP32-board))
 - Led RGB
 
 #### Software
