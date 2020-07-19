@@ -35,12 +35,13 @@ In the [Architecture plan](docs/Architecture.md):
 - we decided to switch from a Web App to an Android App
 - we improved the positioning accuracy through the use of a Kalman Filter and RSSI
 - we clarified why we are using a ESP32 instead of an STM Nucleo
+- we clarifeid that we are using a DbContext through the Entity Framework for the demo, insteaf of Azure Database
 - we made a brief discussion about the led actuator
 
 In the [Evaluation plan](docs/Evaluation.md):
 - TO DO: valutazione con gli standars iso??
 
-**Please, notice that** in the documents linked above you can find dedicated paragraphs that explain the reasons and the details about our choises.
+**Please, notice that** in the documents linked above you can find dedicated paragraphs that explain deeper the reasons and the details about our choises. You have also an Index at the top of the documents for finding easily what you need!
 
 ## Techincal work done since the 2nd delivery
 For the final delivery we brought our project to a production-ready state:
