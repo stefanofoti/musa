@@ -197,7 +197,6 @@ If a user wants to follow MuSa for a personalized tour, the application firstly 
 Even if at the beginning we expected to expose the frontend through an Angular web-app, it has been necessary to move towards an Android application, due to some problems. 
 The main problem has been that using beacons was not easy at all through a web app, beacause for example every time that a user proceeded to a new artwork, he was asked to authorize the board to receive beacons, making the use of the user's device too intense and annoying.
 Fortunately, in one of our questionnaires we asked to people if they have been disposed to download an app at their arrive to the museum for having better perfomances, and they answered in an enough positive way. <br/>
-![image](src/architecture/app_question.png)
 <div align="center"><img src="src/architecture/app_question.png"/></div>
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
