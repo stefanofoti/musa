@@ -15,7 +15,7 @@
   - Frontend
 - Cloud
 - About the choice to use Bluetooth Low Energy
-  - RSSI and Kalman Filter
+  - [RSSI and Kalman Filter](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#rssi-and-kalman-filter)
 - References
 
 TO DO: forse riordinare meglio ed aggiungere nuovi paragrafi
