@@ -31,7 +31,7 @@ If you want to discover more, give a look to the following documents:
 - [Architecture document](docs/Architecture.md)
 - [Evaluation document](docs/Evaluation.md) <br>
 
-You can find the first version of these documents in the folder [older-deliveries](/older-deliveries)
+You can find the older versions of these documents in the folder [older-deliveries](/older-deliveries)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 Unchanged documentation since the first delivery:
