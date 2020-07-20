@@ -31,7 +31,7 @@ If you want to discover more, give a look to the following documents:
 - [Architecture document](docs/Architecture.md)
 - [Evaluation document](docs/Evaluation.md) <br>
 
-You can find the first version of these documents in the folder [first-delivery](/first-delivery)
+You can find the first version of these documents in the folder [older-deliveries](/older-deliveries)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 Unchanged documentation since the first delivery:
@@ -40,7 +40,7 @@ Unchanged documentation since the first delivery:
 - [Presentation PDF](/docs/src/presentation/presentation.pdf)
 - [Presentation PPTX](/docs/src/presentation/presentation.pptx)
 ------------------------------------------------------------------------------------------------------------------------------------------------------
-- [2nd Delivery document](/2nd-Delivery.md)
+- [2nd Delivery document](/older-deliveries/2nd-Delivery.md)
 - [Technical demo video](https://youtu.be/QBQiZBxFIYg)
 - [Evaluation done video](https://youtu.be/_k9-HsL0Ox8)
 - [Future plans video](https://www.youtube.com/watch?v=rPU-n5VDRK4&feature=youtu.be)
