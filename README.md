@@ -23,7 +23,7 @@ Design advisor:<br>
 [Francesco Gregori](https://www.linkedin.com/in/francesco-gregori-7136ab1a3/)
 
 ## The project
-MuSa collects and analyze information about visitors and their tours and propose custom journeys, to offer a new way to enjoy the art. At the very beginning, every user should fill a short survey to collect information about his personality. Then MuSa will ask him if he wants to enjoy a custom tour or just help with data collecting. Of course, the user may also choose to not use the system at all. When a user wants just to contribute with data collecting he will start traveling on his own inside the museum with his smartphone collecting data in a non-invasive way inside his pocket. When a user wants to enjoy the tour with MuSa, indeed, he will just start exploring the museum follow the custom suggestions MuSa will show him.
+MuSa collects and analyzes information about visitors and their tours and proposes custom journeys, to offer a new way to enjoy the art. At the very beginning, every user should fill a short survey to collect information about his personality. Then MuSa will ask him if he wants to enjoy a customized tour or just help with data collecting. Of course, the user may also choose to not use the system at all. When a user wants just to contribute with data collecting he will start traveling on his own inside the museum with his smartphone collecting data in a non-invasive way inside his pocket. When a user wants to enjoy the tour with MuSa, indeed, he will just start exploring the museum, following the customized suggestions that MuSa will show him. 
 
 ## Read more
 If you want to discover more, give a look to the following documents:
@@ -31,7 +31,7 @@ If you want to discover more, give a look to the following documents:
 - [Architecture document](docs/Architecture.md)
 - [Evaluation document](docs/Evaluation.md) <br>
 
-You can find the first version of these documents in the folder [first-delivery](/first-delivery)
+You can find the older versions of these documents in the folder [older-deliveries](/older-deliveries)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 Unchanged documentation since the first delivery:
@@ -40,7 +40,7 @@ Unchanged documentation since the first delivery:
 - [Presentation PDF](/docs/src/presentation/presentation.pdf)
 - [Presentation PPTX](/docs/src/presentation/presentation.pptx)
 ------------------------------------------------------------------------------------------------------------------------------------------------------
-- [2nd Delivery document](/2nd-Delivery.md)
+- [2nd Delivery document](/older-deliveries/2nd-Delivery.md)
 - [Technical demo video](https://youtu.be/QBQiZBxFIYg)
 - [Evaluation done video](https://youtu.be/_k9-HsL0Ox8)
 - [Future plans video](https://www.youtube.com/watch?v=rPU-n5VDRK4&feature=youtu.be)
