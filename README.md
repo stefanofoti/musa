@@ -31,7 +31,7 @@ If you want to discover more, have a look at the following documents:
 - [Architecture document](docs/Architecture.md)
 - [Evaluation document](docs/Evaluation.md)
 - [3rd Delivery document](3rd-Delivery.md)
-  <br>
+  <br/>
 - [Hackster post](https://www.hackster.io/355755/musa-the-experience-manager-c133ea)
 - [Demo video](https://www.youtube.com/watch?v=vr2oR23J5lc)
 - [Presentation](https://github.com/stefanofoti/musa/blob/master/docs/src/presentation/FinalDelivery.pptx)
