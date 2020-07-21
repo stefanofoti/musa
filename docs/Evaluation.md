@@ -1,6 +1,6 @@
 # Evaluation
 
-In this document we will give a brief introduction on the evaluation methods we thought of using for our project.<br/>
+In this document we will give a brief introduction to the evaluation methods we thought of using for our project.<br/>
 We will evaluate with different methods the user experience and the technologies used. In particular, the quality of the hardware and software components will be measured taking into account their peculiarities, but also the quality of the whole system.<br>
 However, keep in mind that this is a project developed for an IoT course, so we will cover this section to provide a comprehensive analysis, but it will not be at the enterprise level.<br/>
 
@@ -9,7 +9,8 @@ However, keep in mind that this is a project developed for an IoT course, so we 
 ### Index
 - [Objectives](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Objectives)
 - [User experience](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#User-experience)
-	- [Users' feedback](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Users-feedback)
+	- [Users' feedback during the development](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Users-feedback-during-the-development)
+	- [Users' feedback about the demo](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Users-feedback-about-the-demo)
 - [Technology](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Technology)
 	- [Overall evaluation](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Overall-evaluation)
 - [Sensor network](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Sensor-network)
@@ -48,14 +49,14 @@ The happiness of users is important, and we want to make sure they enjoyed our s
 
 To measure the users' appreciation we are going to use the following UXEMs (User Experience Evaluation Methods):<br/>
 - a _Moment_ method: through the interaction with MuSa we can understand the visitor's mood (for example, if he is not following the proposed tour we can assume he probably is not enjoying it).<br/>
- Furthermore, for this purpose, we suggest to use also a commercial tool like PrEmo that allows MuSa to know the user's feeling in real-time<br/>
+ Furthermore, for this purpose, we suggest using also a commercial tool like PrEmo that allows MuSa to know the user's feeling in real-time<br/>
  _Link_: https://www.premotool.com/<br/>
 
 - an _Episode_ method: at the end of the visit the user will be asked to fill a short survey about his experience. This questionnaire can be implemented using also the AttrakDiff tool (_Link_: http://www.attrakdiff.de/index-en.html).<br/>
 
-#### Users' feedback
+#### Users' feedback during the development
 
-During the developement process we're keeping track of the opinions of the users to understand if we're effectively building something of value. In particular, the following results of the surveys we made are quite encouraging.<br/>
+During the development process we have kept track of the opinions of the users to understand if we're effectively building something of value. In particular, the following results of the surveys we made are quite encouraging.<br/>
 
 ![image](src/evaluation/survey_results/MuSa_interaction.png)
 
@@ -67,7 +68,7 @@ The results below instead testify that our application could be useful for the m
 
 <br/>
 
-Looking at the next graph, we can be reassured on the fact that we're catching the main needs of the users, since, a part from some peculiar suggestions, the majority of them doesn't feel the need to point out more functionalities to add with respect to the ones already presented.<br/>
+Looking at the next graph, we can be reassured on the fact that we're catching the main needs of the users, since, apart from some peculiar suggestions, the majority of them doesn't feel the need to point out more functionalities to add with respect to the ones already presented.<br/>
 
 ![image](src/evaluation/survey_results/Functionalities.png)
 
@@ -79,14 +80,33 @@ We're also taking into account our user's opinion to build an interface which ca
 
 Through one of our questionnaires, we got the opinion of Giulia: *"I like the fact that I can obtain more information about an artwork, or the basic info, on my smartphone because the labels of the operas are often crowded or written in a too-small font"*
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+#### Users' feedback about the demo
+We presented to a group of people our demo and asked them to imagine the full product deployed in a museum. Considering this, we asked them to fill the survey the MuSa presents the user at the end of their customized tour. Here are the answers collected:
+<br/>
+![image](src/evaluation/feedback_survey_demo_results/boring_fun.png)
+<br/>
+![image](src/evaluation/feedback_survey_demo_results/experience.png)
+<br/>
+![image](src/evaluation/feedback_survey_demo_results/learning.png)
+<br/>
+![image](src/evaluation/feedback_survey_demo_results/museum.png)
+<br/>
+![image](src/evaluation/feedback_survey_demo_results/friend.png)
+<br/>
+
+The results are quite good: most people think MuSa will help them improve their experience. However, even if it seems to have not a crushing impact on visitors returning to the museum, most users would recommend MuSa, and seem to have learned something thanks to her.<br/>
+
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 ### Technology
-Under the technological stack, MuSa uses many different hardware and software solutions. We decided to evaluate each single part and the overall system. Further details are in the following paragraphs.<br/>
+Under the technological stack, MuSa uses many different hardware and software solutions. We decided to evaluate every single part and the overall system. Further details are in the following paragraphs.<br/>
 
 #### Overall evaluation
-Software quality is defined by a set of regulations and guidelines by ISO/IEC 9126-1. We used a criteria-based evaluation which gives a measurement of quality in several areas, including understandability, documentation and portability (the original document that we used as a model is [this one](https://software.ac.uk/sites/default/files/SSI-SoftwareEvaluationCriteria.pdf?_ga=2.151004923.318823281.1587909367-13184924.1587909367)). Of course, we did not use the criteria we did not need for, so we produced this lighter customized version: [MuSa Criteria](src/evaluation/MuSa_criteria.pdf)  
+Software quality is defined by a set of regulations and guidelines by ISO/IEC 9126-1. We used a criteria-based evaluation which gives a measurement of quality in several areas, including understandability, documentation and portability (the original document that we used as a model is [this one](https://software.ac.uk/sites/default/files/SSI-SoftwareEvaluationCriteria.pdf?_ga=2.151004923.318823281.1587909367-13184924.1587909367)). Of course, we did not use the criteria we did not need for, so we produced this lighter customized version: [MuSa Criteria](src/evaluation/MuSa_criteria.pdf)  <br/>
+After having finished developing our project, the results of the criteria evaluation can be found in this file: [MuSa criteria filled](src/evaluation/MuSa_criteria_filled.pdf). (Please note that since we switched from an Angular web app to an Android app, some fields have been removed).
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -101,8 +121,10 @@ The suggested board for the project is STM Nucleo. We chose to keep it because o
 This is not the only possible solution. Among the others, a great idea may be to convert our [server based positioning to client-based positioning](https://developex.com/blog/indoor-navigation-with-ble/) and to use BLE (Bluetooth Low Energy) tags, like _NRF51822 ibeacon tag_. Their cost is very low, just 3-4 euro/pcs.<br>
 
 Our STM-Nucleo costs about 10-15 euro, but it is much more flexible than a BLE tag and offers many possibilities for further development ideas.<br>
-The only drawback is that also the cost of the hardware to make enable the board to send BLE messages (BLE + Wi-Fi expansions required), which is around 20 euro.<br/> 
+The only drawback is that also the cost of the hardware to make enable the board to send BLE messages (BLE + Wi-Fi expansions required), which is around 20 euro.<br/>
+Please note that, as explained in the [Architecture document](Architecture.md), for the actual demo we used a ESP32 board, which costs around 10 euros.<br/>
 The cost of a Raspberry Pi board can range from about 20 € to much more, as functionalities are added, so it's important to evaluate carefully each specific use case to select the cheapest possible option.<br/>
+The RGB LEDs cost around 0,50 € each.<br/>
 
 A brief evaluation about the choice of using BLE has been done, but since it was a matter of deciding which technology to use to track the user inside the museum, we put the analysis in the [Architecture document](Architecture.md)<br/>
 
@@ -123,6 +145,11 @@ So we have 5 minutes vs 11 hours a day, the advantages of the edge computing arc
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
+#### A word about power consumption
+We measured the performances of the ESP boards with an ammeter during their usage, obtaining a result of around 110 mA at 5 V, which means it consumes more or less 550 mW. This is a good value, considering they use both Wi-Fi and BLE.<br/>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
 #### Evaluation and improvement of BLE accuracy
 
 ##### Techniques and considerations that may help to achieve better accuracy
@@ -131,7 +158,7 @@ BLE accuracy is a major issue, and one of the principal weaknesses of this techn
 As described in ([this article](https://proximi.io/accurate-indoor-positioning-bluetooth-beacons/)), adopting some precautions can help achieve better performances, in particular:<br/>
 - to have maximum efficiency for a deploy, it would be best to have a detailed map of the environment (with the scale), to better place the boards
 - the boards should be positioned on the walls, at a 2 m height more or less. It's better if there are no obstacles between them and the user so that he can see them (there is "line-of-sight").
-- the boards should not be placed near metallic surfaces, they could worsen the interference. 
+- the boards should not be placed near metallic surfaces, they could worsen the interference.
 <br/>
 
 Now, for a more sophisticated solution, an effective method could be the one described in this paper: [BLE Beacons for Indoor Positioning at an Interactive IoT-Based Smart Museum](/src/evaluation/BLE_paper.pdf), by _Petros Spachos, Senior Member, IEEE, and Konstantinos N. Plataniotis, Fellow, IEEE_ which came out on the 21st of January of 2020.<br/>
@@ -140,7 +167,7 @@ They built a system similar to what we would like to create: they used beacon ta
 - the location accuracy of the beacons in a complex environment is sufficient for an application such as the smart museum when errors within a few meters might be acceptable
 - when the receiver is close to the beacon the detection estimation accuracy is acceptable. At the same time, as the distance between neighboring beacons increases the detection estimation accuracy is more challenging
 - proper placement of the beacons can improve the system accuracy
-<br/> 
+<br/>
 A transmission range between 2 - 5 m should be enough for an application in a smart museum, and the RSSI from the beacon can be used to find the distance between the beacon and the receiver (for further details on the formulas to use have a look at the paper).<br/>
 Unfortunately, the environment of a smart museum is prone to noise and interference due to the other beacons, the general construction, and people's movement.
 
@@ -193,6 +220,20 @@ If you want to test our code with CodeCity by yourself, you can find the .mse fi
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
+##### Final Results
+When the backend was ready to be deployed on Azure, we made a last evaluation with CodeCity of the backend, these are the results:
+
+//IMMAGINE CODECITY BACKEND
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#### Frontend
+Tha Android application works well, and it doesn't exibit delays or abnormal behaviour. We used CodeCity to evaluate also the app, since it's written in Java. There are the results:<br/>
+
+//IMMAGINE CODECITY APP
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ### Cloud System
 Most of this project lives in the Azure platform, including:  
 - backend + frontend ([Azure App Service Plan](https://azure.microsoft.com/it-it/pricing/details/app-service/plans/))
@@ -201,7 +242,7 @@ Most of this project lives in the Azure platform, including:
 - Database ([Azure Database](https://azure.microsoft.com/it-it/services/sql-database/))
 
 We chose Azure among all the cloud services providers seen so far in our IoT course since it looks to be the most suitable for our purposes. Moreover, it has all the needed services out of the box in a single place.<br>
-Since this project is developed as part of our IoT course, the machine learning algorithm will not be evaluated. 
+Since this project is developed as part of our IoT course, the machine learning algorithm will not be evaluated.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -209,7 +250,9 @@ Since this project is developed as part of our IoT course, the machine learning 
 
 #### Hardware
 We need as many boards as the number of cluster of artworks and single important pieces displayed in the museum plus one for the gateway; each one costs about 10-15 euro. The cost of the hardware to make the board be able to communicate using BLE (and Wi-Fi) should be considered, for a total of 30 - 40 more or less (considering also the cost of the board).<br/>
+The ESP32 boards actually used in the demo cost around 10 € each.<br/>
 The most expensive component would be the two Raspberry Pi boards, which can cost from around 20 € to much more.<br/>
+Each RGB LED costs around 0,50 €.
 
 #### Cloud
 Azure is a commercial product offering a minority of free services for small projects. Using the [Microsoft Pricing Calculator](https://azure.microsoft.com/it-it/pricing/calculator/) we checked for the cheapest possible solution for study purposes.<br>
