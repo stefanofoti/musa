@@ -29,7 +29,8 @@ MuSa collects and analyzes information about visitors and their tours and propos
 If you want to discover more, have a look at the following documents:
 - [Design document](docs/Design.md)
 - [Architecture document](docs/Architecture.md)
-- [Evaluation document](docs/Evaluation.md) <br>
+- [Evaluation document](docs/Evaluation.md)
+- [3rd delivery document](3rd-Delivery.md)<br/>
 
 You can find the older versions of these documents in the folder [older-deliveries](/older-deliveries)
 
