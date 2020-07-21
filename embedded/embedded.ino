@@ -89,7 +89,7 @@ void loop() {
   DynamicJsonDocument  doc(OUTPUT_SIZE);
   //DynamicJsonDocument  doc(200);
   int addedTuples=0;
-  for(int itr = 0; itr < 10; itr++){
+  for(int itr = 0; itr < 5; itr++){
     client.loop();
     if(addedTuples*TUPLE_SIZE > MESSAGE_SIZE/2){
       Serial.print("Many users in the museum. Anticipating the buffer flush and message sending at itr. "); 
@@ -119,7 +119,7 @@ void loop() {
   }
   char output[MESSAGE_SIZE];
   size_t sz = serializeJson(doc, output);  
-  Serial.println("Sending JSON"); 
+  Serial.println("Publishing JSON to the broker on topic musa/ID2..."); 
   client.publish("musa/ID2", output);
   Serial.println(output);
   //digitalWrite(PIN, best > CUTOFF ? HIGH : LOW);

@@ -1,4 +1,3 @@
-
 import context  # Ensures paho is in PYTHONPATH
 import paho.mqtt.client as mqtt
 import paho.mqtt.publish as publish
@@ -9,7 +8,7 @@ import time
 from azure.iot.device import IoTHubDeviceClient, Message
 
 def on_message(mqttc, obj, msg):
-	print("ricevuto: ", msg.payload)
+	print("Got from the board: ", msg.topic, msg.payload)
 	parseMsg(msg);
 
 
@@ -24,10 +23,10 @@ def parseMsg(msg):
 	dataMap = initRowDataMap(data);
 	applyKalman(dataMap, aw);
 	trJson = json.dumps(trackingData);
-	print('-------------------------\n',trJson);
+	print('Parsed. Result: \n',trJson);
 
 def initRowDataMap(data):
-	print("init row data");
+	#print("init row data");
 	dataMap = {};
 	for itr in data:
 		if 'iteration' in itr: 
@@ -43,14 +42,14 @@ def initRowDataMap(data):
 def getId(k):
 	if len(k)>36:
 		index = k.find("beac");
-		return k[index+4:index+35];
+		return k[index+4:index+36];
 	return k;
 
 def getAw(aw):
 	return aw[5:];
 
 def applyKalman(dataMap, aw):
-	print("applying kalman");
+	print("Applying kalman filter... ");
 	for k in dataMap.keys():
 		if k not in trackingData:
 			trackingData[k] = {};
@@ -70,7 +69,7 @@ def applyKalman(dataMap, aw):
 
 
 def kalmanCalc(inputValues, initialVariance, noise):
-	print("computing kalman on: ", len(inputValues));
+	#print("computing kalman on: ", len(inputValues));
 	if len(inputValues)==1:
 		return [inputValues[0], 0];
 	variance = initialVariance;
@@ -95,7 +94,7 @@ def startSending():
 	ts=0;
 	client = IoTHubDeviceClient.create_from_connection_string(azureConnectionString);
 	while True:
-		print('sending...');
+		print('Sending message to Azure IoT HUB...');
 		output = getClosest(ts);
 		outputJson = json.dumps(output);
 		sendToAzure(client, outputJson)
@@ -130,13 +129,13 @@ def getClosest(ts):
 		if "artworks" in k:
 			aws = k["artworks"]
 			if len(aws)>0:
-				print("k[artworks] ", k["artworks"]);
+				#print("k[artworks] ", k["artworks"]);
 				aw = aws[0];
 		if aw not in stats:
 			stats[aw] = 0;
 		stats[aw]=stats[aw]+1;
 	output["users"] = usersList;
-	print("STATS: ", stats);
+	print("Current statistics: ", stats);
 	return output;
 
 def	manageLeds(currentLedON):
