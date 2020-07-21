@@ -82,11 +82,21 @@ Through one of our questionnaires, we got the opinion of Giulia: *"I like the fa
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 #### Users' feedback about the demo
-We presented to a group of people our demo and asked them to imagine the full product deployed in a museum. Considering this, we asked them to fill the survey the MuSa presents the user at the end of their customized tour. Here are some answers:
+We presented to a group of people our demo and asked them to imagine the full product deployed in a museum. Considering this, we asked them to fill the survey the MuSa presents the user at the end of their customized tour. Here are the answers collected:
+<br/>
+![image](src/evaluation/feedback_survey_demo_results/boring_fun.png)
+<br/>
+![image](src/evaluation/feedback_survey_demo_results/experience.png)
+<br/>
+![image](src/evaluation/feedback_survey_demo_results/learning.png)
+<br/>
+![image](src/evaluation/feedback_survey_demo_results/museum.png)
+<br/>
+![image](src/evaluation/feedback_survey_demo_results/friend.png)
+<br/>
 
-//IMMAGINE QUESTIONARIO
+The results are quite good: most people think MuSa will help them improve their experience. However, even if it seems to have not a crushing impact on visitors returning to the museum, most users would recommend MuSa, and seem to have learned something thanks to her.<br/>
 
-//COMMENTO
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
