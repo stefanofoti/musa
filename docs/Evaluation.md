@@ -21,6 +21,8 @@ However, keep in mind that this is a project developed for an IoT course, so we 
 	- [Evaluate proximity detection performance](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Evaluate-proximity-detection-performance)
 - [Backend](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Backend)
 	- [First results](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#First-results)
+	- [Final results](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Final-results)
+- [Frontend]((https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Frontend)
 - [Cloud System](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Cloud-System)
 - [About the price](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#About-the-price)
 	- [Hardware](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#hardware)
@@ -242,7 +244,7 @@ If you want to have a look to our city, ([download](src/evaluation/MuSa_v2.mse))
 
 
 #### Frontend
-Tha Android application works well, and it doesn't exibit delays or abnormal behaviour. Unfortunatly there is currently no free tool to generate the MSE statistics from an Android Project. We checked the most common metrics for software evaluation. There are the results:<br/>
+The Android application works well, and it doesn't exhibit delays or abnormal behavior. Unfortunately, there is currently no free tool to generate MSE statistics from an Android Project. We checked the most common metrics for software evaluation. There are the results:<br/>
 
 ![image](src/evaluation/android_app_parameters.png)
 
