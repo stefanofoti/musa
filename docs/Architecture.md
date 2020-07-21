@@ -70,7 +70,7 @@ The architecture is the following:<br/>
 - MQTT<br/>
 
 ##### Clarification about the ESP32 board
-We are conscious that in our architecture plan we mentioned the STM-Nucleo as the chosen board. We are also conscious that the STM-Nucleo is mandatory for this project. Anyway, one of the team members had a personal ESP32 board already available and due to the restrictions of this particular period (a global pandemic that made difficult to us to get a STM-Nucleo from our laboratory or to find one in a reasonable time), we decided to use his ESP32 for the final delivery demo, also because it had similar characteristics to the STM-Nucleo boards.
+We are conscious that in our architecture plan we mentioned the STM-Nucleo as the chosen board. We are also conscious that the STM-Nucleo is mandatory for this project. Anyway, one of the team members had a personal ESP32 board already available and due to the restrictions of this particular period (a global pandemic that made difficult to us to get a STM-Nucleo from our laboratory or to find one in a reasonable time), we decided to use his ESP32 for the final delivery demo.
 
 ##### Clarification about Azure Database
 Even if we declared to use the Azure Database, for our demo we used a DbContext through the Entity Framework even for the artworks' details; for the purposes that we set for our delivery, it is good and we already tuned it up for managing positioning on BE side. In a real deployment, it is easy to integrate the Azure Database or any external database/data source.
@@ -86,7 +86,8 @@ We argue that MuSa project is filled with IoT components and topics.
 - The use of *MQTT*: a famous lightweight messaging protocol in IoT for small sensors and mobile devices.
 - The use of *Bluetooth Low Energy (BLE)* technology.
 - The use of *Devices* for beacons advertising, that in our case are smartphones.
-- A led Actuator, that shows through a green light the top ten of artworks most appreciated during the current day: those statistics are computed locally inside the museum on the Raspberry, that asks the involved board to turn on their light.  
+- A led Actuator, that shows through a green light the ten artworks most appreciated in the current day.
+The RGB led is turned on for green color by the gateway during data processing, using MQTT messages on topics /Musa/ARTWORK_ID/led and payload G_ON/G_OFF to turn on and off the diode as needed. The RED color is reserved for issues, startup phase, and status, so it is managed directly by the board.xx.  
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -258,7 +259,7 @@ There is also the problem that is technology is not natively supported by smartp
 #### RSSI and Kalman Filter
 Since one of the general comments about our project was that the BLE technology is not very exciting for indoor positioning, also because sometimes it is not very accurate, as suggested we implemented the use of RSSI crossed to the inclusion of a Kalman Filter for improving the precision of our system. <br>
 *Received signal strength indicator (RSSI)* is a measurement of the power present in a received signal: we get the RSSI from each beacon and we can estimate how much is close a user to an artwork and also which is the closest artwork. <br>
-The *Kalman Filter* is an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more accurate than those based on a single measurement alone. The Raspberry-Pi applies the Kalman Filter to a series of beacon's RSSI received, so in this way it can avoid abrupt variations or it can ignore strange values caused by wrong beacons measurements.
+The *Kalman Filter* is an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more accurate than those based on a single measurement alone. The Raspberry-Pi applies the Kalman Filter to a series of beacon's RSSI receved, so in this way it can avoid abrupt variations or it can ignore strange values caused by wrong beacons measurements.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 

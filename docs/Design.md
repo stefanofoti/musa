@@ -108,6 +108,8 @@ These three categories were given life in our personas:<br/>
 
 ##### Recharger<br/>
 ![image](src/design/ettore_verdi.png)
+<br/>
+The survey MuSa presents to the user to profile him to give him a personalized tour is inspired by the one shown in this paper: [Capturing the Visitor Profile for a Personalized Mobile Museum Experience: an Indirect Approach](http://ceur-ws.org/Vol-1618/HAAPIE_paper1.pdf). This reserach group did an experiment similar to our project, and in particular, to profile users they asked them about a movie they would like to watch, and about their favourite artstyle between different ones to picture Mona Lisa.<br/>
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
