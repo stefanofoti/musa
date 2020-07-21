@@ -148,6 +148,9 @@ So we have 5 minutes vs 11 hours a day, the advantages of the edge computing arc
 #### A word about power consumption
 We measured the performances of the ESP boards with an ammeter during their usage, obtaining a result of around 110 mA at 5 V, which means it consumes more or less 550 mW. This is a good value, considering they use both Wi-Fi and BLE.<br/>
 
+![image](src/evaluation/power.png)
+
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #### Evaluation and improvement of BLE accuracy
@@ -222,6 +225,20 @@ If you want to test our code with CodeCity by yourself, you can find the .mse fi
 
 ##### Final Results
 When the backend was ready to be deployed on Azure, we made a last evaluation with CodeCity of the backend, these are the results:
+
+![image](src/evaluation/code_city/code_city_musa_v2.png)
+
+As we can see the city got slightly bigger, but there are no pathological pattern, god class, brain methods and so on.  
+
+![image](src/evaluation/code_city/code_city_musa_params_v2.png)
+
+If you want to have a look to our city, ([download](src/evaluation/MuSa_v2.mse)) the MSE file of the project.
+
+
+#### Frontend
+Tha Android application works well, and it doesn't exibit delays or abnormal behaviour. Unfortunatly there is currently no free tool to generate the MSE statistics from an Android Project. We checked the most common metrics for software evaluation. There are the results:<br/>
+
+![image](src/evaluation/android_app_parameters.png)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
