@@ -30,10 +30,11 @@ Obviously, the user can refuse both alternatives, and just visit the museum with
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### How MuSa comes to life
-We thought about many commons issues that a visitor has when he visits a museum, such as:
+We thought about many commons issues that a visitors and curators have with respect to visits at museum, such as:
 - limited time to take a full visit
 - meeting on his path of some pieces of arts that do not match with his interests
 - the desire of having more details about an opera, but at the same time he does not like to have a physical or audio guide for several reasons
+- the need of the curators to have some statistics about the most appreciated artworks and about the visitor's paths, in addition to the fact of offering some services that tempt the visitors to come back another time
 
 Since the basic concept of MuSa is to put the user at the center of the experience, we started from these points for building something that could satisfy the user needs.
 
