@@ -125,7 +125,7 @@ We noticed that we didn't need to have a single board near each piece of art: if
 ![image](src/architecture/Sensor_network_architecture.png)
 
 #### About device-to-cloud messages
-The main idea is the following: the user's smartphone enables beacon advertising, the artworks' boards catch them periodically. Every board sends all the beacons detected in all the iterations made since the last sent message, as we saw in the previous paragraph. The messages are processed as we saw (DA AGGIUNGEREEEE), and then are sent to the Azure IoT hub by the gateway using Azure best practices device-client. The report sent every 5 seconds looks like this:<br/>
+The main idea is the following: the user's smartphone enables beacon advertising, the artworks' boards catch them periodically. Every board sends all the beacons detected in all the iterations made since the last sent message, as we saw in the previous paragraph. The messages are processed as we saw, and then are sent to the Azure IoT hub by the gateway using Azure best practices device-client. The report sent every 5 seconds looks like this:<br/>
 
 {<br/>
 &nbsp;"timestamp":"2020-2xxx",<br/>
