@@ -3,7 +3,7 @@
 ### Index
 - [Introduction](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#introduction)
 - [Architecture and components](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#architecture-and-components)
-  - [List of components](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#list-of-components)
+  - [List of components](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#list)
     - [Software](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#software)
     - [Hardware](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#hardware)
     - [Technologies](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#technologies)
@@ -11,7 +11,7 @@
       - [Clarification about the Azure Database](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#clarification-about-Azure-Database)
 - [IoT aspects](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#iot-aspects)
 - [Sensor Network](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#sensor-network)
-  - [About the messages sending](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-messages)
+  - [About the messages sending](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-device-to-cloud-messages)
    - [About the main board's messages](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-main-boards-messages)
    - [About the choice of having a second Raspberry Pi](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-choice-of-having-a-second-raspberry-pi)
   - [The RGB Led actuator](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#the-rgb-led-actuator)
@@ -22,7 +22,7 @@
 - [Cloud](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#cloud)
 - [About the choice to use Bluetooth Low Energy](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-choice-to-use-bluetooth-low-energy)
   - [RSSI and Kalman Filter](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#rssi-and-kalman-filter)
-- [References](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#some-references)
+- [References](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#References)
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
