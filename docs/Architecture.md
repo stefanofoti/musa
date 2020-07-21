@@ -11,7 +11,7 @@
       - [Clarification about the Azure Database](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#clarification-about-Azure-Database)
 - [IoT aspects](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#iot-aspects)
 - [Sensor Network](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#sensor-network)
-  - [About the messages sending](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-device-to-cloud-messages)
+  - [About device-to-cloud messages](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-device-to-cloud-messages)
    - [About the main board's messages](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-main-boards-messages)
    - [About the choice of having a second Raspberry Pi](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#about-the-choice-of-having-a-second-raspberry-pi)
   - [The RGB Led actuator](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#the-rgb-led-actuator)
