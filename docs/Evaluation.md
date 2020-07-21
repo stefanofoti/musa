@@ -223,8 +223,6 @@ If you want to test our code with CodeCity by yourself, you can find the .mse fi
 ##### Final Results
 When the backend was ready to be deployed on Azure, we made a last evaluation with CodeCity of the backend, these are the results:
 
-//IMMAGINE CODECITY BACKEND
-
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Cloud System
