@@ -2,7 +2,7 @@
 
 ### Index
 - [Introduction](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#introduction)
-- [Architecture and components](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#architecture-and-components) 
+- [Architecture and components](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#architecture-and-components)
   - [List of components](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#list-of-components)
     - [Software](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#software)
     - [Hardware](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#hardware)
@@ -49,7 +49,7 @@ The architecture is the following:<br/>
 - STM-Nucleo boards (x pieces of art or cluster of artworks)<br/>
 - 2 Raspberry Pi boards (one to be the gateway, the other for backup)<br/>
 - Wi-Fi and BLE hardware for STM-Nucleo*<br/>
-- user's smartphone<br/>
+- user's smartphone (Android, with BLE supported)<br/>
 - ESP32 Board* ([clarification about the ESP32 board](https://github.com/stefanofoti/musa/blob/master/docs/Architecture.md#clarification-about-the-ESP32-board))
 - Led RGB
 
@@ -70,20 +70,20 @@ The architecture is the following:<br/>
 - MQTT<br/>
 
 ##### Clarification about the ESP32 board
-We are consciouns that in our architecture plan we mentioned the STM-Nucleo as chosen board. We are also conscious that the STM-Nucleo is mandatory for this project. Anyway, one of the team members had a personal ESP32 board already avaliable and due to the restrictions of this particular period (a global pandemic that made difficult to us to get a STM-Nucleo from our laboratory or anyway to find one in reasonable times), we decided to use his ESP32 for the final delivery demo, also because it had similar charateristics to the STM-Nucleo boards.
+We are conscious that in our architecture plan we mentioned the STM-Nucleo as the chosen board. We are also conscious that the STM-Nucleo is mandatory for this project. Anyway, one of the team members had a personal ESP32 board already available and due to the restrictions of this particular period (a global pandemic that made difficult to us to get a STM-Nucleo from our laboratory or to find one in a reasonable time), we decided to use his ESP32 for the final delivery demo, also because it had similar characteristics to the STM-Nucleo boards.
 
 ##### Clarification about Azure Database
-Even if we declared to use the Azure Database, for our demo we used a DbContext through the Entity Framework even for the artworks details; for the purposes that we set for our delivery, it is good and we already tuned it up for managing positioning on BE side. In a real deployment it is easy to integrate the Azure Database or any external database/data source.
+Even if we declared to use the Azure Database, for our demo we used a DbContext through the Entity Framework even for the artworks' details; for the purposes that we set for our delivery, it is good and we already tuned it up for managing positioning on BE side. In a real deployment, it is easy to integrate the Azure Database or any external database/data source.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### IoT aspects
-We substain that MuSa project is filled of IoT components and arguments.
-- The *Data collection and Data analysis* are two of the main goals of the IoT. With MuSa, we collect informations about visitors and users for several reasons like to provide personalized tours and improve those tours through visitor's behavior. Even if it is not planned in our project, the curators may use the collected data also for several others aspects, like reorganize the museum's artworks positioning, simply analyzing those data. The backend already expose a good number of REST services go get even the row data we catch.
-- The *Edge computing* is a widespread computing paradigm used in IoT; we pre-process the data collected to send them to the cloud in a better structured way and to save on the number of messages sent, for better exploit the Cloud's free-plan (refer to Evaluation document for more details). During this processing we also apply a specific algorithm to reduce noise in RSSI values, and so track users in a more precise way.
+We argue that MuSa project is filled with IoT components and topics.
+- The *Data collection and Data analysis* are two of the main goals of the IoT. With MuSa, we collect information about visitors and users for several reasons like to provide personalized tours and improve those tours through visitor's behavior. Even if it is not planned in our project, the curators may use the collected data also for several other aspects, like reorganize the museum's artworks' positioning, simply analyzing those data. The backend already exposes a good number of REST services to get even the row data we catch.
+- The *Edge computing* is a widespread computing paradigm used in IoT; we pre-process the data collected to send them to the cloud in a better-structured way and to save on the number of messages sent, to better exploit the Cloud's free-plan (refer to Evaluation document for more details). During this processing, we also apply a specific algorithm to reduce noise in RSSI values, and so track users in a more precise way.
 - We use two different types of *Boards*: a single-board computer (like a Raspberry Pi) and a SoC microcontroller (like ESP32).
-- The use of a *Cloud service*: Microsoft Azure, the Azure IoT hub and Event hub.
-- The use of *MQTT*: a famous lightweight messaging protocol in IoT for small sensors and mobile devices. 
+- The use of a *Cloud service*: Microsoft Azure, the Azure IoT hub, and Event hub.
+- The use of *MQTT*: a famous lightweight messaging protocol in IoT for small sensors and mobile devices.
 - The use of *Bluetooth Low Energy (BLE)* technology.
 - The use of *Devices* for beacons advertising, that in our case are smartphones.
 - A led Actuator, that shows through a green light the top ten of artworks most appreciated during the current day: those statistics are computed locally inside the museum on the Raspberry, that asks the involved board to turn on their light.  
@@ -92,38 +92,39 @@ We substain that MuSa project is filled of IoT components and arguments.
 
 ### Sensor network
 
-Near each piece of art or cluster of artworks we have an ESP32 board, communicating with its gateway through MQTT and catching beacons advertised by visitor's smartphones over Bluetooth Low Energy (BLE). But how do those board work?
-At the startup every board connects to WiFI, connects to the MQTT broker and publish a first message on a specified topic to notify to be online. What is the topic? Every board publish messages on a different topic, i.e. "/musa/ID5", where ID5 is the unique identifier of that artwork in the whole system. Once the board is online just starts the beacon scan in several iterations, sending messages to the gateway. Due to noise and next processing it is not helpful to send a message for each iteration. We can group messages for iteration range and send "bigger" messages. How big messages? How many iterations? To read more details about this part, please refer to Evaluation document. Just let me make two considerations: our board do not have enough space to send too big messages, and if we group too many iterations we get bad results in terms of response time and reliability of results. How are those messages board to gateway made? The body is just a simple JSON Array, containing a list of iteration. For each iteration we have a tuple beacon identifier - RSSI value in the json for each catched beacon in that iteration, so in case of two iterations we have:
+Near each piece of art or cluster of artworks, we have an ESP32 board, communicating with its gateway through MQTT and catching beacons advertised by visitor's smartphones over Bluetooth Low Energy (BLE). But how do those boards work?
+At the startup, every board connects to WiFI, connects to the MQTT broker, and publishes the first message on a specified topic to notify to be online. What is the topic? Every board publishes messages on a different topic, i.e. "/musa/ID5", where ID5 is the unique identifier of that artwork in the whole system. Once the board is online it just starts the beacon scan in several iterations, sending messages to the gateway. Due to noise and the next processing, it is not helpful to send a message for each iteration. We can group messages for iterations range and send "bigger" messages. How big are the messages? How many iterations? To read more details about this part, please refer to Evaluation document. Let us make two considerations: our board does not have enough space to send too big messages, and if we group too many iterations we get bad results in terms of response time and reliability of results. How are those messages board-to-gateway made? The body is just a simple JSON Array, containing a list of iterations. For each iteration, we have a tuple beacon identifier-RSSI value in the JSON for each detected beacon in that iteration, so in case of two iterations we have:<br/>
 
-[
-  {
-      "iteration": 0,
-      "beaconID_0": -72,
-      "beaconID_1": -56,
-      "beaconID_2": -53
-  },
-  {
-      "iteration": 1,
-      "beaconID_0": -71,
-      "beaconID_2": -55,
-      "beaconID_3": -60
-  }
-] 
+[<br/>
+&nbsp;{<br/>
+&nbsp;&nbsp;"iteration": 0,<br/>
+&nbsp;&nbsp;"beaconID_0": -72,<br/>
+&nbsp;&nbsp;"beaconID_1": -56,<br/>
+&nbsp;&nbsp;"beaconID_2": -53<br/>
+&nbsp;},<br/>
+&nbsp;{<br/>
+&nbsp;&nbsp;"iteration": 1,<br/>
+&nbsp;&nbsp;"beaconID_0": -71,<br/>
+&nbsp;&nbsp;"beaconID_2": -55,<br/>
+&nbsp;&nbsp;"beaconID_3": -60<br/>
+&nbsp;}<br/>
+]<br/>
+<br/>
+The number of iterations is dynamic and depending on the number of beacons detected by the board. In the case of many visitors inside the museum, the board can even do only one iteration due to available space reasons. If this happens, the maximum number of users we can manage is depending on the available space on the board, again refer to the evaluation document for such estimations. In any case, we also fixed a top boundary as the the maximum number of iterations.
+As you may think, we put a lot of code and libraries on our boards, since we have to connect to WiFi, use MQTT, use BLE, produce JSON. In order to use the small space in the best possible custom way, we partitioned ad hoc our boards and set a custom size for sent messages.
+Every board has also a RED status led, that turns on in case of error (i.e. WiFi disconnection, broker not reachable, ...) and blinks at the startup until the connection to both WiFi and Broker is successful.  
 
-The number of iteration is dynamic and depending on the number of beacons catched by the board. In case of many visitors inside the museum, the board can even do only one iteration due to available space reasons. In that case the maximum number of users we can manage is depending on the available space on the board, again refer to the evaluation document for such estimations. In any case we also fixed a top boundary as maximum iteration amount.
-As you may think we put a lot of code and libraries on our boards, since we have to connect to WiFi, use MQTT, use BLE, produce JSON. In order to use the small space in the best possible custom way, we partitioned ad hoc our boards and set a custom size for sent messages.
-Every board has also a RED status led, that turns on in case of error (i.e. WiFi disconnetction, broker not reachable, ...) and blinks at the startup untill the connection to both WiFi and Broker is succesful.  
-
-In the museum there is also a Raspberry Pi board that serves as a gateway, to process, structure and forward the data collected to the cloud structure.<br/>
-We decided to use a single-board computer because we needed a little more power and memory to execute the following tasks: catch row messages sent by each artworks board, process and store in a suitable format, apply the kalman filter for each user, detect the closest artwork for each user, connect to Azure endpoint and forward data to our Azure IoT hub. All of them require space since we get messages from all the boards,  and power, since we process and compute Kalman filter for each one of them.
+In the museum there is also a Raspberry Pi board that serves as a gateway to process, structure and forward the data collected to the cloud structure.<br/>
+We decided to use a single-board computer because we needed a little more power and memory to execute the following tasks: catch row messages sent by each artworks board, process and store it in a suitable format, apply the kalman filter for each user, detect the closest artwork for each user, connect to Azure endpoint and forward data to our Azure IoT hub. All of them require space since we get messages from all the boards,  and power, since we process and compute Kalman filter for each one of them.
 
  <br/>
-We noticed that we didn't need to have a single board near each piece of art: if there are some artworks that are very close to each other, we have to treat them as a single artwork group. In fact, what we really need to do is proximity detection, that is, understand the pieces of art which are nearest to the user in real time to provide him valuable and funny information about them, and to understand if he's following the tour proposed by MuSa.<br/>
+We noticed that we didn't need to have a single board near each piece of art: if some artworks are very close to each other, we can treat them as a single artwork group. In fact, what we really need to do is proximity detection, that is, understand the pieces of art which are nearest to the user in real-time to provide him valuable and funny information about them, and to understand if he's following the tour proposed by MuSa.<br/>
+<br/>
 
 ![image](src/architecture/Sensor_network_architecture.png)
 
-#### About d2c messages
-The main idea is the following: the user's smartphone enable beacon advertising, the artworks boards catch them periodically. Every board sends all the beacons catched in all the iterations made since the last sent message, as we saw in the previous paragraph. The messages gets processed as we saw (DA AGGIUNGEREEEE), and then are sent to the Azure IoT hub by the gateway using Azure best practices device-client. The report sent every 5 seconds looks like this:<br/>
+#### About device-to-cloud messages
+The main idea is the following: the user's smartphone enables beacon advertising, the artworks' boards catch them periodically. Every board sends all the beacons detected in all the iterations made since the last sent message, as we saw in the previous paragraph. The messages are processed as we saw (DA AGGIUNGEREEEE), and then are sent to the Azure IoT hub by the gateway using Azure best practices device-client. The report sent every 5 seconds looks like this:<br/>
 
 {<br/>
 &nbsp;"timestamp":"2020-2xxx",<br/>
@@ -137,28 +138,28 @@ The main idea is the following: the user's smartphone enable beacon advertising,
 &nbsp;&nbsp;}]<br/>
 }<br/>
 
-It is again a JSON object. Each message has a timestamp and a list of users, which contains, for each element, the id of the user (the beaconID got trhough the artworks board) and the last detected position for that user.<br/>
+It is again a JSON object. Each message has a timestamp and a list of users, which contains, for each element, the id of the user (the beaconID got through the artworks board) and the last detected position for that user.<br/>
 
 ##### About the main board's messages
-Notice that we decided to use a main board as a gateway because, besides the fact that in this way we can send better pre-processed data by doing some edge computing, we can have a significant saving in terms of the number of messages sent. Think about the fact that the free plan of our cloud service, Microsoft Azure, provides 8000 messages-per-day; with a main board that sends a single message that groups all the messages received from every single board, considering 1 message every 5 seconds, MuSa can work about 11 hours. If every board sends each message by itself directly to the cloud, the free plan will expire in a few minutes.<br/>
+Notice that we decided to use a main board as a gateway because, besides the fact that in this way we can send better pre-processed data by doing some edge computing, we can have a significant saving in terms of the number of messages sent. Think about the fact that the free plan of our cloud service, Microsoft Azure, provides 8000 messages-per-day; with a main board that sends a single message that groups all the messages received from every single board, considering 1 message every 5 seconds, MuSa can work about 11 hours. If every board sends each message by itself directly to the cloud, the free plan will expire in a few minutes. (More details in the [Evaluation document](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#sensor-networks-reliability))<br/>
 
 ##### About the choice of having a second Raspberry Pi
-For reliability reasons (more details in the [Evaluation document](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#sensor-networks-reliability), we propose to keep also another Raspberry board in hot standby, since having a main gateway board exposes us to the risk of having a single point of failure; when the main gateway forwards the report to the cloud, also the second "backup board" receives it. If it doesn't receive any report for some time, it will assume that the main gateway has suffered a failure, and it will take its place to avoid the stop of the service. In case there are no strict reliability requirements, ignore this paragraph.<br/>
+For reliability reasons (more details in the [Evaluation document](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#sensor-networks-reliability)), we propose to keep also another Raspberry board in hot standby, since having a main gateway board exposes MuSa to the risk of having a single point of failure; when the main gateway forwards the report to the cloud, also the second "backup board" receives it. If it doesn't receive any report for some time, it will assume that the main gateway has suffered a failure, and it will take its place to avoid the stop of the service. In case there are no strict reliability requirements, ignore this paragraph.<br/>
 
 #### The RGB Led actuator
 We decided to implement an RGB Led actuator, positioned on each board, to show the most appreciated artworks in the current day (easily switchable to a weekly or monthly period). The Led is lighted up with a green light if an artwork is in the top ten of the most liked operas, based on how much time each visitor spends in front of it. It also lights up or blinks with a red light if there are connection issues.
-The RGB led is turned on for green color by the gateway during data processing, using MQTT messages on topics /musa/ARTWORK_ID/led and payload G_ON/G_OFF to turn on and off the diode as needed. The RED color is reserved for issues, startup phase and status, so it is managed directly by the board.xxw
+The RGB led is turned on for green color by the gateway during data processing, using MQTT messages on topics /musa/ARTWORK_ID/led and payload G_ON/G_OFF to turn on and off the diode as needed. The RED color is reserved for issues, startup phase and status, so it is managed directly by the board.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Backend and smartphone front-end
 
 The backend of the application lives in the cloud and takes care of the interaction with the user's smartphone. MuSa accompanies the visitor, proposing him a personalized tour, providing information about the different artworks, and making sure he's enjoying the itinerary.<br/>
-When the user arrives at the museum download the Android app and uses it until the end of the visit. At the end of the tour, the user is asked to fill in a survey to provide feedback about the quality of the service. This answers can be stored in a Google Document, in a way that makes them easily accessible to the machine learning algorithm.
-The backend also manages (for run time interaction) and stores into the well known Main Memory database (for next machine learning analysys and statistics) the position of each user. 
+When the user arrives at the museum, he download the Android app and uses it until the end of the visit. At the end of the tour, the user is asked to fill in a survey to provide feedback about the quality of the service. These answers can be stored in a Google Document, in a way that makes them easily accessible to the machine learning algorithm.
+The backend also manages and stores into the well known Main Memory database (for next machine learning analysis and statistics) the position of each user.
 <br/>
 
-#### Keeping track of user's visit
+#### Keeping track of the user's visit
 
 A message that arrives at the cloud from the gateway board is sent to the backend thanks to Azure's Event Hub. The application has for each user a record inside the DbContext, which is a database in the used main memory, where the messages relative to that specific user are stored. Each time a new report arrives from the gateway board, for each user the application checks if there is a record for that user near the same artwork, if there isn't a new one is initialized. Corresponding to each user, there is a list of the pieces of art visited: for each piece of art there is also an integer that keeps track of the seconds a user has spent looking at that artwork.<br/>
 The tuple corresponding to the user is inspected: if the last artwork visited according to the Context is the same as the one in the tuple, the integer is increased by one, otherwise, a new element is appended to the list.<br/>
@@ -205,28 +206,26 @@ the records would be updated in this way:<br/>
   &nbsp;"ID4":5<br/>
   &nbsp;}]<br/>
 
-Please notice that from Record 1 we can deduce that the user beaconID_0 did not move from artwork "ID1". Thanks to duplicates in the list we can have an understanding of the path the user is following while visiting the museum, so we can appreciate the fact a user can come back to look at a certain artwork again; in other words we take care also of this kind of details.<br/>
-*Not impletemented for the final delivery*: when a user terminates his tour, the list corresponding to him is saved to the Google Doc that is the dataset for the machine learning algorithm, together with the profile of the user for further tuning of the tours (using this data we can understand which pieces of art were most liked by a specific type of user).<br/>
+Please notice that from Record 1 we can deduce that the user beaconID_0 did not move from artwork "ID1". Thanks to duplicates in the list we can have an understanding of the path the user is following while visiting the museum, so we can appreciate the fact a user can come back to look at a certain artwork again; in other words, we take care also of this kind of details.<br/>
+*Not implemented for the final delivery*: when a user terminates his tour, the list corresponding to him is saved to the Google Doc that is the dataset for the machine learning algorithm, together with the profile of the user for further tuning of the tours (using this data we can understand which pieces of art were most liked by a specific type of user).<br/>
 
 #### Frontend
 
-If a user decides he only wants to help collect data, the only thing that MuSa will do is to send beacons, and all the work will be done by the rest of the architecture described in a completely transparent way for the user, who will not be disturbed in the slightest.<br/>
-If a user wants to follow MuSa for a personalized tour, the application firstly will present the visitor with a survey to outline his profile. Once the type of user is identified, MuSa asks for the backend an appropriate tour, which will be fetched from the backend, where all the tours are stored (at least, for our demo), and will propose it to the user. During the itinerary the frontend, in addition to periodically send beacons, will periodically ask the backend for information about the user's current location (the last piece of art visited), and interaction will be dealt accordingly.<br/>
+If a user decides he only wants to help collect data, the only thing that MuSa will do is essentially send beacons, and all the work will be done by the rest of the architecture described in a completely transparent way for the user, who will not be disturbed in the slightest.<br/>
+If a user wants to follow MuSa for a personalized tour, the application firstly will present the visitor with a survey to outline his profile. Once the type of user is identified, MuSa asks for the backend an appropriate tour, which will be fetched from it, where all the tours are stored (at least, for our demo), and will propose it to the user. During the itinerary, the frontend, in addition to periodically send beacons, can ask the backend for information about the user's current location (the nearest piece of art), and the interaction will be dealt with providing information about it..<br/>
 
 #### From an Angular web-app to an Android application
 
-Even if at the beginning we expected to expose the frontend through an Angular web-app, it has been necessary to move towards an Android application, due to some problems. 
-The main problem has been that using beacons was not easy at all through a web app, beacause for example every time that a user proceeded to a new artwork, he was asked to authorize the board to receive beacons, making the use of the user's device too intense and annoying.
-Fortunately, in one of our questionnaires we asked to people if they have been disposed to download an app at their arrive to the museum for having better perfomances, and they answered in an enough positive way. <br/>
+Even if at the beginning we expected to expose the frontend through an Angular web-app, it has been necessary to move towards an Android application, due to some problems. The main problem has been that using beacons was not easy at all through a web app: for example, every time that a user encountered a new board, he was explicitly asked to authorize the board to receive beacons, making the user's experience too intense and annoying. Fortunately, in one of our questionnaires, we asked people if they would download an app at their arrival to the museum for having better performances, and they answered in enough positive way. <br/>
 <div align="center"><img src="src/architecture/app_question.png"/></div>
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Cloud
 
-Microsoft Azure is a crowded place: here we can find the IoT Hub, the Event Hub, our application code, backend and frontend, with its database and the (*not implemented*) machine learning algorithm.<br/>
-In a real deployment, the database contains information about the pieces of art and when the application needs to present the user a tour or details about an artwork, it will make a query to it. In our demo, the informations are stored in the DbContext, that take cares also to provide them to the application.<br/>
-(*Not implemented*) Azure Machine Learning takes as input the dataset saved on the Google Doc, elaborates it creating the tours for the different type of users (the personas we identified) and pushes them into the database of the application. It runs as a batch.
+Microsoft Azure is a crowded place: here we can find the IoT Hub, the Event Hub, our application code, backend, and frontend, with its database and the (*not implemented*) machine learning algorithm.<br/>
+In a real deployment, the database contains information about the pieces of art and when the application needs to present the user a tour or details about an artwork, it will make a query to it. In our demo, the information is stored in the DbContext, which also takes care also to provide them to the application.<br/>
+(*Not implemented*) Azure Machine Learning takes as input the dataset saved on the Google Doc, elaborates it creating the tours for the different types of users (the personas we identified), and pushes them into the database of the application. It runs as a batch.
 <br/>
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -247,7 +246,7 @@ We need to use BLE to understand the pieces of art the user is nearest to. So, w
 
 <br/>
 
-To see the table more clearly, consider also looking at the original ([Word file](src/architecture/BLE_vs_others.docx)). 
+To see the table more clearly, consider also looking at the original ([Word file](src/architecture/BLE_vs_others.docx)).
 
 Now let's consider briefly the technologies presented one by one:<br/>
 - GPS: it's widely used for localization, but it doesn't really serve our purposes. Moreover, its accuracy indoor is not very high and it consumes a lot of energy, and we don't want our user's smartphone to remain with low battery after or during the visit, this could bother him.<br/>
@@ -259,7 +258,7 @@ There is also the problem that is technology is not natively supported by smartp
 #### RSSI and Kalman Filter
 Since one of the general comments about our project was that the BLE technology is not very exciting for indoor positioning, also because sometimes it is not very accurate, as suggested we implemented the use of RSSI crossed to the inclusion of a Kalman Filter for improving the precision of our system. <br>
 *Received signal strength indicator (RSSI)* is a measurement of the power present in a received signal: we get the RSSI from each beacon and we can estimate how much is close a user to an artwork and also which is the closest artwork. <br>
-The *Kalman Filter* is an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more accurate than those based on a single measurement alone. The Raspberry-Pi applies the Kalman Filter to a series of beacon's RSSI recieved, so in this way it can avoid abrupt variations or it can ignore strange values caused by wrong beacons measurements.
+The *Kalman Filter* is an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more accurate than those based on a single measurement alone. The Raspberry-Pi applies the Kalman Filter to a series of beacon's RSSI received, so in this way it can avoid abrupt variations or it can ignore strange values caused by wrong beacons measurements.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 

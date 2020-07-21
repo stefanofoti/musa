@@ -1,11 +1,11 @@
 # MuSa
-Welcome to MuSa, the experience manager for "Museo Sapienza". MuSa is a project developed during the IoT course in Sapienza, University of Rome. In a sentence, MuSa collects information about users, profiles them and provides custom journeys between the artworks in the museum. To better understand her power and what she can do for you please keep reading those pages.
+Welcome to MuSa, the experience manager for "Museo Sapienza". MuSa is a project developed during the IoT course in Sapienza, University of Rome. In a sentence, MuSa collects information about users, profiles them and provides custom journeys between the artworks in the museum. To better understand her power and what she can do for you please read the pages below.
 
-We reached the last delivery of this project, and it has been an amazing adventure for us. As you will see we are somehow providing a fully working project, integrated and tested, with only one missing piece about machine learning custom tour generation. If you are interested in MuSa and you would like to talk with us, please contact us on our LinkedIn pages. 
-If you would like to keep on going with MuSa on your own you are welcome, and we would be really happy to see that. You can add new features and add good machine learning strategies to generate ad hoc tours. We are also going to explain to you how to tune up an environment for developing and run the code of each piece of the project.  
-Even if the IoT looks like the core of MuSa, connecting all the different part of the project, to get a complete experience we required knowledge in many different subjects of computer science and engineering. It has not been easy, to be honest, but we unlocked many different skills and we are very proud about that.
+We reached the last delivery of this project, and it has been an amazing adventure for us. As you will see we are somehow providing a fully working project, integrated and tested, with only one missing piece about machine learning custom tour generation. If you are interested in MuSa and you would like to talk with us, please contact us on our LinkedIn pages.
+If you would like to keep working on MuSa on your own you are welcome, and we would be really happy to see that. You can add new features and add good machine learning strategies to generate ad hoc tours. We are also going to explain to you how to tune up an environment for developing and run the code of each piece of the project.  
+Even if the IoT looks like the core of MuSa, connecting all the different parts of the project, to get a complete experience we needed knowledge in many different subjects of computer science and engineering. It has not been easy, to be honest, but we unlocked many different skills and we are very proud of that.
 
-Do you want to try MuSa today? You can do that. Just pre-define a certain amount of tour and assign them to the users due to their preferences. Since we have many different pieces to take into account please refer to release notes for a full installation in your environment. 
+Do you want to try MuSa today? You can do that. Just pre-define a certain amount of tours and assign them to the users according to their preferences. Since we have many different pieces to take into account please refer to release notes for a full installation in your environment.
 
 Let's start this journey!
 <div align="center"><img src="docs/src/logo2.png"/></div>
@@ -23,10 +23,10 @@ Design advisor:<br>
 [Francesco Gregori](https://www.linkedin.com/in/francesco-gregori-7136ab1a3/)
 
 ## The project
-MuSa collects and analyzes information about visitors and their tours and proposes custom journeys, to offer a new way to enjoy the art. At the very beginning, every user should fill a short survey to collect information about his personality. Then MuSa will ask him if he wants to enjoy a customized tour or just help with data collecting. Of course, the user may also choose to not use the system at all. When a user wants just to contribute with data collecting he will start traveling on his own inside the museum with his smartphone collecting data in a non-invasive way inside his pocket. When a user wants to enjoy the tour with MuSa, indeed, he will just start exploring the museum, following the customized suggestions that MuSa will show him. 
+MuSa collects and analyzes information about visitors and their tours and proposes custom journeys, to offer a new way to enjoy the art. At the very beginning, every user should fill a short survey to collect information about his personality. Then MuSa will ask him if he wants to enjoy a customized tour or just help with data collecting. Of course, the user may also choose to not use the system at all. When a user wants just to contribute with data collecting he will start traveling on his own inside the museum with his smartphone collecting data in a non-invasive way inside his pocket. When a user wants to enjoy the tour with MuSa, indeed, he will just start exploring the museum, following the customized suggestions that MuSa will show him.
 
 ## Read more
-If you want to discover more, give a look to the following documents:
+If you want to discover more, have a look at the following documents:
 - [Design document](docs/Design.md)
 - [Architecture document](docs/Architecture.md)
 - [Evaluation document](docs/Evaluation.md) <br>
@@ -47,4 +47,3 @@ Unchanged documentation since the first delivery:
 - [Second delivery presentation PDF](/docs/src/presentation/2ndPresentation.pdf)
 - [Second delivery presentation PDX](/docs/src/presentation/2ndPresentation.pptx)
 - [Second questionnaire](https://docs.google.com/forms/d/e/1FAIpQLScuXQogq65TNMCWS0vha5jCFXTIvuk0Vr5boziSh9H5GiGm-w/viewform?usp=sf_link)
-
