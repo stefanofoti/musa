@@ -31,6 +31,10 @@ If you want to discover more, have a look at the following documents:
 - [Architecture document](docs/Architecture.md)
 - [Evaluation document](docs/Evaluation.md)
 - [3rd delivery document](3rd-Delivery.md)<br/>
+- [Demo video](https://www.youtube.com/watch?v=vr2oR23J5lc)
+
+To try MuSa by yourself:
+- [Release and install notes](docs/src/release-install-notes.md)
 
 You can find the older versions of these documents in the folder [older-deliveries](/older-deliveries)
 
@@ -48,5 +52,3 @@ Unchanged documentation since the first delivery:
 - [Second delivery presentation PDF](/docs/src/presentation/2ndPresentation.pdf)
 - [Second delivery presentation PDX](/docs/src/presentation/2ndPresentation.pptx)
 - [Second questionnaire](https://docs.google.com/forms/d/e/1FAIpQLScuXQogq65TNMCWS0vha5jCFXTIvuk0Vr5boziSh9H5GiGm-w/viewform?usp=sf_link)
-------------------------------------------------------------------------------------------------------------------------------------------------------
-- [Demo video](https://www.youtube.com/watch?v=vr2oR23J5lc)
