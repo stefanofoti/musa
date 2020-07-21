@@ -15,10 +15,10 @@ However, keep in mind that this is a project developed for an IoT course, so we 
 	- [Overall evaluation](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Overall-evaluation)
 - [Sensor network](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Sensor-network)
 - [Complexity and responsiveness evaluation](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Complexity-and-responsiveness-evaluation)
+- [A word about power consumption](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#A-word-about-power-consupmtion)
 - [Evaluation and improvement of BLE accuracy](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Evaluation-and-improvement-of-BLE-accuracy)
 	- [Techniques and considerations that may help to achieve better accuracy](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Techniques-and-considerations-that-may-help-to-achieve-better-accuracy)
-	- [Evaluate proximity detection performance
-](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Evaluate-proximity-detection-performance)
+	- [Evaluate proximity detection performance](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Evaluate-proximity-detection-performance)
 - [Backend](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Backend)
 	- [First results](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#First-results)
 - [Cloud System](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Cloud-System)
@@ -226,13 +226,6 @@ When the backend was ready to be deployed on Azure, we made a last evaluation wi
 //IMMAGINE CODECITY BACKEND
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-#### Frontend
-Tha Android application works well, and it doesn't exibit delays or abnormal behaviour. We used CodeCity to evaluate also the app, since it's written in Java. There are the results:<br/>
-
-//IMMAGINE CODECITY APP
-
-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Cloud System
 Most of this project lives in the Azure platform, including:  
