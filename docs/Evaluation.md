@@ -22,7 +22,7 @@ However, keep in mind that this is a project developed for an IoT course, so we 
 - [Backend](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Backend)
 	- [First results](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#First-results)
 	- [Final results](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Final-results)
-- [Frontend]((https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Frontend)
+- [Frontend](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Frontend)
 - [Cloud System](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#Cloud-System)
 - [About the price](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#About-the-price)
 	- [Hardware](https://github.com/stefanofoti/musa/blob/master/docs/Evaluation.md#hardware)
