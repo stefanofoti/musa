@@ -34,7 +34,8 @@ If you want to discover more, have a look at the following documents:
   <br/>
 - [Hackster post](https://www.hackster.io/355755/musa-the-experience-manager-c133ea)
 - [Demo video](https://www.youtube.com/watch?v=vr2oR23J5lc)
-- [Presentation](https://github.com/stefanofoti/musa/blob/master/docs/src/presentation/FinalDelivery.pptx)
+- [Presentation PPTX](https://github.com/stefanofoti/musa/blob/master/docs/src/presentation/FinalDelivery.pptx)
+- [Presentation PDF](https://github.com/stefanofoti/musa/blob/master/docs/src/presentation/FinalDelivery.pdf)
 
 To try MuSa by yourself:
 - [Release and install notes](docs/src/release-install-notes.md)
