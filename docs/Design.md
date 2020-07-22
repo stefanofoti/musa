@@ -163,3 +163,4 @@ We decided to implement a minor feature through an RGB Led actuator, positioned 
 - [2] https://www.mesch-project.eu/shaping-personalized-museum-experiences/
 - [3] https://www.mocaplatform.com/blog/how-location-based-marketing-is-transforming-the-museum-experience
 - [4] Kaldor Public Art Projects website: http://kaldorartprojects.org.au/project-32-jonathan-jones
+- Paper that inspired the profiling survey: http://ceur-ws.org/Vol-1618/HAAPIE_paper1.pdf
